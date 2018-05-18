@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--窗口模式左右两边到屏幕的间距-->
+    <dimen name="otherui_margin_alert_left_right">40dp</dimen>
+    <dimen name="otherui_margin_actionsheet_left_right">12dp</dimen>
+</resources>

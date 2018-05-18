@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv" type="id"/>
+    <item name="test" type="id"/>
+    <item name="test2" type="id"/>
+    <item name="test3" type="id"/>
+    <item name="refreshLayout" type="id"/>
+    <item name="statu_title" type="id"/>
+    <item name="item_image" type="id"/>
+</resources>
