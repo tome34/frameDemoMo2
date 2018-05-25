@@ -1,6 +1,9 @@
 package com.example.tome.component_base.util;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -12,7 +15,13 @@ import java.util.regex.Pattern;
  * Created by xsf
  * on 2016.04.10:34
  */
-public class NetWorkUtils {
+public class NetUtils {
+
+    private NetUtils()
+    {
+		/* cannot be instantiated */
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
 
     /**
      * 检查网络是否可用
@@ -66,5 +75,18 @@ public class NetWorkUtils {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 打开网络设置界面
+     */
+    public static void openSetting(Activity activity)
+    {
+        Intent intent = new Intent("/");
+        ComponentName cm = new ComponentName("com.android.settings",
+                "com.android.settings.WirelessSettings");
+        intent.setComponent(cm);
+        intent.setAction("android.intent.action.VIEW");
+        activity.startActivityForResult(intent, 0);
     }
 }

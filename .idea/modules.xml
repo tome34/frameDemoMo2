@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/component_base/component_base.iml" filepath="$PROJECT_DIR$/component_base/component_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/component_data/component_data.iml" filepath="$PROJECT_DIR$/component_data/component_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/frameDemoMo2.iml" filepath="$PROJECT_DIR$/frameDemoMo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_self/module_self.iml" filepath="$PROJECT_DIR$/module_self/module_self.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" filepath="$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_shop_goods/module_shop_goods.iml" filepath="$PROJECT_DIR$/module_shop_goods/module_shop_goods.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" filepath="$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" />
     </modules>
   </component>

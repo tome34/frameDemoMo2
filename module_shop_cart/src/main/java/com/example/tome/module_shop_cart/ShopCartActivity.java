@@ -11,7 +11,7 @@ import com.example.tome.component_data.d_arouter.RouterURLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-@Route(path = RouterURLS.MODULE_SHOP_CART_MAIN)
+@Route(path = RouterURLS.SHOP_CART_MAIN)
 public class ShopCartActivity extends AppCompatActivity {
 
     @BindView(R2.id.tv_cart_test)

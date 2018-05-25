@@ -1,14 +1,14 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-
 import com.example.tome.component_base.base.BaseMVPActivity;
 import com.example.tome.component_base.util.L;
-
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
@@ -19,24 +19,32 @@ import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.presenter.MainPresenter;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 @Route(path = RouterURLS.BASE_MAIN)
 public class MainActivity extends BaseMVPActivity<MainPresenter> implements MainContract.View, View.OnClickListener {
 
+    @BindView(R2.id.layout_main)
+    LinearLayout mLayoutMain;
     @BindView(R2.id.tv_test)
     Button mTvTest;
-    @BindView(R2.id.tv_login)
-    Button mTvLogin;
-    @BindView(R2.id.tv_login_test)
-    Button mTvLoginTest;
+    @BindView(R2.id.tv_get_data)
+    Button mTvGetData;
+    @BindView(R2.id.tv_goto_home)
+    Button mTvGotoHome;
     @BindView(R2.id.tv_data)
     TextView mTvData;
-
-
+    @BindView(R2.id.v_title_container)
+    LinearLayout vTitleContainer;
+    @BindView(R2.id.title_back)
+    TextView mBack;
+    @BindView(R2.id.title_content_text)
+    TextView mTitle;
 
     /**
      * 初始化布局
+     *
      * @return
      */
     @Override
@@ -54,13 +62,18 @@ public class MainActivity extends BaseMVPActivity<MainPresenter> implements Main
      */
     @Override
     protected void initEventAndData() {
+        mLayoutMain.setBackgroundColor(getResources().getColor(R.color.windowBg));
+        vTitleContainer.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBack.setVisibility(View.GONE);
+        mTitle.setText("测试入口");
         mTvTest.setOnClickListener(this);
-        mTvLogin.setOnClickListener(this);
-        mTvLoginTest.setOnClickListener(this);
+        mTvGetData.setOnClickListener(this);
+        mTvGotoHome.setOnClickListener(this);
     }
 
     /**
      * 展示数据
+     *
      * @param loginResponse
      */
     @Override
@@ -69,30 +82,31 @@ public class MainActivity extends BaseMVPActivity<MainPresenter> implements Main
     }
 
     /**
-     *
      * @param feedArticleListResponse
      */
     @Override
     public void showArticleList(FeedArticleListResponse feedArticleListResponse) {
-        L.d("获取数据","成功");
-        mTvData.setText(feedArticleListResponse.getData().getCurPage() +"");
+        L.d("获取数据", "成功");
+        mTvData.setText(feedArticleListResponse.getData().getCurPage() + "");
+
     }
 
     @Override
     public void showArticleListFail() {
-        L.d("获取数据","失败");
+        L.d("获取数据", "失败");
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.tv_test){
+        if (v.getId() == R.id.tv_test) {
             L.d("点击了");
-            RouterCenter.toShopCart(this);
-        }else if (v.getId() == R.id.tv_login){
+            RouterCenter.toShopCart();
+        } else if (v.getId() == R.id.tv_get_data) {
             //网络请求
             mPresenter.getFeedArticleList(0);
-        }else if (v.getId() == R.id.tv_login_test){
+        } else if (v.getId() == R.id.tv_goto_home) {
             RouterCenter.toHome();
         }
     }
+
 }

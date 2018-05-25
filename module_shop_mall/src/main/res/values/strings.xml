@@ -1,3 +1,17 @@
 <resources>
-    <string name="shop_mall_app_name">module_shop_mall</string>
+    <string name="mall_shop_mall_app_name">module_shop_mall</string>
+    <string name="mall_home_page">首页</string>
+    <string name="mall_home_shop">商品</string>
+    <string name="mall_home_cart">购物车</string>
+    <string name="mall_home_self">我的</string>
+
+    <string name="mall_login_in">登陆</string>
+    <string name="mall_welfare">福利</string>
+    <string name="mall_video">视频</string>
+    <string name="mall_about_us">关于我们</string>
+    <string name="mall_logout">退出登录</string>
+
+    <string name="mall_drawer_open">Open drawer</string>
+    <string name="mall_drawer_close">Close drawer</string>
+
 </resources>

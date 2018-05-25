@@ -6,7 +6,7 @@ import android.util.SparseArray;
 
 import com.example.tome.component_base.BuildConfig;
 import com.example.tome.component_base.baseApp.BaseApplication;
-import com.example.tome.component_base.util.NetWorkUtils;
+import com.example.tome.component_base.util.NetUtils;
 import com.example.tome.component_data.constant.BaseHost;
 import com.example.tome.component_data.constant.HostType;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
@@ -150,7 +150,7 @@ public class HttpHelper {
      */
     @NonNull
     public static String getCacheControl() {
-        return NetWorkUtils.isNetConnected(BaseApplication.getAppContext()) ? CACHE_CONTROL_AGE : CACHE_CONTROL_CACHE;
+        return NetUtils.isNetConnected(BaseApplication.getAppContext()) ? CACHE_CONTROL_AGE : CACHE_CONTROL_CACHE;
     }
     /**
      * 云端响应头拦截器，用来配置缓存策略
@@ -162,13 +162,13 @@ public class HttpHelper {
             Request request = chain.request();
             String cacheControl = request.cacheControl().toString();
             //检查网络状态
-            if (!NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
+            if (!NetUtils.isNetConnected(BaseApplication.getAppContext())) {
                 request = request.newBuilder()
                         .cacheControl(TextUtils.isEmpty(cacheControl)? CacheControl.FORCE_NETWORK:CacheControl.FORCE_CACHE)
                         .build();
             }
             Response originalResponse = chain.proceed(request);
-            if (NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
+            if (NetUtils.isNetConnected(BaseApplication.getAppContext())) {
                 //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
 
                 return originalResponse.newBuilder()

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 使用 API Level 22以上编译的话，要拿掉前綴字 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--将ActionBar隐藏,这里使用ToolBar-->
+        <item name="android:windowActionBar">false</item>
+        <!--窗口的颜色-->
+        <item name="android:windowBackground">@android:color/white</item>
+
+
+        //解决项目启动时的白屏显示
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--     <item name="android:windowIsTranslucent">true</item>
+             <item name="android:windowNoTitle">true</item>
+             <item name="android:windowActionBar">false</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

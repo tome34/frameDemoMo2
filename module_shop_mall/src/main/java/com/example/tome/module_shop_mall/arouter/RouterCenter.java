@@ -20,20 +20,25 @@ public class RouterCenter {
     }
 
     /**
-     * shopCart 模块页面
-     * @param activity
-     */
-    public static void toShopCart(Activity activity) {
-        ARouter.getInstance().build(RouterURLS.MODULE_SHOP_CART_MAIN).navigation(activity);
-    }
-
-    /**
      * 主页
      */
     public static void toHome() {
-        ARouter.getInstance().build(RouterURLS.MODULE_SHOP_MALL_HOME).navigation();
+        ARouter.getInstance().build(RouterURLS.SHOP_MALL_HOME).navigation();
     }
 
+    /**
+     * shopCart 模块页面
+     */
+    public static void toShopCart() {
+        ARouter.getInstance().build(RouterURLS.SHOP_CART_MAIN).navigation();
+    }
+
+    /**
+     * goods 模块页面
+     */
+    public static void toShopGoods() {
+        ARouter.getInstance().build(RouterURLS.SHOP_GOODS).navigation();
+    }
   /*  public static void toMainOder() {
         ARouter.getInstance().build(RouterURLS.BASE_MAIN)
                 .withInt(IntentKV.K_TO_MAIN_ORDER, IntentKV.V_TO_MAIN_ORDER)

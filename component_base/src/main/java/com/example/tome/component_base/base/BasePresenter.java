@@ -1,5 +1,13 @@
 package com.example.tome.component_base.base;
 
+import android.app.Activity;
+
+import com.example.tome.component_base.helper.HUDFactory;
+import com.example.tome.component_base.util.ActivityUtil;
+import com.example.tome.component_base.util.L;
+import com.example.tome.component_base.util.T;
+import com.kaopiz.kprogresshud.KProgressHUD;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -9,9 +17,9 @@ import io.reactivex.disposables.Disposable;
  * @描述 ${管理事件流订阅的生命周期CompositeDisposable}
  */
 
-public class BasePresenter<T extends BaseView> implements AbstractPresenter<T> {
+public class BasePresenter<V extends BaseView> implements AbstractPresenter<V> {
 
-    protected T mView;
+    protected V mView;
     private CompositeDisposable compositeDisposable;
 
     protected void addSubscribe(Disposable disposable) {
@@ -22,7 +30,7 @@ public class BasePresenter<T extends BaseView> implements AbstractPresenter<T> {
     }
 
     @Override
-    public void attachView(T view) {
+    public void attachView(V view) {
         this.mView = view;
     }
 
@@ -33,4 +41,6 @@ public class BasePresenter<T extends BaseView> implements AbstractPresenter<T> {
             compositeDisposable.clear();
         }
     }
+
+
 }

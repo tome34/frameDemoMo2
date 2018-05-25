@@ -3,9 +3,9 @@
     package="com.example.tome.module_shop_mall">
 
     <application
-        android:allowBackup="true"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+    android:allowBackup="true"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
 
         <!-- android:launchMode="singleTask" -->
         <activity android:name=".activity.SplashActivity">
@@ -26,9 +26,13 @@
             android:name="design_height"
             android:value="1920"/>
 
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity">
 
-        <activity android:name=".activity.HomeActivity"></activity>
+        </activity>
+
+        <activity android:name=".activity.HomeActivity">
+
+        </activity>
     </application>
 
 </manifest>

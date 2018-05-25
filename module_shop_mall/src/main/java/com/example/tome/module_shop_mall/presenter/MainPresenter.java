@@ -1,11 +1,13 @@
 package com.example.tome.module_shop_mall.presenter;
 
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.BasePresenter;
 import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.util.ActivityUtil;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.RxUtils;
 import com.example.tome.component_data.bean.BaseResponse;
@@ -23,10 +25,12 @@ import com.example.tome.module_shop_mall.params.LoginParams;
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
     private Context mContext ;
+    public Activity mCurrentActivity;
+
     @Override
     public void attachView(MainContract.View view) {
         super.attachView(view);
-
+        mCurrentActivity = ActivityUtil.getInstance().currentActivity();
     }
 
     @Override
@@ -45,7 +49,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     @Override
     public void getFeedArticleList(int page) {
         addSubscribe(ModelService.getFeedArticleList(page)
-                .compose(RxUtils.<FeedArticleListResponse>rxSchedulerHelper(mContext))
+                .compose(RxUtils.<FeedArticleListResponse>rxSchedulerHelper())
                 // .filter(feedArticleListResponse -> mView != null)
                 .subscribeWith(new BaseObserver<FeedArticleListResponse>(mView) { //with 有返回值
                     @Override

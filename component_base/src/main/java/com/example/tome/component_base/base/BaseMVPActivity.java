@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.tome.component_base.R;
 import com.example.tome.component_base.baseApp.BaseApplication;
 import com.example.tome.component_base.helper.HUDFactory;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.StatuBarCompat;
+import com.example.tome.component_base.util.T;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
@@ -27,9 +29,9 @@ import butterknife.Unbinder;
  * @描述 ${MVP模式的Base Activity}
  */
 
-public abstract class BaseMVPActivity<T extends AbstractPresenter> extends AppCompatActivity implements BaseView {
+public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCompatActivity implements BaseView {
 
-    protected T mPresenter ;
+    protected P mPresenter ;
     private Unbinder unBinder;
     protected boolean regEvent;
     public BaseMVPActivity mActivity ;
@@ -77,14 +79,15 @@ public abstract class BaseMVPActivity<T extends AbstractPresenter> extends AppCo
 
 
     @Override
-    public void showHUD() {
+    public void showHUD(String msg) {
         if (isDestory){
             return;
         }
         kProgressHUD = HUDFactory.getInstance().creatHUD(this);
         kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                //.setLabel(getString(R.string.loading))
-                .setLabel(null)
+               // .setLabel(getString(R.string.loading))
+                .setLabel(msg)
+               // .setLabel(null)
                 .setCancellable(true)
                 .setAnimationSpeed(2)
                 .setDimAmount(0.3f).show();
@@ -147,13 +150,14 @@ public abstract class BaseMVPActivity<T extends AbstractPresenter> extends AppCo
      */
     protected void setImmeriveStatuBar() {
         StatuBarCompat.setImmersiveStatusBar(true, Color.WHITE, this);
+
     }
 
     /**
      * 获取当前的persenter
      * @return
      */
-    protected abstract T getPresenter();
+    protected abstract P getPresenter();
 
     /**
      * 获取当前Activity的UI布局

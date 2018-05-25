@@ -6,7 +6,7 @@ package com.example.tome.component_base.base;
  * @描述 ${v接口}
  */
 
-public interface BaseView {
+public interface BaseView extends ILoadingDialogView {
 
     void onSuccess();
 
@@ -16,13 +16,4 @@ public interface BaseView {
 
     void showLoading();
 
-    /**
-     * 显示Dialog
-     */
-    void showHUD();
-
-    /**
-     * 关闭Dialog
-     */
-    void dismissHUD();
 }

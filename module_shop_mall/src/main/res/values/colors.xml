@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F49423</color>
-    <color name="colorPrimaryDark">#F49423</color>
-    <color name="colorAccent">#F49423</color>
-    <color name="color_66">#666666</color>
+    <color name="mall_colorPrimary">#F49423</color>
+    <color name="mall_colorPrimaryDark">#F49423</color>
+    <color name="mall_colorAccent">#F49423</color>
+    <color name="mall_color_66">#666666</color>
 
-    <color name="mainColor">#F49423</color>
-    <color name="orange_fba">#FBA135</color>
-    <color name="windowBg">#F8F8F8</color>
-    <color name="white">#FFFFFF</color>
-    <color name="color66">#666666</color>
-    <color name="color33">#333333</color>
-    <color name="colorDD">#DDDDDD</color>
-    <color name="color88">#888888</color>
-    <color name="color99">#999999</color>
-    <color name="colorCC">#CCCCCC</color>
-    <color name="colorFA">#FAFAFA</color>
-    <color name="translucent">#26000000</color>
-    <color name="account_color_orange_f59">#F59523</color>
-    <color name="colorFEFF">#FEFEFF</color>
-    <color name="colorE75">#E75353</color>
+    <color name="mall_yellow">#f39c12</color>
+    <color name="mall_grey">#cccccc</color>
+    <color name="mall_light_green">#3fc75f</color>
+    <color name="mall_light_yellow">#e7c054</color>
+    <color name="mall_blue">#35B0FF</color>
+
+
+    <color name="mall_mainColor">#F49423</color>
+    <color name="mall_orange_fba">#FBA135</color>
+    <color name="mall_windowBg">#F8F8F8</color>
+    <color name="mall_white">#FFFFFF</color>
+    <color name="mall_color66">#666666</color>
+    <color name="mall_color33">#333333</color>
+    <color name="mall_colorDD">#DDDDDD</color>
+    <color name="mall_color88">#888888</color>
+    <color name="mall_color99">#999999</color>
+    <color name="mall_colorCC">#CCCCCC</color>
+    <color name="mall_colorFA">#FAFAFA</color>
+    <color name="mall_translucent">#26000000</color>
+    <color name="mall_account_color_orange_f59">#F59523</color>
+    <color name="mall_colorFEFF">#FEFEFF</color>
+    <color name="mall_colorE75">#E75353</color>
 </resources>

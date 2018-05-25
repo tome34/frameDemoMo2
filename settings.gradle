@@ -1,1 +1,1 @@
-include ':app', ':component_base', ':module_shop_mall', ':component_data', ':module_shop_cart'
+include ':app', ':component_base', ':module_shop_mall', ':component_data', ':module_shop_cart', ':module_shop_goods', ':module_self'

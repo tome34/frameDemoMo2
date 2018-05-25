@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tab_home"
+        android:enabled="true"
+        android:icon="@drawable/mall_home_tab_home"
+        android:title="@string/mall_home_page"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_goods"
+        android:enabled="true"
+        android:icon="@drawable/mall_home_tab_shop"
+        android:title="@string/mall_home_shop"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_cart"
+        android:enabled="true"
+        android:icon="@drawable/mall_home_tab_cart"
+        android:title="@string/mall_home_cart"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_self"
+        android:enabled="true"
+        android:icon="@drawable/mall_home_tab_self"
+        android:title="@string/mall_home_self"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,5 +1,6 @@
 package com.example.tome.component_base.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.drm.DrmStore;
 import android.support.annotation.MainThread;
@@ -25,11 +26,13 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RxUtils  {
 
-    /**
-     * 统一线程处理
-     * @param <T> 指定的泛型类型
-     * @return ObservableTransformer
-     */
+
+
+//    /**
+//     * 统一线程处理
+//     * @param <T> 指定的泛型类型
+//     * @return ObservableTransformer
+//     */
 //    public static <T> ObservableTransformer<T, T> rxSchedulerHelper1(){
 //        return new ObservableTransformer<T, T>() {
 //            @Override
@@ -47,17 +50,30 @@ public class RxUtils  {
 //            }
 //        };
 //    }
+
+    /**
+    * 统一线程处理
+     *  @param <T> 指定的泛型类型
+     * @return ObservableTransformer
+      */
+    public static <T> ObservableTransformer<T, T> rxSchedulerHelper(){
+        return observable -> observable
+                .subscribeOn(Schedulers.io())               //指定网络请求在IO线程
+                .observeOn(AndroidSchedulers.mainThread()) ;    //显示数据在主线程
+    }
+
+
     //lambda写法
     public static <T> ObservableTransformer<T, T> rxSchedulerHelper(Context mContext) {
         return observable -> observable
                 .subscribeOn(Schedulers.io())                //指定网络请求在IO线程
                 .doOnSubscribe(disposable -> {
                     LogUtil.d("显示数据"+Thread.currentThread().getName());
-                     //ProgressManage.getInstance().showHUD(mContext);                 //显示加载进度条
+                     ProgressManage.getInstance().showHUD(mContext);                 //显示加载进度条
                 }).subscribeOn(AndroidSchedulers.mainThread()) //显示进度条在主线程
                 .observeOn(AndroidSchedulers.mainThread())     //显示数据在主线程
                 .doFinally(() -> {
-                    //ProgressManage.getInstance().dismissHUD(); //隐藏进度条
+                    ProgressManage.getInstance().dismissHUD(); //隐藏进度条
                     LogUtil.d("隐藏数据"+Thread.currentThread().getName());
                 });
     }

@@ -1,68 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="otherui_color_black">#000000</color>
-    <color name="otherui_windowBg">#F5F5F5</color>
-    <color name="otherui_color_33">#333333</color>
-    <color name="otherui_color_ff_60">#FF6000</color>
-    <color name="otherui_mainColor">#FF6000</color>
     <color name="otherui_color_white">#FFFFFF</color>
-    <color name="otherui_colorDD">#DDDDDD</color>
-    <color name="otherui_transparent_66">#66000000</color>
-    <color name="otherui_color_cc000">#cc000000</color>
-    <color name="otherui_black">#000000</color>
-    <color name="otherui_color_topic_red">#CB2E48</color>
-    <color name="otherui_color_99">#999999</color>
-    <color name="otherui_color_66">#666666</color>
-    <color name="otherui_colorPrimary">#00a1ea</color>
-    <color name="otherui_color_d9">#D9D9D9</color>
-    <color name="otherui_ccolor_CC">#CCCCCC</color>
-    <color name="otherui_trans">#00000000</color>
-    <color name="otherui_alertdialog_line">#c6c6c6</color>
-    <color name="otherui_actionsheet_blue">#037BFF</color>
-    <color name="otherui_actionsheet_red">#FD4A2E</color>
-    <color name="otherui_actionsheet_gray">#8F8F8F</color>
-
-
-
-    <color name="otherui_boxing_colorPrimary">#000000</color>
-    <color name="otherui_boxing_colorPrimaryDark">#ff212121</color>
-    <color name="otherui_boxing_colorPrimaryAlpha">#44000000</color>
-    <color name="otherui_boxing_colorAccent">#FF4081</color>
-
-    <color name="otherui_boxing_gray">#999999</color>
-    <color name="otherui_boxing_gray1">#333333</color>
-
-    <color name="otherui_boxing_white">#ffffff</color>
-    <color name="otherui_boxing_white1">#fafafa</color>
-    <color name="otherui_boxing_white2">#eaeaea</color>
-
-    <color name="otherui_boxing_black">#000000</color>
-    <color name="otherui_boxing_black1">#1b1b1b</color>
-    <color name="otherui_boxing_black_alpha15">#26000000</color>
-    <color name="otherui_boxing_black_alpha20">#33000000</color>
-    <color name="otherui_boxing_black_alpha25">#3c000000</color>
-
-    <color name="otherui_color_orange_f59">#F59523</color>
-    <color name="otherui_color_red_f59_f05">#F0561A</color>
-    <!--覆盖颜色-->
-    <color name="otherui_bgColor_overlay">#60000000</color>
-    <!--窗口背景颜色-->
-    <color name="otherui_bgColor_alertview_alert">#ffffff</color>
-    <color name="otherui_bgColor_alertview_alert_start">#ffffff</color>
-    <!--标题颜色-->
-    <color name="otherui_textColor_alert_title">#000000</color>
-    <color name="otherui_textColor_actionsheet_title">#8f8f8f</color>
-    <!--消息颜色-->
-    <color name="otherui_textColor_alert_msg">#000000</color>
-    <color name="otherui_textColor_actionsheet_msg">#8f8f8f</color>
-    <!--线条颜色-->
-    <color name="otherui_bgColor_divier">#d7d7db</color>
-    <!--取消按钮颜色-->
-    <color name="otherui_textColor_alert_button_cancel">#333333</color>
-    <!--普通按钮文字颜色-->
-    <color name="otherui_textColor_alert_button_others">#333333</color>
     <!--点击颜色-->
     <color name="otherui_bgColor_alert_button_press">#EAEAEA</color>
-    <!--actionsheet模式的取消按钮背景颜色-->
-    <color name="otherui_bgColor_actionsheet_cancel_nor">#ffffff</color>
+    <color name="otherui_color_cc000">#cc000000</color>
+    <!--覆盖颜色-->
+    <color name="otherui_bgColor_overlay">#60000000</color>
 </resources>

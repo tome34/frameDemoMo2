@@ -3,6 +3,8 @@ package com.example.tome.module_shop_mall.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
 

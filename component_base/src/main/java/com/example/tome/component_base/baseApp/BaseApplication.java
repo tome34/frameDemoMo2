@@ -3,6 +3,7 @@ package com.example.tome.component_base.baseApp;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.support.multidex.MultiDex;
 
 import com.example.tome.component_base.BuildConfig;
 import com.example.tome.component_base.arouter.RouterConfig;
@@ -63,6 +64,8 @@ public class BaseApplication extends Application{
         AutoLayoutConifg.getInstance().useDeviceSize();
         //Stetho调试工具初始化
         Stetho.initializeWithDefaults(this);
+        //
+        MultiDex.install(this);
         // 初始化Logger工具
         Logger.addLogAdapter(new AndroidLogAdapter(){
                                  @Override

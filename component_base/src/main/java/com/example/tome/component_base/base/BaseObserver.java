@@ -1,9 +1,14 @@
 package com.example.tome.component_base.base;
 
+import android.app.Activity;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 
+import com.example.tome.component_base.util.ActivityUtil;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_base.util.NetUtils;
+import com.kaopiz.kprogresshud.KProgressHUD;
 
 import io.reactivex.observers.ResourceObserver;
 import retrofit2.HttpException;
@@ -21,17 +26,27 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
 
     private BaseView mView;
     private String mErrorMsg;
+    protected ILoadingDialogView mDialogView;
+    protected String msg = "正在加载中...";
     private boolean isShowError = true;
 
 
 
     protected BaseObserver(BaseView view){
         this.mView = view;
+        this.mDialogView = view;
     }
 
-    protected BaseObserver(BaseView view, String errorMsg){
-        this.mView = view;
-        this.mErrorMsg = errorMsg;
+    protected BaseObserver(BaseView view, String msg1){
+        mView = view;
+        mDialogView = view;
+        msg = msg1;
+    }
+
+    protected BaseObserver(BaseView view,ILoadingDialogView dialogView , String msg1){
+        mView = view;
+        mDialogView = dialogView;
+        msg = msg1;
     }
 
     protected BaseObserver(BaseView view, boolean isShowError){
@@ -54,6 +69,16 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
     protected void onStart() {
         super.onStart();
 
+        if (mDialogView != null){
+            mDialogView.showHUD(msg);
+        }
+
+        Activity currentActivity = ActivityUtil.getInstance().currentActivity();
+        if (currentActivity != null && !NetUtils.isNetConnected(currentActivity)) {
+            Toast.makeText(currentActivity, "当前无网络", Toast.LENGTH_SHORT).show();
+            onComplete();
+        }
+
     }
 
     /**
@@ -61,7 +86,9 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
      */
     @Override
     public void onComplete() {
-
+        if (mDialogView != null) {
+            mDialogView.dismissHUD();
+        }
     }
 
     /**

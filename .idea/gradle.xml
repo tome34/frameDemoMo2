@@ -11,7 +11,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/component_base" />
             <option value="$PROJECT_DIR$/component_data" />
+            <option value="$PROJECT_DIR$/module_self" />
             <option value="$PROJECT_DIR$/module_shop_cart" />
+            <option value="$PROJECT_DIR$/module_shop_goods" />
             <option value="$PROJECT_DIR$/module_shop_mall" />
           </set>
         </option>
