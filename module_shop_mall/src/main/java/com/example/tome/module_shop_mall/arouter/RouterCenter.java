@@ -39,9 +39,12 @@ public class RouterCenter {
     public static void toShopGoods() {
         ARouter.getInstance().build(RouterURLS.SHOP_GOODS).navigation();
     }
-  /*  public static void toMainOder() {
-        ARouter.getInstance().build(RouterURLS.BASE_MAIN)
-                .withInt(IntentKV.K_TO_MAIN_ORDER, IntentKV.V_TO_MAIN_ORDER)
-                .navigation();
-    }*/
+
+    /**
+     * welfare 福利模块
+     */
+    public static void toWelfareHome(){
+        ARouter.getInstance().build(RouterURLS.WELFARE_HOME).navigation();
+    }
+
 }

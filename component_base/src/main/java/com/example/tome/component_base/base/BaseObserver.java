@@ -5,10 +5,15 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
+import com.example.tome.component_base.R;
+import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.inter.ILoadingDialogView;
 import com.example.tome.component_base.util.ActivityUtil;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.NetUtils;
-import com.kaopiz.kprogresshud.KProgressHUD;
+import com.example.tome.component_data.ServerException.ServerException;
+import com.example.tome.component_data.bean.BaseObj;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import io.reactivex.observers.ResourceObserver;
 import retrofit2.HttpException;
@@ -20,15 +25,17 @@ import retrofit2.HttpException;
  * @param <T>
  */
 
+//public abstract class BaseObserver<R,T extends BaseObj<R>> extends ResourceObserver<T> {
 public abstract class BaseObserver<T> extends ResourceObserver<T> {
 //public abstract class BaseObserver<T> extends DisposableObserver<T> {
 //public abstract class BaseObserver<T> implements Observer<T> {
 
     private BaseView mView;
     private String mErrorMsg;
-    protected ILoadingDialogView mDialogView;
+    protected ILoadingDialogView mDialogView = null;
     protected String msg = "正在加载中...";
     private boolean isShowError = true;
+    private SmartRefreshLayout rlRefreshLayout = null;
 
 
 
@@ -36,6 +43,34 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
         this.mView = view;
         this.mDialogView = view;
     }
+
+    protected BaseObserver(BaseView view,boolean isShowHUD){
+        this.mView = view;
+        if (isShowHUD){
+            this.mDialogView = view;
+        }
+    }
+
+    protected BaseObserver(BaseView view, SmartRefreshLayout rlRefresh ,boolean isShowHUD){
+        this.mView = view;
+        this.rlRefreshLayout = rlRefresh ;
+        if (isShowHUD){
+            this.mDialogView = view;
+        }
+
+    }
+
+
+   /* @Override
+    public void onNext(T t) {
+        if (t.getCode().equals("0")){
+            onNextSuccess(t.getData());
+        }else {
+            onError(new RuntimeException(t.getMessage()));
+        }
+    }
+
+    public abstract void onNextSuccess(R r);*/
 
     protected BaseObserver(BaseView view, String msg1){
         mView = view;
@@ -47,11 +82,6 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
         mView = view;
         mDialogView = dialogView;
         msg = msg1;
-    }
-
-    protected BaseObserver(BaseView view, boolean isShowError){
-        this.mView = view;
-        this.isShowError = isShowError;
     }
 
     protected BaseObserver(BaseView view, String errorMsg, boolean isShowError){
@@ -86,8 +116,12 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
      */
     @Override
     public void onComplete() {
+        L.d("执行结果");
         if (mDialogView != null) {
             mDialogView.dismissHUD();
+        }else if (mDialogView == null && rlRefreshLayout != null){
+            rlRefreshLayout.finishRefresh();
+            rlRefreshLayout.finishLoadMore();
         }
     }
 
@@ -102,18 +136,18 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
             return;
         }
         if (mErrorMsg != null && !TextUtils.isEmpty(mErrorMsg)) {
-            mView.showErrorMsg(mErrorMsg);
-        //} else if (e instanceof ServerException) {
-         //   mView.showErrorMsg(e.toString());
+            mView.showError(mErrorMsg ,"-1");
+        } else if (e instanceof ServerException) {
+            mView.showError(e.toString(),"-1");
         } else if (e instanceof HttpException) {
-            mView.showErrorMsg("网络异常");
-            //BaseApplication.getInstance().getString(R.string.http_error);
+            mView.showError("网络异常","-1");
         } else {
-            mView.showErrorMsg("未知错误");
+            mView.showError("未知错误","-1");
 
         }
-        if (isShowError) {
-            mView.showError("","-1");
-        }
+       // if (isShowError) {
+       //     mView.showError("","-1");
+       // }
+        onComplete();
     }
 }

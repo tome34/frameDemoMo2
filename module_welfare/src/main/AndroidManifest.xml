@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.welfare.module_welfare">
+
+    <application>
+        <activity android:name="com.example.welfare.module_welfare.activity.WelfareActivity" />
+        <activity android:name="com.example.welfare.module_welfare.activity.ImagePreviewActivity"></activity>
+    </application>
+
+</manifest>

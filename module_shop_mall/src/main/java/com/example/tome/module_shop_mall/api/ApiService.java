@@ -1,8 +1,13 @@
 package com.example.tome.module_shop_mall.api;
 
+import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.module_shop_mall.bean.BannerData;
+import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
 import com.example.tome.module_shop_mall.bean.LoginResponse;
 import com.example.tome.module_shop_mall.params.LoginParams;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -22,20 +27,18 @@ public interface ApiService {
     String BASE_URL = "http://www.wanandroid.com/";
 
     /**
-     * 登录
-     *
-     */
-    @FormUrlEncoded
-    @POST("register/login")
-    Observable<LoginResponse> getLoginData(@Body LoginParams params);
-
-
-    /**
-     * 获取feed文章列表
+     * 首页获取feed文章列表
      *
      * @param num 页数
      * @return Observable<FeedArticleListResponse>
      */
     @GET("article/list/{num}/json")
-    Observable<FeedArticleListResponse> getFeedArticleList(@Path("num") int num);
+    Observable<BaseObj<FeedArticleListData>> getFeedArticleList(@Path("num") int num);
+
+    /**
+     * 首页广告栏
+     * @return
+     */
+    @GET("banner/json")
+    Observable<BaseObj<List<BannerData>>> getBannerData();
 }

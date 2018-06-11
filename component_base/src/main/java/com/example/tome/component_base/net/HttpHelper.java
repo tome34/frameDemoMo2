@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.example.tome.component_base.BuildConfig;
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.util.NetUtils;
 import com.example.tome.component_data.constant.BaseHost;
 import com.example.tome.component_data.constant.HostType;
@@ -147,6 +147,7 @@ public class HttpHelper {
 
     /**
      * 根据网络状况获取缓存的策略
+     * 使用方法:在api server 中添加请求头 @Header("Cache-Control") String cacheControl ,在调用传入getCacheControl()
      */
     @NonNull
     public static String getCacheControl() {

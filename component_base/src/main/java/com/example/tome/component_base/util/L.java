@@ -2,7 +2,7 @@ package com.example.tome.component_base.util;
 
 import android.util.Log;
 
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.constants.BaseApplication;
 
 
 /**

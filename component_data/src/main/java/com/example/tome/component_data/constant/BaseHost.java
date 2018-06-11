@@ -10,6 +10,7 @@ public class BaseHost {
 
     public static final String NETEAST_HOST = "http://c.m.163.com/";
 
+    //干货集中营 API
     public static final String SINA_PHOTO_HOST = "http://gank.io/api/";
 
     /**

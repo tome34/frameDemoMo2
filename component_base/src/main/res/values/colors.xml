@@ -6,4 +6,26 @@
     <color name="otherui_color_cc000">#cc000000</color>
     <!--覆盖颜色-->
     <color name="otherui_bgColor_overlay">#60000000</color>
+    <!--alertdialog颜色-->
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="color_4a">#4a90e2</color>
+    <!--buttondialog颜色-->
+    <color name="otherui_color_orange_f59">#F59523</color>
+    <color name="otherui_color_red_f59_f05">#F0561A</color>
+
+    <color name="mainColor">#F49423</color>
+    <color name="orange_fba">#FBA135</color>
+    <color name="windowBg">#F8F8F8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color66">#666666</color>
+    <color name="color33">#333333</color>
+    <color name="colorDD">#DDDDDD</color>
+    <color name="color88">#888888</color>
+    <color name="color99">#999999</color>
+    <color name="colorCC">#CCCCCC</color>
+    <color name="colorFA">#FAFAFA</color>
+    <color name="translucent">#26000000</color>
+    <color name="account_color_orange_f59">#F59523</color>
+    <color name="colorFEFF">#FEFEFF</color>
+    <color name="colorE75">#E75353</color>
 </resources>

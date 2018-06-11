@@ -3,7 +3,7 @@
     package="com.example.tome.module_shop_mall">
 <!--android:name属性——是用来设置所有activity属于哪个application的，默认是android.app.Application。-->
     <application
-        android:name="com.example.tome.debug.MyApp"
+        android:name="com.example.tome.debug.MyAppCart"
         android:allowBackup="true"
         android:label="商品模板"
         android:supportsRtl="true"

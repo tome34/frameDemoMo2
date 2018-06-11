@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_preview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.welfare.module_welfare.activity.ImagePreviewActivity">
+
+    <com.example.welfare.module_welfare.widget.HackyViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/welfare_color_66">
+
+    </com.example.welfare.module_welfare.widget.HackyViewPager>
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/tv_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="1/4"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+
+
+</RelativeLayout>

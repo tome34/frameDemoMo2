@@ -27,7 +27,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -41,8 +44,7 @@ dependencies {
     if (!rootProject.ext.appDebug) {
         implementation project(':module_shop_mall')
         implementation project(':module_shop_cart')
-        implementation project(':module_shop_goods')
-        implementation project(':module_self')
+        implementation project(':module_welfare')
     }
 
 }

@@ -1,12 +1,7 @@
 package com.example.tome.component_base.base;
 
-import android.app.Activity;
-
-import com.example.tome.component_base.helper.HUDFactory;
-import com.example.tome.component_base.util.ActivityUtil;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.T;
-import com.kaopiz.kprogresshud.KProgressHUD;
+import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.inter.BaseView;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -41,6 +36,8 @@ public class BasePresenter<V extends BaseView> implements AbstractPresenter<V> {
             compositeDisposable.clear();
         }
     }
+
+
 
 
 }

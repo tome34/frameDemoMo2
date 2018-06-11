@@ -1,6 +1,5 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -15,18 +14,19 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.AbstractPresenter;
+import com.example.tome.component_base.base.inter.AbstractPresenter;
 import com.example.tome.component_base.base.BaseMVPActivity;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.adapter.ViewPagerAdapter;
-import com.example.tome.module_shop_mall.fagment.BaseFragment;
+import com.example.tome.module_shop_mall.arouter.RouterCenter;
+import com.example.tome.module_shop_mall.fagment.BaseHomeFragment;
+import com.example.tome.module_shop_mall.fagment.HomeFragment;
 import com.example.tome.module_shop_mall.helper.BottomNavigationViewHelper;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @Created by TOME .
@@ -71,18 +71,8 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
     }
 
     @Override
-    protected void initEventAndData() {
-        initToolbar();
-        initData();
-        initNavigationView();
-        initBottomNavigationView();
-        initViewPager();
-
-    }
-
-
-    private void initToolbar() {
-        //取代原本的actionbar
+    protected void initTitle() {
+        //取代原本的ActionBar
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -98,17 +88,18 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
         });
     }
 
-    private void initData() {
-
+    @Override
+    protected void initView() {
+        initNavigationView();
+        initBottomNavigationView();
+        initViewPager();
 
     }
+
 
     private void initNavigationView() {
         //头部布局  登录
         mMUsTv =(TextView) mNavView.getHeaderView(0).findViewById(R.id.nav_header_login_tv);
-       // View drawview  = mNavView.inflateHeaderView(R.layout.mall_nav_header_home);
-       // TextView navTitle = (TextView)drawview.findViewById(R.id.nav_header_login_tv);
-       // mItemLogin = mNavView.getMenu().getItem(R.id.nav_header_login_tv);
         //福利
         mItemWelfare = mNavView.getMenu().findItem(R.id.nav_item_welfare);
         //视频
@@ -142,16 +133,16 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.tab_home) {
-                    L.d(TAG, "点击了首页");
+                    mToolbarTitle.setText("首页");
                     mViewPager.setCurrentItem(0);
                 } else if (item.getItemId() == R.id.tab_goods) {
-                    L.d(TAG, "点击了商品");
+                    mToolbarTitle.setText("商品");
                     mViewPager.setCurrentItem(1);
                 } else if (item.getItemId() == R.id.tab_cart) {
-                    L.d(TAG, "点击了购物车");
+                    mToolbarTitle.setText("购物车");
                     mViewPager.setCurrentItem(2);
                 } else if (item.getItemId() == R.id.tab_self) {
-                    L.d(TAG, "点击了个人页面");
+                    mToolbarTitle.setText("个人中心");
                     mViewPager.setCurrentItem(3);
                 }
                 return true;
@@ -191,10 +182,10 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(BaseFragment.newInstance("首页"));
-        adapter.addFragment(BaseFragment.newInstance("商品"));
-        adapter.addFragment(BaseFragment.newInstance("购物车"));
-        adapter.addFragment(BaseFragment.newInstance("我的"));
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(BaseHomeFragment.newInstance("商品"));
+        adapter.addFragment(BaseHomeFragment.newInstance("购物车"));
+        adapter.addFragment(BaseHomeFragment.newInstance("我的"));
         viewPager.setAdapter(adapter);
     }
 
@@ -204,14 +195,27 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
        if (item == mItemWelfare){
             L.d(TAG, "点击了福利");
+           RouterCenter.toWelfareHome();
+           closeDrawer();
         }else if (item == mItemVideo){
             L.d(TAG, "点击了视频");
+           closeDrawer();
         }else if (item == mItemAboutUs){
             L.d(TAG, "点击了关于我们");
+           closeDrawer();
         }else if (item == mItemLogout){
             L.d(TAG, "点击了退出");
+           closeDrawer();
         }
         return true;
+    }
+
+    /**
+     * 关闭侧滑
+     */
+    private void closeDrawer() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 
     @Override

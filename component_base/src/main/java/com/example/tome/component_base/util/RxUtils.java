@@ -1,22 +1,12 @@
 package com.example.tome.component_base.util;
 
-import android.app.Activity;
 import android.content.Context;
-import android.drm.DrmStore;
-import android.support.annotation.MainThread;
-import android.telecom.Call;
 
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.base.BaseView;
-import com.example.tome.component_base.base.INetResult;
-
-import java.util.Dictionary;
+import com.example.tome.component_data.bean.BaseObj;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -61,6 +51,11 @@ public class RxUtils  {
                 .subscribeOn(Schedulers.io())               //指定网络请求在IO线程
                 .observeOn(AndroidSchedulers.mainThread()) ;    //显示数据在主线程
     }
+    /* public static <T> ObservableTransformer<BaseObj<T>, BaseObj<T>> rxSchedulerHelper(){
+        return observable -> observable
+                .subscribeOn(Schedulers.io())               //指定网络请求在IO线程
+                .observeOn(AndroidSchedulers.mainThread()) ;    //显示数据在主线程
+    }*/
 
 
     //lambda写法

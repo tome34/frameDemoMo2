@@ -12,6 +12,18 @@ public interface IntentKV {
     String K_TOKEN_VALUE = "K_TOKEN_VALUE";//TOKEN存储
     String K_IDENTITY_TYPE = "K_IDENTITY_TYPE";//会员身份
 
+    //home页面
+    String K_ARTICLE_ID = "K_ARTICLE_ID";
+    String K_ARTICLE_TITLE = "K_ARTICLE_TITLE";
+    String K_ARTICLE_LINK = "K_ARTICLE_LINK";
+    String K_IS_COLLECT = "K_IS_COLLECT";
+    String K_IS_COLLECT_PAGE = "K_IS_COLLECT_PAGE";
+    String K_IS_COMMON_SITE = "K_IS_COMMON_SITE";
+
+    //welfare页面
+    String K_WELFARE_PHOTO = "K_WELFARE_PHOTO";
+    String K_WELFARE_POSITION = "K_WELFARE_POSITION";
+
 
     //=========================================================================
 

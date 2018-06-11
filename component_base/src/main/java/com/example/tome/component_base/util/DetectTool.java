@@ -16,7 +16,7 @@ import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.constants.BaseApplication;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

@@ -7,7 +7,9 @@ import java.util.List;
  * @date 2018/2/12
  */
 
-public class FeedArticleListData {
+public class FeedArticleListData{
+
+    public static final int SUCCESS = 0;
 
     private int curPage;
     private List<FeedArticleData> datas;

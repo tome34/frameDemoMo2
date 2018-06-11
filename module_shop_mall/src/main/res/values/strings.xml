@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="mall_shop_mall_app_name">module_shop_mall</string>
     <string name="mall_home_page">首页</string>
     <string name="mall_home_shop">商品</string>
@@ -13,5 +13,13 @@
 
     <string name="mall_drawer_open">Open drawer</string>
     <string name="mall_drawer_close">Close drawer</string>
+
+    //主页
+    <string name="mall_item_article_author">作者：<xliff:g id="author">%s</xliff:g></string>
+    <string name="mall_item_article_classify">分类：<xliff:g id="classify">%s</xliff:g></string>
+    <string name="mall_item_article_time">时间：<xliff:g id="time">%s</xliff:g></string>
+
+    //文章页面
+    <string name="mall_web_tint">网页由 www.wanandroid.com 提供\n开源不易，欢迎各路大神Star</string>
 
 </resources>

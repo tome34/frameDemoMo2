@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tome.component_base.R;
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.constants.BaseApplication;
 
 public class T {
 

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">component_base</string>
+    <!--权限管理-->
+    <string name="home_permission_camera">拍照权限已关闭，请在设置中开启</string>
+    <string name="home_permission_phone">手机权限已关闭，请在设置中开启</string>
+    <string name="home_permission_storage">文件读取权限已关闭，请在设置中开启</string>
+    <string name="home_permission_default">权限已关闭，请在设置中开启</string>
 </resources>

@@ -11,8 +11,10 @@ public interface RouterURLS {
 
     String MEMBER_INFORMATION = "/member/information";
     String BASE_MAIN = "/base/main";
-    String SHOP_CART_MAIN = "/shop/cart/main";
+    String SHOP_CART_MAIN = "/shoping/cart/main";
     String SHOP_MALL_HOME = "/mall/home";
-    String SHOP_GOODS = "/shop/goods";
+    String SHOP_GOODS = "/shop1/goods";
+    String WELFARE_HOME = "/welfare/home";
+    String WELFARE_PREVIEW = "/welfare/preview";
 
 }

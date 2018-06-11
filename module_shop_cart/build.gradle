@@ -17,6 +17,8 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        multiDexEnabled true
+
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
@@ -56,13 +58,15 @@ android {
         }
     }
 
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation rootProject.ext.dependencies["junit"]
-    androidTestImplementation rootProject.ext.dependencies["runner"]
-    androidTestImplementation rootProject.ext.dependencies["espresso_core"]
+
 
     //Arouter路由
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]

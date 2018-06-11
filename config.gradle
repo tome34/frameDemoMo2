@@ -3,20 +3,19 @@ ext{
     appDebug = false
     moduleShopMall = false
     moduleShopCart = false
-    moduleShopGoods = false
-    moduleSelf = false
+    moduleWelfare = false
 
 
     android = [
-            compileSdkVersion   : 26,
-            buildToolsVersion   : '26.0.2',
-            minSdkVersion       : 16,
+            compileSdkVersion   : 27,
+            buildToolsVersion   : '27.0.2',
+            minSdkVersion       : 17,
             targetSdkVersion    : 23,
             versionCode         : 1,
             versionName         : "1.0.0",
             applicationId       : "com.example.tome.framedemomo2",
 
-            androidSupportSdkVersion: "26.0.0"
+            androidSupportSdkVersion: "27.0.2"
 
 
 
@@ -105,5 +104,7 @@ ext{
             //安卓调试神器-Stetho
             "stetho"                      : 'com.facebook.stetho:stetho:1.5.0',
             "stetho-okhttp3"                      : 'com.facebook.stetho:stetho-okhttp3:1.5.0',
+            // 仿ios弹出对话窗体
+            "alertview"                      : 'com.bigkoo:alertview:1.0.3',
     ]
 }

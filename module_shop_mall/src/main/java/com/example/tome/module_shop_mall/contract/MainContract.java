@@ -1,7 +1,8 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.AbstractPresenter;
-import com.example.tome.component_base.base.BaseView;
+import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
 import com.example.tome.module_shop_mall.bean.LoginResponse;
 import com.example.tome.module_shop_mall.params.LoginParams;
@@ -17,16 +18,11 @@ public interface MainContract {
 
     interface View extends BaseView {
 
-        void showLoginData(LoginResponse loginResponse);
+        void showTestData(FeedArticleListData feedArticleListData);
 
-        void showArticleList(FeedArticleListResponse feedArticleListResponse);
-
-        void showArticleListFail();
     }
 
     interface Presenter extends AbstractPresenter<View> {
-
-        void getLoginData(LoginParams loginParams);
 
         void getFeedArticleList(int page);
     }

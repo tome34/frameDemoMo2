@@ -40,7 +40,9 @@ public class LocaleHelper {
     public static Locale getLanguage(Context context) {
 //        String lang = getPersistedData(context, Locale.getDefault());
 //        return new Locale(lang);
-        Locale locale = new Locale("ar","EG");
+        //埃及语言
+        //Locale locale = new Locale("ar","EG");
+        Locale locale = new Locale("zh","");
         return getPersistedLocal(context, locale);
     }
 

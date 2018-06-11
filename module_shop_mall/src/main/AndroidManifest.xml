@@ -3,9 +3,9 @@
     package="com.example.tome.module_shop_mall">
 
     <application
-    android:allowBackup="true"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
         <!-- android:launchMode="singleTask" -->
         <activity android:name=".activity.SplashActivity">
@@ -16,23 +16,20 @@
             </intent-filter>
         </activity>
 
-        <!-- autolayout meta
+        <!--
+      autolayout meta
       配置设计图的宽高,配合AutoLauout控件使用,在设计图尺寸以外的其它尺寸手机上,也能达到和设计图一样的效果
-      -->
+        -->
         <meta-data
             android:name="design_width"
-            android:value="1080"/>
+            android:value="1080" />
         <meta-data
             android:name="design_height"
-            android:value="1920"/>
+            android:value="1920" />
 
-        <activity android:name=".activity.MainActivity">
-
-        </activity>
-
-        <activity android:name=".activity.HomeActivity">
-
-        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.HomeActivity"></activity>
+        <activity android:name=".activity.ArticleDetailActivity"></activity>
     </application>
 
 </manifest>

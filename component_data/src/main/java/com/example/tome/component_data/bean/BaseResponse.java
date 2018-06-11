@@ -8,7 +8,7 @@ package com.example.tome.component_data.bean;
 
 public class BaseResponse {
 
-    public static final int SUCCESS = 0;
+    public static final String SUCCESS = "0";
 
     private int code ;
     private String message ;

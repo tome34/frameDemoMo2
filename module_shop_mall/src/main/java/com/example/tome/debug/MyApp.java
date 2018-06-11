@@ -2,7 +2,7 @@ package com.example.tome.debug;
 
 
 import com.example.tome.component_base.arouter.RouterConfig;
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.constants.BaseApplication;
 
 /**
  * @Created by TOME .

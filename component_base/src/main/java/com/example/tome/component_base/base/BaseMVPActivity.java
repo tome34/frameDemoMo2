@@ -1,20 +1,22 @@
 package com.example.tome.component_base.base;
 
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-import com.example.tome.component_base.R;
-import com.example.tome.component_base.baseApp.BaseApplication;
+import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.helper.HUDFactory;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.StatuBarCompat;
 import com.example.tome.component_base.util.T;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.kaopiz.kprogresshud.KProgressHUD;
+import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -50,7 +52,8 @@ public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCo
         //setImmeriveStatuBar();
         mActivity = this ;
         onViewCreated();
-        initEventAndData();
+        initTitle();
+        initView();
     }
 
     /**
@@ -100,30 +103,28 @@ public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCo
         }
     }
 
-    @Override
-    public void onSuccess() {
-
-    }
-
+    /**
+     * 提示网络请求错误信息
+     * @param msg
+     * @param code
+     */
     @Override
     public void showError(String msg, String code) {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void showErrorMsg(String errorMsg) {
+        String mCode ="-1";
+        if (mCode.equals(code)){
+            T.showShort(mActivity, msg);
+        }
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        L.i("当前运行的activity:" + getClass().getName());
+        Logger.i("当前运行的activity:" + getClass().getName());
+    }
+
+    public void back(View v) {
+        finish();
     }
 
     @Override
@@ -167,9 +168,14 @@ public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCo
     protected abstract int getLayoutId();
 
     /**
+     * 初始化标题
+     */
+    protected abstract void initTitle();
+
+    /**
      * 初始化数据
      */
-    protected abstract void initEventAndData();
+    protected abstract void initView();
 
 
 

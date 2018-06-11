@@ -6,7 +6,7 @@
     android:id="@+id/common_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/blue"
+    android:background="@color/mall_yellow"
     app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
 
     <TextView

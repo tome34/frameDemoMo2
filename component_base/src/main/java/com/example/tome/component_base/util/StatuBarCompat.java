@@ -13,7 +13,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.example.tome.component_base.R;
-import com.luck.picture.lib.tools.ScreenUtils;
+import com.zhy.autolayout.utils.ScreenUtils;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
