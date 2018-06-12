@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.tome.component_base.base.BaseMVPActivity;
 import com.example.tome.component_base.base.BasePermissionActivity;
+import com.example.tome.component_base.base.BasePresenter;
 import com.example.tome.component_base.base.inter.AbstractPresenter;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.d_arouter.IntentKV;
@@ -20,6 +21,8 @@ import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.R2;
 import com.example.welfare.module_welfare.adapter.ImagePreviewAdapter;
 import com.example.welfare.module_welfare.bean.PreviewBean;
+import com.example.welfare.module_welfare.contract.SaveImageContract;
+import com.example.welfare.module_welfare.presenter.SaveImagePresenter;
 import com.example.welfare.module_welfare.widget.HackyViewPager;
 
 import java.util.ArrayList;
@@ -28,7 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 @Route(path = RouterURLS.WELFARE_PREVIEW)
-public class ImagePreviewActivity extends BasePermissionActivity implements View.OnClickListener {
+public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresenter> implements SaveImageContract.View, View.OnClickListener {
 
     @BindView(R2.id.view_pager)
     HackyViewPager mViewPager;
@@ -45,9 +48,10 @@ public class ImagePreviewActivity extends BasePermissionActivity implements View
     public int posit ;
     public int cuccentPosit ;
 
+
     @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
+    protected SaveImagePresenter getPresenter() {
+        return new SaveImagePresenter();
     }
 
     @Override
@@ -107,6 +111,11 @@ public class ImagePreviewActivity extends BasePermissionActivity implements View
             
         }
 
+
+    }
+
+    @Override
+    public void showSaveSuccess() {
 
     }
 }

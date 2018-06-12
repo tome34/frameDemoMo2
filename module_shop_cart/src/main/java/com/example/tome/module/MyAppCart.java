@@ -1,4 +1,4 @@
-package com.example.tome.debug;
+package com.example.tome.module;
 
 
 import com.example.tome.component_base.arouter.RouterConfig;

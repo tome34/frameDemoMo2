@@ -1,6 +1,6 @@
 /*全局配置信息及第三方依赖统一管理*/
 ext{
-    appDebug = false
+    isModule = false
     moduleShopMall = false
     moduleShopCart = false
     moduleWelfare = false
@@ -59,7 +59,6 @@ ext{
             "rxbinding2"                     : 'com.jakewharton.rxbinding2:rxbinding:2.1.0',
             //日志
             "logger"                         : 'com.orhanobut:logger:2.1.1',
-
             //图片
             "glide"                          : 'com.github.bumptech.glide:glide:4.5.0',
             "glide:okhttp3"                  : 'com.github.bumptech.glide:okhttp3-integration:4.5.0',
@@ -69,20 +68,15 @@ ext{
             "photoview"                      : 'com.github.chrisbanes.photoview:library:1.2.4',
             //时间,地址,条件选择器
             "pickerView"                     : 'com.contrarywind:Android-PickerView:3.2.6',
-
             //SmartRefreshLayout
             "smartRefreshLayout"             : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1',
             "SmartRefreshHeader"             : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1',
-
             //banner
             "banner"                         : 'com.youth.banner:banner:1.4.10',
-
             //eventbus
             "eventbus"                       : 'org.greenrobot:eventbus:3.0.0',
-
             //baseRecyclerViewAdapterHelper
             "baseRecyclerViewAdapterHelper"  : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22',
-
             //Bugly集成
             "bugly"                          : 'com.tencent.bugly:crashreport_upgrade:latest.release',
             //仿ios进度条
@@ -90,15 +84,12 @@ ext{
             //6.0权限管理
             "permissionsdispatcher"          : 'com.github.hotchemi:permissionsdispatcher:3.0.1',
             "permissionsdispatcher_processor": 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1',
-
             //dagger 暂时没用
              "dagger"                        : 'com.google.dagger:dagger:2.0.2',
              "dagger-compiler"               : 'com.google.dagger:dagger-compiler:2.0.2',
              "javax-annotation"              : 'org.glassfish:javax.annotation:10.0-b28',
-
             //greendao
              "greendao"                      : 'org.greenrobot:greendao:3.2.2',
-
             //Android屏幕适配
             "autolayout"                      : 'com.zhy:autolayout:1.4.5',
             //安卓调试神器-Stetho

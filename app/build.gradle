@@ -41,7 +41,7 @@ dependencies {
     implementation project(':component_data')
     implementation project(':component_base')
 
-    if (!rootProject.ext.appDebug) {
+    if (!rootProject.ext.isModule) {
         implementation project(':module_shop_mall')
         implementation project(':module_shop_cart')
         implementation project(':module_welfare')

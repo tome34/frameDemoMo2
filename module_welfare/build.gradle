@@ -62,8 +62,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-
     //Arouter路由
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     //黄油刀

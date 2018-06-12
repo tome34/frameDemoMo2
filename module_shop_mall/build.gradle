@@ -40,19 +40,19 @@ android {
         }
     }
 
-    /*java插件引入了一个概念叫做SourceSets，通过修改SourceSets中的属性，可以指定哪些源文件（或文件夹下的源文件）要被编译，哪些源文件要被排除。*/
+    /*java插件引入了一个概念叫做SourceSets，通过修改SourceSets中的属性，可以指定哪些源文件
+    （或文件夹下的源文件）要被编译，哪些源文件要被排除。*/
     sourceSets {
         main {
             if (rootProject.ext.moduleShopMall) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     //排除java/debug文件夹下的所有文件
-                    exclude '*debug'
+                    exclude '*module'
                 }
             }
-
         }
     }
 

@@ -26,6 +26,6 @@ public class ShopCartActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mTvCartTest.setText("我来了");
+        mTvCartTest.setText("我是购物车模块");
     }
 }
