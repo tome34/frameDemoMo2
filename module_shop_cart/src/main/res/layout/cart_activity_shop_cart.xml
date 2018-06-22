@@ -3,14 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_cart_frag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.tome.module_shop_cart.ShopCartActivity">
 
-    <TextView
-        android:id="@+id/tv_cart_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="购物车"/>
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View style="@style/HorizontalLineStyle" />
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rb_product"
+            style="@style/cart_HomeTabStyle"
+            android:drawableTop="@drawable/cart_home_tab_shop"
+            android:text="@string/cart_tab_product"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/cart_tab_color" />
+        <RadioButton
+            android:id="@+id/rb_cart"
+            style="@style/cart_HomeTabStyle"
+            android:drawableTop="@drawable/cart_home_tab_cart"
+            android:text="@string/cart_tab_cart"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/cart_tab_color" />
+    </RadioGroup>
+
 
 </LinearLayout>

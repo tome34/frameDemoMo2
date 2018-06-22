@@ -33,9 +33,9 @@ import java.util.regex.Pattern;
 
 /**
  * @author liubp
- * @function 检测工具类
+ * @function 排序工具,md5加密工具
  */
-public class DetectTool {
+public class SortTool {
     static TelephonyManager tm;
 
     /**
@@ -131,38 +131,6 @@ public class DetectTool {
         return s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
     }
 
-    /**
-     * 获取时间戳
-     *
-     * @return
-     */
-    public static String getTS() {
-//        return "1489399741834";
-        return System.currentTimeMillis() + "";
-    }
-
-    /**
-     * 获取手机唯一串号IMEI
-     *
-     * @return imei
-     */
-    public static String getIMEI() {
-        String deviceId="";
-//        if (CommonApplication.PHONE_STATE) {
-//            if (null == tm) {
-//                tm = (TelephonyManager) CommonApplication.getApplication().getSystemService(Context.TELEPHONY_SERVICE);
-//            }
-//            deviceId = tm.getDeviceId();
-//        } else {
-//            deviceId = (String) SPUtil.get(CommonApplication.getApplication(), "deviceId", "");
-//            if (TextUtils.isEmpty(deviceId)) {
-//                deviceId = UUID.randomUUID().toString();
-//                SPUtil.put(CommonApplication.getApplication(), "deviceId", deviceId);
-//            }
-//        }
-        return deviceId;
-    }
-
 
     public static String getSign(HashMap<String, String> params) {
 
@@ -202,86 +170,6 @@ public class DetectTool {
         /*****************对排序后的参数进行MD5散列函数运算***********************/
         //返回md5加密后的字符串注意统一转化为大写
         return hex.toString().toUpperCase();
-    }
-
-    /**
-     * 获取屏幕横向(宽度)分辨率
-     *
-     * @param context
-     * @return
-     */
-    public static int getResolutionX(Context context) {
-        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
-        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-        int width = mDisplayMetrics.widthPixels;
-        return width;
-    }
-
-
-    /**
-     * 获取屏幕纵向(高度)分辨率
-     *
-     * @param context
-     * @return
-     */
-    public static int getResolutionY(Context context) {
-        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
-        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-
-        int height = mDisplayMetrics.heightPixels;
-
-        Log.i("DetectTool", height + "");
-
-        return height;
-    }
-
-    /**
-     * 如果软键盘打开状态，隐藏软键盘。
-     *
-     * @param activity 上下文对象
-     */
-    public static void hideSoftInput(Activity activity) {
-        InputMethodManager mm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        if (mm.isActive() && activity.getCurrentFocus() != null) {
-            mm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
-
-    /**
-     * 获取凭证(Token)
-     *
-     * @return
-     */
-    public static String getToken() {
-        return "123";
-    }
-
-    /**
-     * 写死的版本号，对应versionName
-     *
-     * @return
-     */
-    public static String getVersionName() {
-        return "1.0.0";
-    }
-
-    /**
-     * 获取应用类型
-     *
-     * @return
-     */
-    public static String getAppType() {
-        return "0";
-    }
-
-    /**
-     * 获取设备类型，1-Android，2-IOS
-     *
-     * @return
-     */
-    public static String getType() {
-        return "1";
     }
 
     /**

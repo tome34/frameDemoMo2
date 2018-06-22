@@ -47,4 +47,11 @@ public class RouterCenter {
         ARouter.getInstance().build(RouterURLS.WELFARE_HOME).navigation();
     }
 
+    /**
+     * 自定义控件集合
+     */
+    public static void toCustomControl(){
+        ARouter.getInstance().build(RouterURLS.CUSTOM_CONTROL).navigation();
+    }
+
 }

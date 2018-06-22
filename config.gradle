@@ -23,7 +23,7 @@ ext{
 
     dependencies = [
             "appcompat_v7"                   : "com.android.support:appcompat-v7:${android["androidSupportSdkVersion"]}",
-            "constraint_layout"              : 'com.android.support.constraint:constraint-layout:1.1.0',
+            "constraint_layout"              : 'com.android.support.constraint:constraint-layout:1.1.1',
             "runner"                         : 'com.android.support.test:runner:1.0.1',
             "espresso_core"                  : 'com.android.support.test.espresso:espresso-core:3.0.1',
             "junit"                          : 'junit:junit:4.12',
@@ -34,7 +34,7 @@ ext{
             "recyclerview-v7"                : "com.android.support:recyclerview-v7:${android["androidSupportSdkVersion"]}",
 
             //方法数超过65535解决方法64K MultiDex分包方法
-            "multidex"                       : 'com.android.support:multidex:1.0.1',
+            "multidex"                       : 'com.android.support:multidex:1.0.2',
 
             //路由
             "arouter_api"                    : 'com.alibaba:arouter-api:1.2.4',

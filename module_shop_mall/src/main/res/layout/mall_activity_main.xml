@@ -15,7 +15,7 @@
         android:id="@+id/tv_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试跳转"/>
+        android:text="greendao本地购物车"/>
     <Button
         android:id="@+id/tv_get_data"
         android:layout_width="match_parent"
@@ -26,7 +26,13 @@
         android:id="@+id/tv_goto_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳转主页"/>
+        android:text="玩Android主页"/>
+
+    <Button
+        android:id="@+id/tv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义控件集合"/>
 
     <TextView
         android:id="@+id/tv_data"

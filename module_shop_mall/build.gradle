@@ -59,24 +59,25 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     /*implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat_v7"]
-    implementation rootProject.ext.dependencies["cardview-v7"]
-    implementation rootProject.ext.dependencies["recyclerview-v7"]
-    implementation rootProject.ext.dependencies["design"]
-    implementation rootProject.ext.dependencies["constraint_layout"]
-    implementation rootProject.ext.dependencies["support_annotations"]
-    testImplementation rootProject.ext.dependencies["junit"]
-    androidTestImplementation rootProject.ext.dependencies["runner"]
-    androidTestImplementation rootProject.ext.dependencies["espresso_core"]*/
-
+        implementation rootProject.ext.dependencies["appcompat_v7"]
+        implementation rootProject.ext.dependencies["cardview-v7"]
+        implementation rootProject.ext.dependencies["recyclerview-v7"]
+        implementation rootProject.ext.dependencies["design"]
+        implementation rootProject.ext.dependencies["constraint_layout"]
+        implementation rootProject.ext.dependencies["support_annotations"]
+        testImplementation rootProject.ext.dependencies["junit"]
+        androidTestImplementation rootProject.ext.dependencies["runner"]
+        androidTestImplementation rootProject.ext.dependencies["espresso_core"]*/
     //Arouter路由
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
     //公用依赖包
     implementation project(':component_base')
     implementation project(':component_data')
-
+    //implementation project(':baseLib:alertview')
+    //implementation project(':alertview')
 }

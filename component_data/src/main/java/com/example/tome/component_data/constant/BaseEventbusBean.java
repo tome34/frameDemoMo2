@@ -2,6 +2,7 @@ package com.example.tome.component_data.constant;
 
 /**EventBus事件类
  * Created by ghy on 2017/11/10.
+ * 统一管理eventbus ,这有缺点,因为eventbus的原理是用链式存储,如果key相同,这有查找的速度就很变慢
  */
 
 public class BaseEventbusBean<T> {

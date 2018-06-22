@@ -24,6 +24,10 @@ public interface IntentKV {
     String K_WELFARE_PHOTO = "K_WELFARE_PHOTO";
     String K_WELFARE_POSITION = "K_WELFARE_POSITION";
 
+    //knowledge 页面
+    String K_KNOWLEDGE_DATA = "K_KNOWLEDGE_DATA";
+    String K_KNOWLEDGE_ID = "K_KNOWLEDGE_ID";
+
 
     //=========================================================================
 

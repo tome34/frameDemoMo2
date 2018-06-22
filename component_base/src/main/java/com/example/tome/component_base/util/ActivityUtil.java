@@ -2,6 +2,8 @@ package com.example.tome.component_base.util;
 
 import android.app.Activity;
 
+import com.example.tome.component_base.base.BaseMVPActivity;
+
 import java.util.Stack;
 import java.util.logging.Logger;
 
@@ -57,6 +59,8 @@ public class ActivityUtil {
     public void popCurrentActivity() {
         popActivity(currentActivity());
     }
+
+
 
     /**
      * <将Activity入栈>

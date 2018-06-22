@@ -1,9 +1,9 @@
 package com.example.tome.module_shop_mall.presenter;
 
 import com.example.tome.component_base.base.BasePresenter;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.INetCallback;
 import com.example.tome.module_shop_mall.api.ModelService;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;

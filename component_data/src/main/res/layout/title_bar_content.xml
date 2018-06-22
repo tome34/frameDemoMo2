@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/mainColor"
+    android:background="@color/colorPrimary"
     android:id="@+id/rl_title_bar_content"
     android:layout_height="wrap_content">
 
@@ -22,7 +22,8 @@
             android:gravity="center"
             android:onClick="back"
             android:paddingLeft="12dp"
-            android:paddingRight="12dp" />
+            android:paddingRight="12dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/title_content_text"
@@ -38,7 +39,7 @@
             android:padding="10dp"
             android:singleLine="true"
             tools:text="标题"
-            android:textColor="@color/color33"
+            android:textColor="@color/windowBg"
             android:textSize="18dp" />
 
         <TextView

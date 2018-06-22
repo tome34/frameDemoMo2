@@ -27,7 +27,5 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         myApplication = this ;
-        //RouterConfig.init(this, com.example.tome.component_base.BuildConfig.DEBUG);
-       // Stetho.initializeWithDefaults(this);
     }
 }

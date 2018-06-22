@@ -64,11 +64,11 @@ public class RxUtils  {
                 .subscribeOn(Schedulers.io())                //指定网络请求在IO线程
                 .doOnSubscribe(disposable -> {
                     LogUtil.d("显示数据"+Thread.currentThread().getName());
-                     ProgressManage.getInstance().showHUD(mContext);                 //显示加载进度条
+                     //ProgressManage.getInstance().showHUD(mContext);                 //显示加载进度条
                 }).subscribeOn(AndroidSchedulers.mainThread()) //显示进度条在主线程
                 .observeOn(AndroidSchedulers.mainThread())     //显示数据在主线程
                 .doFinally(() -> {
-                    ProgressManage.getInstance().dismissHUD(); //隐藏进度条
+                    //ProgressManage.getInstance().dismissHUD(); //隐藏进度条
                     LogUtil.d("隐藏数据"+Thread.currentThread().getName());
                 });
     }

@@ -3,6 +3,7 @@ package com.example.tome.module_shop_mall.api;
 import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.inter.BaseView;
 import com.example.tome.component_base.net.HttpHelper;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.RxUtils;
 import com.example.tome.component_base.util.T;
@@ -23,6 +24,15 @@ public class ModelService {
 
     private ModelService mModelService;
     private INetCallback mCallback;
+
+    /**
+     * 获取api的回调
+     * @param <T>
+     */
+    public interface MethodSelect<T>{
+
+        Observable<BaseObj<T>> selectM(ApiService service);
+    }
 
     public ModelService(ModelService modelService) {
         mModelService = modelService;
@@ -110,12 +120,6 @@ public class ModelService {
                                    }
                                }
                 );
-    }
-
-
-    public interface MethodSelect<T>{
-
-         Observable<BaseObj<T>> selectM(ApiService service);
     }
 
 }

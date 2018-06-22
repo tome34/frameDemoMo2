@@ -5,8 +5,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.text.TextUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -14,8 +12,6 @@ import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.bean.FeedArticleData;
 
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * @Created by TOME .
@@ -54,7 +50,7 @@ public class HomeListAdapter extends BaseQuickAdapter<FeedArticleData, BaseViewH
         if (isSearchPage) {
             CardView cardView = helper.getView(R.id.item_home_card_view);
             cardView.setForeground(null);
-            cardView.setBackground(ContextCompat.getDrawable(mContext, R.drawable.selector_search_item_bac));
+            cardView.setBackground(ContextCompat.getDrawable(mContext, R.drawable.mall_selector_search_item_bac));
         }
 
         helper.addOnClickListener(R.id.item_home_like_iv);

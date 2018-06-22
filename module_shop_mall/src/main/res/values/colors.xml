@@ -24,6 +24,7 @@
     <color name="mall_colorCC">#CCCCCC</color>
     <color name="mall_colorFA">#FAFAFA</color>
     <color name="mall_translucent">#26000000</color>
+    <color name="mall_color_cc000">#cc000000</color>
     <color name="mall_account_color_orange_f59">#F59523</color>
     <color name="mall_colorFEFF">#FEFEFF</color>
     <color name="mall_colorE75">#E75353</color>

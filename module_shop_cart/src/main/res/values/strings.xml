@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">module_shop_cart</string>
+    <string name="cart_app_name">module_shop_cart</string>
+
+    <string name="cart_tab_product">商品</string>
+    <string name="cart_tab_cart">购物车</string>
+
 </resources>

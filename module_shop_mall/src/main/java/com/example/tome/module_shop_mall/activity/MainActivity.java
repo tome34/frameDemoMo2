@@ -36,6 +36,8 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
     Button mTvGetData;
     @BindView(R2.id.tv_goto_home)
     Button mTvGotoHome;
+    @BindView(R2.id.tv_list)
+    Button mTvList;
     @BindView(R2.id.tv_data)
     TextView mTvData;
     @BindView(R2.id.v_title_container)
@@ -68,7 +70,7 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
         mLayoutMain.setBackgroundColor(getResources().getColor(R.color.windowBg));
         vTitleContainer.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mBack.setVisibility(View.GONE);
-        mTitle.setText("测试入口");
+        mTitle.setText("欢迎您的到来!");
     }
 
     /**
@@ -79,6 +81,7 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
         mTvTest.setOnClickListener(this);
         mTvGetData.setOnClickListener(this);
         mTvGotoHome.setOnClickListener(this);
+        mTvList.setOnClickListener(this);
     }
 
     /**
@@ -95,15 +98,13 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
         if (v.getId() == R.id.tv_test) {
             L.d("点击了");
             RouterCenter.toShopCart();
-          /*  //上传头像
-            if (!getPermission(Manifest.permission.CAMERA, PERMISSION_CAMERA)) {
-                return;
-            }*/
         } else if (v.getId() == R.id.tv_get_data) {
             //网络请求
             mPresenter.getFeedArticleList(0);
         } else if (v.getId() == R.id.tv_goto_home) {
             RouterCenter.toHome();
+        } else if (v.getId() == R.id.tv_list){
+            RouterCenter.toCustomControl();
         }
     }
 

@@ -46,7 +46,7 @@ android {
     sourceSets {
         main {
             if (rootProject.ext.moduleShopCart) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
@@ -67,8 +67,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-
     //Arouter路由
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]

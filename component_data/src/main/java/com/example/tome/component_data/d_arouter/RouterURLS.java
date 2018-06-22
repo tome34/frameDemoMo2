@@ -17,4 +17,11 @@ public interface RouterURLS {
     String WELFARE_HOME = "/welfare/home";
     String WELFARE_PREVIEW = "/welfare/preview";
 
+
+    String PRODUCT_GOODS = "/product1/goods";
+    String PRODUCT_CART = "/product/cart";
+
+    String CUSTOM_CONTROL = "/custom/control";
+
+
 }

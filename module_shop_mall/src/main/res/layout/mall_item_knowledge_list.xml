@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/v_space"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="40dp"
+        android:background="@color/color99"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view01"
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/color99"/>
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:src="@mipmap/icon_circular_select"/>
+            <View
+                android:id="@+id/view02"
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/color99"/>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                tools:text="开发环境"
+                android:textColor="@color/mall_color_cc000"/>
+
+            <TextView
+                android:id="@+id/tvTextItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:lineSpacingMultiplier="1.5"
+                android:textSize="14sp"
+                android:textColor="@color/color66"
+                tools:text="Android Studio相关   gradle  官方发布"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

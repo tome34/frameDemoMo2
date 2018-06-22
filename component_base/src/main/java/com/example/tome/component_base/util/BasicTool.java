@@ -60,6 +60,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author liubp
+ * 判断是否为空
  */
 public class BasicTool {
 

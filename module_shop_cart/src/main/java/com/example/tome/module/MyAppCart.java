@@ -15,6 +15,6 @@ public class MyAppCart extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        RouterConfig.init(this, true);
+        //RouterConfig.init(this, true);
     }
 }

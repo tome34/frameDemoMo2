@@ -48,8 +48,8 @@ public abstract class BaseTabListActivity<P extends AbstractPresenter> extends B
     @Override
     protected int getLayoutId() {
         titleList = tabTitles();
-       // return R.layout.fragment_tab_list;
-        return getTabLayoutId();
+        return R.layout.fragment_tab_list;
+       // return getTabLayoutId();
     }
 
     @Override
@@ -102,7 +102,7 @@ public abstract class BaseTabListActivity<P extends AbstractPresenter> extends B
         return false;
     }
 
-    protected abstract int getTabLayoutId();
+  //  protected abstract int getTabLayoutId();
     /**
      * tab标题集合
      *

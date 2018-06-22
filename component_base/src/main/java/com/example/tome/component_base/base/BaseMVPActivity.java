@@ -54,6 +54,9 @@ public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCo
         onViewCreated();
         initTitle();
         initView();
+        if (regEvent){
+            EventBus.getDefault().register(this);
+        }
     }
 
     /**
@@ -64,10 +67,6 @@ public abstract class BaseMVPActivity<P extends AbstractPresenter> extends AppCo
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
-        if (regEvent){
-            EventBus.getDefault().register(this);
-        }
-
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -1,9 +1,8 @@
 package com.example.welfare.module_welfare.presenter;
 
 import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.welfare.module_welfare.api.ApiService;
-import com.example.welfare.module_welfare.api.INetCallback;
 import com.example.welfare.module_welfare.api.ModelService;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 import com.example.welfare.module_welfare.contract.WelfareContract;

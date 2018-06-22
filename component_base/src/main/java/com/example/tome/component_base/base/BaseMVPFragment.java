@@ -54,6 +54,9 @@ public abstract class BaseMVPFragment<P extends AbstractPresenter> extends Fragm
         initTitle();
         initView();
 
+        if (regEvent){
+            EventBus.getDefault().register(this);
+        }
         return view ;
     }
 
@@ -64,9 +67,6 @@ public abstract class BaseMVPFragment<P extends AbstractPresenter> extends Fragm
         mPresenter = getPresenter();
         if (mPresenter != null) {
             mPresenter.attachView(this);
-        }
-        if (regEvent){
-            EventBus.getDefault().register(this);
         }
 
     }

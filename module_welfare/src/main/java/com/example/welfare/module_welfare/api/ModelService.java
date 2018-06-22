@@ -3,11 +3,11 @@ package com.example.welfare.module_welfare.api;
 import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.inter.BaseView;
 import com.example.tome.component_base.net.HttpHelper;
+import com.example.tome.component_base.net.common_callback.INetCallback;
+import com.example.tome.component_base.net.file_download.FileDownLoadCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.RxUtils;
-import com.example.tome.component_base.util.T;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.component_data.bean.BaseResponse;
+import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import io.reactivex.Observable;
@@ -22,6 +22,15 @@ public class ModelService {
 
     private ModelService mModelService;
     private INetCallback mCallback;
+
+    /**
+     * 接口回调
+     * @param <T>
+     */
+    public interface MethodSelect<T>{
+
+        Observable<T> selectM(ApiService service);
+    }
 
     public ModelService(ModelService modelService) {
         mModelService = modelService;
@@ -43,11 +52,8 @@ public class ModelService {
                                    @Override
                                    public void onNext(T result) {
                                        L.d("获取数据", ":" + result);
-                                    //   if (BaseResponse.SUCCESS.equals(result.getCode())) {
                                            callback.onSuccess(result);
-                                      // } else {
-                                       //    mView.showError(result.getMessage(), result.getCode());
-                                     //  }
+
                                    }
                                }
                 );
@@ -71,7 +77,7 @@ public class ModelService {
                 .subscribeWith(new BaseObserver<T>(mView, rlRefresh,false) {
                                    @Override
                                    public void onNext(T result) {
-                                       L.d("获取数据", ":" + result);
+                                       Logger.json("获取数据"+result.toString());
                                        callback.onSuccess(result);
 
                                    }
@@ -80,9 +86,22 @@ public class ModelService {
     }
 
 
-    public interface MethodSelect<T>{
 
-         Observable<T> selectM(ApiService service);
+
+
+    public static <T> BaseObserver<T> downloadFile(BaseView mView, MethodSelect<T> select, INetCallback<T> callback){
+        return select.selectM(HttpHelper.getDefault(2)
+                .create(ApiService.class))
+                .compose(RxUtils.<T>rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<T>(mView, "正在保存...") {
+                                   @Override
+                                   public void onNext(T result) {
+                                       L.d("获取数据", ":" + result);
+                                       callback.onSuccess(result);
+                                   }
+                               }
+                );
+
     }
 
 

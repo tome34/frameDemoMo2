@@ -5,6 +5,8 @@
     <string name="mall_home_page">首页</string>
     <string name="mall_home_shop">商品</string>
     <string name="mall_home_cart">购物车</string>
+    <string name="mall_home_knowledge_system">知识体系</string>
+    <string name="mall_home_navigation">导航</string>
     <string name="mall_home_self">我的</string>
 
     <string name="mall_login_in">登陆</string>

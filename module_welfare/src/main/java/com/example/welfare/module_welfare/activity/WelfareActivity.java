@@ -53,8 +53,14 @@ public class WelfareActivity extends BaseTabListActivity {
         fragmentTransaction.commit();*/
     }
 
-    @Override
+  /*  @Override
     protected int getTabLayoutId() {
+        return R.layout.welfare_activity_welfare;
+    }*/
+
+    @Override
+    protected int getLayoutId() {
+        super.getLayoutId();
         return R.layout.welfare_activity_welfare;
     }
 

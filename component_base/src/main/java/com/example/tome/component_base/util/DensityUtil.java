@@ -3,7 +3,11 @@ package com.example.tome.component_base.util;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
+/**
+ * 密度转换工具
+ */
 public class DensityUtil {
 
     // 根据手机的分辨率将dp的单位转成px(像素)
@@ -48,4 +52,30 @@ public class DensityUtil {
         activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
         return metric.heightPixels;
     }
+
+	/**
+	 * 获取屏幕横向(宽度)分辨率
+	 * @param context
+	 * @return
+	 */
+	public static int getResolutionX(Context context){
+		DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+		((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+
+		int width = mDisplayMetrics.widthPixels;
+		return width;
+	}
+
+	/**
+	 * 获取屏幕纵向(高度)分辨率
+	 * @param context
+	 * @return
+	 */
+	public static int getResolutionY(Context context){
+		DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+		((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+
+		int height = mDisplayMetrics.heightPixels;
+		return height;
+	}
 }

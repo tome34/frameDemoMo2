@@ -14,6 +14,9 @@ public class EventBusBean extends BaseEventbusBean<Object>{
         super(type, obj);
     }
 
-    public static final int CUSTOMER_FILTER = 10001;//分销商列表筛选
-    public static final int SHOP_FILTER = 10002;//商品列表筛选
+    //例子
+    public static final int CUSTOMER_FILTER = 10000;
+
+    //首页侧滑
+    public static final int SHOP_MALL_HOME = 10001;
 }

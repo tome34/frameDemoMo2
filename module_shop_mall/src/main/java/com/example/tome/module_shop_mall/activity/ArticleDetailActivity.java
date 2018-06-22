@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.tome.component_base.base.BaseMVPActivity;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_base.util.WebViewInitTool;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
@@ -85,25 +86,18 @@ public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresente
 
     @Override
     protected void initView() {
+        WebViewInitTool.init(mActivity, mWebView);
+
         mWebView.loadUrl(articleLink);
-        WebSettings settings = mWebView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        //自适应屏幕
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        //支持缩放
-        settings.setBuiltInZoomControls(true);
-        settings.setSupportZoom(true);
-        //隐藏原生的缩放控件
-        settings.setDisplayZoomControls(false);
 
-        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+       // mWebView.loadDataWithBaseURL(null, WebViewInitTool.getHtmlData(productDetail), "text/html", "utf-8", null);
 
+        //点击拦截 true表示拦截, false表示不拦截
         mWebView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                view.loadUrl(articleLink);
-                return true;
+                //view.loadUrl(articleLink);
+                return false;
 
             }
 

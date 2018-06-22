@@ -27,9 +27,10 @@
             android:name="design_height"
             android:value="1920" />
 
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.HomeActivity"></activity>
-        <activity android:name=".activity.ArticleDetailActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.ArticleDetailActivity" />
+        <activity android:name=".activity.KnowledgeDetailActivity"></activity>
     </application>
 
 </manifest>

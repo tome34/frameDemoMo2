@@ -12,15 +12,15 @@
     <item
         android:id="@+id/tab_goods"
         android:enabled="true"
-        android:icon="@drawable/mall_home_tab_shop"
-        android:title="@string/mall_home_shop"
+        android:icon="@drawable/mall_home_tab_knowledge_system"
+        android:title="@string/mall_home_knowledge_system"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/tab_cart"
         android:enabled="true"
-        android:icon="@drawable/mall_home_tab_cart"
-        android:title="@string/mall_home_cart"
+        android:icon="@drawable/mall_home_tab_navigation"
+        android:title="@string/mall_home_navigation"
         app:showAsAction="ifRoom" />
 
     <item

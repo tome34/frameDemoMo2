@@ -54,7 +54,10 @@ dependencies {
     api rootProject.ext.dependencies["appcompat_v7"]
     api rootProject.ext.dependencies["constraint_layout"]
     api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["support-v4"]
     api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["support_annotations"]
     testApi rootProject.ext.dependencies["junit"]
     androidTestApi rootProject.ext.dependencies["runner"]
     androidTestApi rootProject.ext.dependencies["espresso_core"]
@@ -119,10 +122,7 @@ dependencies {
     //安卓调试神器-Stetho
     api rootProject.ext.dependencies["stetho"]
     api rootProject.ext.dependencies["stetho-okhttp3"]
-
-
-
-
+    
 
     implementation project(':component_data')
 }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tome.module_shop_mall.fagment.KnowledgeSystemFragment">
+
+    <include layout="@layout/title_bar_content" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mall_color99"
+            android:orientation="vertical">
+            <!--标题-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center">
+
+                <View style="@style/mall_line_width40" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="福利推荐"
+                    android:textColor="@color/windowBg"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View style="@style/mall_line_width40" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@color/mall_colorCC"
+                android:orientation="horizontal">
+
+
+                <!-- 圆形图-->
+                <com.example.tome.component_base.widget.CircularImageView
+                    android:id="@+id/civ_welfare_one"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    />
+
+                <!--  圆形图-->
+                <com.example.tome.component_base.widget.CircularImageView
+                    android:id="@+id/civ_welfare_two"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_knowledge_system_List"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

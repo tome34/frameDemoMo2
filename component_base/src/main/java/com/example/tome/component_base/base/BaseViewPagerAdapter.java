@@ -1,4 +1,4 @@
-package com.example.tome.module_shop_mall.adapter;
+package com.example.tome.component_base.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,14 +9,14 @@ import java.util.List;
 
 /**
  * Created by bruce on 2016/11/1.
- * ViewPagerAdapter
+ * BaseViewPagerAdapter
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class BaseViewPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
 
-    public ViewPagerAdapter(FragmentManager manager) {
+    public BaseViewPagerAdapter(FragmentManager manager) {
         super(manager);
     }
 

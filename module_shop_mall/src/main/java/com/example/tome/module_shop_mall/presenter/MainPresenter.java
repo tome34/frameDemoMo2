@@ -5,16 +5,14 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.example.tome.component_base.base.BasePresenter;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.ActivityUtil;
 import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.T;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.INetCallback;
 import com.example.tome.module_shop_mall.api.ModelService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
-import com.example.tome.module_shop_mall.params.LoginParams;
 
 import io.reactivex.Observable;
 
