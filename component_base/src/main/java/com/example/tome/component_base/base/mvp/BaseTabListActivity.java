@@ -75,6 +75,7 @@ public abstract class BaseTabListActivity<P extends AbstractPresenter> extends B
 
     class TabAdapter extends FragmentPagerAdapter {
 
+
         public TabAdapter(FragmentManager fm) {
             super(fm);
         }
