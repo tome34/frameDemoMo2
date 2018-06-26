@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 /**
  * @author liubp
+ * 运算工具
  */
 public class Arith {
     //默认除法运算精度

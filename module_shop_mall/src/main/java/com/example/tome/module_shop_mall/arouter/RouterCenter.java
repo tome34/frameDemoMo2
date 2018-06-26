@@ -34,6 +34,13 @@ public class RouterCenter {
     }
 
     /**
+     * mvc 测试页面
+     */
+    public static void toMVCTest() {
+        ARouter.getInstance().build(RouterURLS.MVC_TEST).navigation();
+    }
+
+    /**
      * goods 模块页面
      */
     public static void toShopGoods() {

@@ -3,22 +3,16 @@ package com.example.welfare.module_welfare.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.base.BasePermissionActivity;
-import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.mvp.BasePermissionActivity;
 import com.example.tome.component_base.net.file_download.FileDownLoadCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.d_arouter.IntentKV;
@@ -33,11 +27,9 @@ import com.example.welfare.module_welfare.widget.HackyViewPager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.ResponseBody;
 
 @Route(path = RouterURLS.WELFARE_PREVIEW)
@@ -131,16 +123,16 @@ public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresen
         L.d("当前时间:" + timeMillis + "," + mPictureName);
         //保存图片到本地
         File fileDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "avatar");
-        FileDownLoadCallback.saveFile(result, Environment.getExternalStorageDirectory().getAbsolutePath()+"/avatar/", "T"+mPictureName+".jpg");
+        FileDownLoadCallback.saveFile(result, Environment.getExternalStorageDirectory().getAbsolutePath()+"/avatar/", "ToastUtils"+mPictureName+".jpg");
 
         // 其次把文件插入到系统图库
         try {
             MediaStore.Images.Media.insertImage(this.getContentResolver(),
-                    fileDir.getAbsolutePath(), "T" + mPictureName + ".jpg", null);
+                    fileDir.getAbsolutePath(), "ToastUtils" + mPictureName + ".jpg", null);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/avatar/" + "T" + mPictureName + ".jpg";
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/avatar/" + "ToastUtils" + mPictureName + ".jpg";
         // 最后通知图库更新
         this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + path)));
     }

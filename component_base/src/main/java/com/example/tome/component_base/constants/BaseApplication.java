@@ -8,6 +8,7 @@ import android.support.multidex.MultiDex;
 import com.example.tome.component_base.BuildConfig;
 import com.example.tome.component_base.R;
 import com.example.tome.component_base.arouter.RouterConfig;
+import com.example.tome.component_base.util.AppUtils;
 import com.example.tome.component_base.util.L;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -20,9 +21,8 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.zhy.autolayout.config.AutoLayoutConifg;
-
-import java.util.Locale;
 
 /**
  * @Created by TOME .
@@ -36,6 +36,7 @@ public class BaseApplication extends Application{
     private static BaseApplication mBaseApplication ;
     //Activity管理
     private ActivityControl mActivityControl;
+    private String BUGLY_ID = "a29fb52485" ;
 
     //SmartRefreshLayout 有三种方式,请参考:https://github.com/scwang90/SmartRefreshLayout
     //static 代码段可以防止内存泄露
@@ -91,6 +92,8 @@ public class BaseApplication extends Application{
         mActivityControl = new ActivityControl();
         //arouter路由初始化
         RouterConfig.init(this, com.example.tome.component_base.BuildConfig.DEBUG);
+        //bugly初始化
+        initBugly();
         //AutoLayout适配初始化
         AutoLayoutConifg.getInstance().useDeviceSize();
         //Stetho调试工具初始化
@@ -106,6 +109,16 @@ public class BaseApplication extends Application{
         L.i("当前是否为debug模式："+IS_DEBUG );
     }
 
+    private void initBugly() {
+        // 获取当前包名
+        String packageName = getApplicationContext().getPackageName();
+        // 获取当前进程名
+        String processName = AppUtils.getProcessName(android.os.Process.myPid());
+        // 设置是否为上报进程
+        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
+        strategy.setUploadProcess(processName == null || processName.equals(packageName));
+        CrashReport.initCrashReport(getApplicationContext(), BUGLY_ID, false, strategy);
+    }
 
 
     /**

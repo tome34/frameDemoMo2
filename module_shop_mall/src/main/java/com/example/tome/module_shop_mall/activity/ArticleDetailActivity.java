@@ -6,25 +6,19 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.WebViewInitTool;
+import com.example.tome.component_base.base.mvp.BaseMVPActivity;
+import com.example.tome.component_base.util.widgetUtils.WebViewInitUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.contract.ArticleDetailContract;
 import com.example.tome.module_shop_mall.presenter.ArticleDetailPresenter;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static com.example.tome.component_data.d_arouter.IntentKV.K_ARTICLE_ID;
 
 /**
  * 文章详情页
@@ -86,11 +80,11 @@ public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresente
 
     @Override
     protected void initView() {
-        WebViewInitTool.init(mActivity, mWebView);
+        WebViewInitUtils.init(mActivity, mWebView);
 
         mWebView.loadUrl(articleLink);
 
-       // mWebView.loadDataWithBaseURL(null, WebViewInitTool.getHtmlData(productDetail), "text/html", "utf-8", null);
+       // mWebView.loadDataWithBaseURL(null, WebViewInitUtils.getHtmlData(productDetail), "text/html", "utf-8", null);
 
         //点击拦截 true表示拦截, false表示不拦截
         mWebView.setWebViewClient(new WebViewClient(){

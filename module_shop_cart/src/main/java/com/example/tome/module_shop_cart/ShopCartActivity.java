@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.BaseMVPActivity;
+import com.example.tome.component_base.base.mvp.BaseMVPActivity;
 import com.example.tome.component_base.base.inter.AbstractPresenter;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_cart.arouter.RouterCenter;

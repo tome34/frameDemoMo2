@@ -1,7 +1,6 @@
 package com.example.tome.module_shop_mall.fagment;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.base.BaseMVPFragment;
+import com.example.tome.component_base.base.mvp.BaseMVPFragment;
 import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.widget.MyRecyclerView;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
@@ -30,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @Created by TOME .

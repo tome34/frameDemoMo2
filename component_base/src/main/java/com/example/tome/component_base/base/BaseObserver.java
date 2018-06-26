@@ -5,14 +5,12 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
-import com.example.tome.component_base.R;
 import com.example.tome.component_base.base.inter.BaseView;
 import com.example.tome.component_base.base.inter.ILoadingDialogView;
-import com.example.tome.component_base.util.ActivityUtil;
+import com.example.tome.component_base.util.ActivityUtils;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.NetUtils;
 import com.example.tome.component_data.ServerException.ServerException;
-import com.example.tome.component_data.bean.BaseObj;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import io.reactivex.observers.ResourceObserver;
@@ -25,10 +23,10 @@ import retrofit2.HttpException;
  * @param <T>
  */
 
-//public abstract class BaseObserver<R,T extends BaseObj<R>> extends ResourceObserver<T> {
+//public abstract class BaseObserver<R,ToastUtils extends BaseObj<R>> extends ResourceObserver<ToastUtils> {
 public abstract class BaseObserver<T> extends ResourceObserver<T> {
-//public abstract class BaseObserver<T> extends DisposableObserver<T> {
-//public abstract class BaseObserver<T> implements Observer<T> {
+//public abstract class BaseObserver<ToastUtils> extends DisposableObserver<ToastUtils> {
+//public abstract class BaseObserver<ToastUtils> implements Observer<ToastUtils> {
 
     private BaseView mView;
     private String mErrorMsg;
@@ -62,7 +60,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
 
 
    /* @Override
-    public void onNext(T t) {
+    public void onNext(ToastUtils t) {
         if (t.getCode().equals("0")){
             onNextSuccess(t.getData());
         }else {
@@ -103,7 +101,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
             mDialogView.showHUD(msg);
         }
 
-        Activity currentActivity = ActivityUtil.getInstance().currentActivity();
+        Activity currentActivity = ActivityUtils.getInstance().currentActivity();
         if (currentActivity != null && !NetUtils.isNetConnected(currentActivity)) {
             Toast.makeText(currentActivity, "当前无网络", Toast.LENGTH_SHORT).show();
             onComplete();

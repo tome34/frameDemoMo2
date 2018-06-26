@@ -146,7 +146,7 @@ public class ImageUtils {
             e.printStackTrace();
             return null;
         } finally {
-            StreamUtils.close(is);
+            CloseUtils.close(is);
         }
     }
     /**
@@ -172,7 +172,7 @@ public class ImageUtils {
             e.printStackTrace();
             return null;
         } finally {
-          //  StreamUtils.close(is);
+          //  CloseUtils.close(is);
         }
     }
     /**
@@ -470,7 +470,7 @@ public class ImageUtils {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            StreamUtils.close(os);
+            CloseUtils.close(os);
         }
         return ret;
     }
@@ -522,7 +522,7 @@ public class ImageUtils {
             e.printStackTrace();
             return null;
         } finally {
-            StreamUtils.close(is);
+            CloseUtils.close(is);
         }
     }
 

@@ -113,7 +113,7 @@ public class HttpHelper {
         okHttpClient = builder.build();
 
         //自定义Gson对象
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").serializeNulls().create();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'ToastUtils'HH:mm:ssZ").serializeNulls().create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(BaseHost.getHost(hostType))
                 .client(okHttpClient)

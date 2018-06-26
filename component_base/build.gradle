@@ -122,7 +122,9 @@ dependencies {
     //安卓调试神器-Stetho
     api rootProject.ext.dependencies["stetho"]
     api rootProject.ext.dependencies["stetho-okhttp3"]
-    
+    //bugly sdk
+    api rootProject.ext.dependencies["tencent-bugly"]
+
 
     implementation project(':component_data')
 }

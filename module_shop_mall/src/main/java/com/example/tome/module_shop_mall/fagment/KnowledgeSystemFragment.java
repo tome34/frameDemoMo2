@@ -1,7 +1,6 @@
 package com.example.tome.module_shop_mall.fagment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Html;
@@ -14,13 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.BaseMVPFragment;
-import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.component_base.base.mvp.BaseMVPFragment;
 import com.example.tome.component_base.helper.ImageLoaderHelper;
-import com.example.tome.component_base.util.BasicTool;
-import com.example.tome.component_base.util.DensityUtil;
-import com.example.tome.component_base.util.SortTool;
+import com.example.tome.component_base.util.ConvertUtils;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_base.util.ObjectUtils;
 import com.example.tome.component_base.widget.CircularImageView;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
@@ -32,7 +29,6 @@ import com.example.tome.module_shop_mall.contract.KnowledgeSystemContract;
 import com.example.tome.module_shop_mall.presenter.KnowledgeSystemPresenter;
 import com.example.tome.module_shop_mall.widget.RotateAnimation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -122,7 +118,7 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
     private void setCivHeight(CircularImageView civWelfare) {
         //设置圆形长度
         ViewGroup.LayoutParams params = civWelfare.getLayoutParams();
-        params.height = ((DensityUtil.getResolutionX(mContext)) - DensityUtil.dip2px(mContext, 40)) / 2;
+        params.height = ((ConvertUtils.getResolutionX(mContext)) - ConvertUtils.dip2px(mContext, 40)) / 2;
         civWelfare.setLayoutParams(params);
 
         //设置圆形外宽
@@ -135,7 +131,7 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
     private void initAnimation() {
         enableRefresh = true;
         float             cY         = mCivWelfareOne.getHeight() / 2.0f;
-        float             cX1        = (DensityUtil.getResolutionX(mContext) - DensityUtil.dip2px(mContext, 40)) / 4;
+        float             cX1        = (ConvertUtils.getResolutionX(mContext) - ConvertUtils.dip2px(mContext, 40)) / 4;
         RotateAnimation rotateAnim = new RotateAnimation(cX1, cY, RotateAnimation.ROTATE_DECREASE);
         rotateAnim.setFillAfter(true);
         rotateAnim.setInterpolatedTimeListener(this);
@@ -201,11 +197,11 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
     }
 
     private void initCircleAd() {
-        if (BasicTool.isNotEmpty(mCircleImg1)) {
+        if (ObjectUtils.isNotEmpty(mCircleImg1)) {
             //加载第一张
             ImageLoaderHelper.getInstance().load(mContext, mCircleImg1, mCivWelfareOne);
         }
-        if (BasicTool.isNotEmpty(mCircleImg3)) {
+        if (ObjectUtils.isNotEmpty(mCircleImg3)) {
             //加载第三张
             ImageLoaderHelper.getInstance().load(mContext, mCircleImg3, mCivWelfareTwo);
         }
@@ -248,20 +244,20 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
         if (enableRefresh && interpolatedTime > 0.5f) {
             if (rotateState) {
                 //反面
-                if (BasicTool.isNotEmpty(mCircleImg1)) {
+                if (ObjectUtils.isNotEmpty(mCircleImg1)) {
                     ImageLoaderHelper.getInstance().load(mContext, mCircleImg1, mCivWelfareOne);
                 }
-                if (BasicTool.isNotEmpty(mCircleImg4)) {
+                if (ObjectUtils.isNotEmpty(mCircleImg4)) {
                     ImageLoaderHelper.getInstance().load(mContext, mCircleImg4, mCivWelfareTwo);
                 }
                 rotateState = false;
             } else {
                 //正面
-                if (BasicTool.isNotEmpty(mCircleImg2)) {
+                if (ObjectUtils.isNotEmpty(mCircleImg2)) {
                     ImageLoaderHelper.getInstance().load(mContext, mCircleImg2, mCivWelfareOne);
 
                 }
-                if (BasicTool.isNotEmpty(mCircleImg3)) {
+                if (ObjectUtils.isNotEmpty(mCircleImg3)) {
                     ImageLoaderHelper.getInstance().load(mContext, mCircleImg3, mCivWelfareTwo);
                 }
                 rotateState = true;

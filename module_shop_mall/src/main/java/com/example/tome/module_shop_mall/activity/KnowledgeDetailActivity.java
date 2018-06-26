@@ -1,7 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,25 +11,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tome.component_base.base.BaseFragmentAdapter;
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.base.BaseTabListActivity;
-import com.example.tome.component_base.bean.TabListBean;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.TabLayoutUtils;
+import com.example.tome.component_base.base.mvp.BaseMVPActivity;
+import com.example.tome.component_base.util.widgetUtils.TabLayoutUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.example.tome.module_shop_mall.fagment.KnowledgeChildFragment;
-import com.example.tome.module_shop_mall.fagment.KnowledgeSystemFragment;
 import com.example.tome.module_shop_mall.presenter.KnowledgeDetailPresenter;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 知识体系详情子页面

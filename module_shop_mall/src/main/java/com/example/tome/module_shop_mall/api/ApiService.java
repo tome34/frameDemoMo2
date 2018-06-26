@@ -11,14 +11,18 @@ import com.example.tome.module_shop_mall.bean.NavigationBean;
 import com.example.tome.module_shop_mall.params.LoginParams;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import retrofit2.http.Body;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * @Created by TOME .
@@ -38,6 +42,17 @@ public interface ApiService {
      */
     @GET("article/list/{num}/json")
     Observable<BaseObj<FeedArticleListData>> getFeedArticleList(@Path("num") int num);
+
+    @GET("article/list/{num}/json")
+    Observable<BaseObj<FeedArticleListData>> getFeedArticleList(@Path("num") int num, @QueryMap Map<String, String> map);
+
+//    @FormUrlEncoded
+//    @POST("/api/product/getProductProperty")
+//    Observable<BaseEntity<ProductPropertiesBean>> getProductProperty(@FieldMap Map<String, String> map);
+
+    //  上传头像
+ //   @POST("/api/upload/upload")
+ //   Observable<BaseEntity<UploadResultBean>> upload(@Body MultipartBody file);
 
     /**
      * 首页广告栏

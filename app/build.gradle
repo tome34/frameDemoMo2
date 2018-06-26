@@ -20,6 +20,16 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+
+        sourceSets {
+            //设置依赖so库路径
+            main.jniLibs.srcDirs = ['libs']
+        }
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     buildTypes {
         release {

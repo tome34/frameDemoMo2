@@ -12,7 +12,7 @@ import okhttp3.ResponseBody;
  * 保存文件
  */
 
-//public abstract class FileDownLoadCallback<T> {
+//public abstract class FileDownLoadCallback<ToastUtils> {
 public class FileDownLoadCallback {
 
 
@@ -22,7 +22,7 @@ public class FileDownLoadCallback {
     public void onComplete() {
     }
     //下载成功的回调
-    //public abstract void onDownLoadSuccess(T t);
+    //public abstract void onDownLoadSuccess(ToastUtils t);
     //下载失败回调
    // public abstract void onDownLoadFail(Throwable throwable);
     //下载进度监听

@@ -1,14 +1,11 @@
 package com.example.tome.component_base.util;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.IntDef;
 
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
  */
 
 public final class FileUtils {
+
     private FileUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
@@ -361,7 +359,7 @@ public final class FileUtils {
         } catch (NoSuchAlgorithmException | IOException e) {
             e.printStackTrace();
         } finally {
-            StreamUtils.close(dis);
+            CloseUtils.close(dis);
         }
         return null;
     }

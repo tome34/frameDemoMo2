@@ -1,6 +1,5 @@
 package com.example.tome.module_common.activity;
 
-import android.app.TabActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,10 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.arouter.RouterConfig;
-import com.example.tome.component_base.util.GetJsonDataUtil;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.T;
+import com.example.tome.component_base.util.JsonUtil;
 import com.example.tome.component_base.widget.SuperDividerItemDecoration;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_common.R;
@@ -45,7 +41,7 @@ public class CommonActivity extends AppCompatActivity implements BaseQuickAdapte
 
     private void initData() {
         //读取json文件
-        String json = new GetJsonDataUtil().getJson(this, "customControl.json");
+        String json = JsonUtil.getJson(this, "customControl.json");
         mJsonList = new Gson().fromJson(json, new TypeToken<ArrayList<CommonBean>>() {
         }.getType());
     }
@@ -61,8 +57,8 @@ public class CommonActivity extends AppCompatActivity implements BaseQuickAdapte
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //分割线
         mRecyclerView.addItemDecoration(new SuperDividerItemDecoration.Builder(this)
-                .setDividerWidth(1)
-                .setDividerColor(getResources().getColor(R.color.colorAccent))
+                .setDividerWidth(0)
+                .setDividerColor(getResources().getColor(R.color.white))
                 .build());
         mAdapter = new CommonAdapter(R.layout.item_common, mJsonList);
         mAdapter.setOnItemClickListener(this);
@@ -83,7 +79,7 @@ public class CommonActivity extends AppCompatActivity implements BaseQuickAdapte
         }else if ("4".equals(mJsonList.get(position).getType())){
             startActivity(new Intent(CommonActivity.this, RatingBarActivity.class));
         }else if ("5".equals(mJsonList.get(position).getType())){
-
+            startActivity(new Intent(CommonActivity.this, PopupWindowActivity.class));
         }else if ("6".equals(mJsonList.get(position).getType())){
 
         }else if ("7".equals(mJsonList.get(position).getType())){

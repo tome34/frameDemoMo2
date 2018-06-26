@@ -20,7 +20,12 @@
         android:id="@+id/tv_get_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试获取数据"/>
+        android:text="测试获取数据MVP模式"/>
+    <Button
+        android:id="@+id/tv_get_data_mvc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试获取数据MVC模式"/>
 
     <Button
         android:id="@+id/tv_goto_home"

@@ -2,10 +2,12 @@ package com.example.tome.module_shop_mall.contract;
 
 import com.example.tome.component_base.base.inter.AbstractPresenter;
 import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
 import com.example.tome.module_shop_mall.bean.LoginResponse;
 import com.example.tome.module_shop_mall.params.LoginParams;
+import com.example.tome.module_shop_mall.params.TestParams;
 
 
 /**
@@ -24,6 +26,6 @@ public interface MainContract {
 
     interface Presenter extends AbstractPresenter<View> {
 
-        void getFeedArticleList(int page);
+        void getFeedArticleList(int page,RequestMapParams params);
     }
 }

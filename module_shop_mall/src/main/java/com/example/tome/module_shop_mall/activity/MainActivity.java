@@ -1,28 +1,25 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.Manifest;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.BaseMVPActivity;
-import com.example.tome.component_base.base.BasePermissionActivity;
+import com.example.tome.component_base.base.mvp.BasePermissionActivity;
+import com.example.tome.component_base.net.file_upload.FileRequestMapParams;
+import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
-import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
-import com.example.tome.module_shop_mall.bean.LoginResponse;
 import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.presenter.MainPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+import okhttp3.MultipartBody;
 
 
 @Route(path = RouterURLS.BASE_MAIN)
@@ -34,6 +31,8 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
     Button mTvTest;
     @BindView(R2.id.tv_get_data)
     Button mTvGetData;
+    @BindView(R2.id.tv_get_data_mvc)
+    Button mTvGetDataMVC;
     @BindView(R2.id.tv_goto_home)
     Button mTvGotoHome;
     @BindView(R2.id.tv_list)
@@ -80,6 +79,7 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
     protected void initView() {
         mTvTest.setOnClickListener(this);
         mTvGetData.setOnClickListener(this);
+        mTvGetDataMVC.setOnClickListener(this);
         mTvGotoHome.setOnClickListener(this);
         mTvList.setOnClickListener(this);
     }
@@ -99,8 +99,16 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
             L.d("点击了");
             RouterCenter.toShopCart();
         } else if (v.getId() == R.id.tv_get_data) {
-            //网络请求
-            mPresenter.getFeedArticleList(0);
+            //测试网络请求mvp模式
+            FileRequestMapParams fileParam = new FileRequestMapParams(); //文件上传
+            fileParam.put("file", "path");
+            MultipartBody build = fileParam.build();
+            RequestMapParams params = new RequestMapParams();
+            params.put("key","");
+            mPresenter.getFeedArticleList(0,params);
+        } else if (v.getId() == R.id.tv_get_data_mvc){
+            //测试网络请求mvc模式
+            RouterCenter.toMVCTest();
         } else if (v.getId() == R.id.tv_goto_home) {
             RouterCenter.toHome();
         } else if (v.getId() == R.id.tv_list){

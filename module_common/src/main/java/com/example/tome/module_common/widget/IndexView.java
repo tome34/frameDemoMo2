@@ -36,7 +36,7 @@ public class IndexView extends View {
 
     private static final String[] WORDS = new String[]{
             "↑", "☆", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
-            "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W",
+            "L", "M", "N", "O", "P", "Q", "R", "S", "ToastUtils", "U", "V", "W",
             "X", "Y", "Z", "#"
     };
 

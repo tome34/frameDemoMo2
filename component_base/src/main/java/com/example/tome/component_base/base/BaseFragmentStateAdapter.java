@@ -3,7 +3,8 @@ package com.example.tome.component_base.base;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.example.tome.component_base.util.CollectionUtils;
+
+import com.example.tome.component_base.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class BaseFragmentStateAdapter extends FragmentStatePagerAdapter {
     }
     @Override
     public CharSequence getPageTitle(int position) {
-        return !CollectionUtils.isNullOrEmpty(mTitles) ? mTitles.get(position) : "";
+        return !ObjectUtils.isEmpty(mTitles) ? mTitles.get(position) : "";
     }
 
     @Override

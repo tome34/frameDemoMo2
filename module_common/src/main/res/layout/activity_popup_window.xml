@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_popup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.tome.module_common.activity.PopupWindowActivity">
+
+    <Button
+        android:id="@+id/bt_onclick1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="btClick1"
+        android:text="PopupWindow弹窗"/>
+
+    <Button
+        android:id="@+id/bt_onclick2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="btClick2"
+        android:text="PopupWindow弹窗(2)"/>
+
+</LinearLayout>

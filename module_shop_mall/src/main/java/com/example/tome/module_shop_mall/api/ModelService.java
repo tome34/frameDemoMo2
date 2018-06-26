@@ -6,10 +6,8 @@ import com.example.tome.component_base.net.HttpHelper;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.RxUtils;
-import com.example.tome.component_base.util.T;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.bean.BaseResponse;
-import com.example.tome.module_shop_mall.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import io.reactivex.Observable;
@@ -69,12 +67,37 @@ public class ModelService {
 }*/
 
     /**
-     * 获取远程基本数据
+     * 获取远程基本数据  mvp模式
      * 带进度条的方法
      * @param mView
      * @return
      */
     public static <T> BaseObserver<BaseObj<T>> getRemoteData(boolean isShowHUD, BaseView mView, MethodSelect<T> select, INetCallback<T> callback) {
+        //设置不同的BaseUrl
+        return select.selectM(HttpHelper.getDefault(1)
+                .create(ApiService.class))
+                .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseObj<T>>(mView, isShowHUD) {
+                                   @Override
+                                   public void onNext(BaseObj<T> result) {
+                                       L.d("获取message", ":" + result.getMessage());
+                                       if (BaseResponse.SUCCESS.equals(result.getCode())) {
+                                           callback.onSuccess(result.getData());
+                                           mView.showError(result.getMessage(), result.getCode());
+                                       } else {
+                                           mView.showError(result.getMessage(), result.getCode());
+                                       }
+                                   }
+                               }
+                );
+    }
+
+    /**
+     * 获取远程基本数据 mvc模式
+     * 带进度条的方法
+     * @return
+     */
+    public static <T> BaseObserver<BaseObj<T>> getRemoteDataMvc(boolean isShowHUD, BaseView mView, MethodSelect<T> select, INetCallback<T> callback) {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(1)
                 .create(ApiService.class))

@@ -33,6 +33,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     @Override
     public void getFeedArticleListV2(SmartRefreshLayout rlRefreshLayout, int page) {
+
         addSubscribe(ModelService.getRemoteListData(mView, rlRefreshLayout, new ModelService.MethodSelect<FeedArticleListData>() {
             @Override
             public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {

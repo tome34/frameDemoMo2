@@ -20,13 +20,13 @@ public class RxUtils  {
 
 //    /**
 //     * 统一线程处理
-//     * @param <T> 指定的泛型类型
+//     * @param <ToastUtils> 指定的泛型类型
 //     * @return ObservableTransformer
 //     */
-//    public static <T> ObservableTransformer<T, T> rxSchedulerHelper1(){
-//        return new ObservableTransformer<T, T>() {
+//    public static <ToastUtils> ObservableTransformer<ToastUtils, ToastUtils> rxSchedulerHelper1(){
+//        return new ObservableTransformer<ToastUtils, ToastUtils>() {
 //            @Override
-//            public ObservableSource<T> apply(Observable<T> upstream) {
+//            public ObservableSource<ToastUtils> apply(Observable<ToastUtils> upstream) {
 //                return upstream.subscribeOn(Schedulers.io())
 //                        .observeOn(AndroidSchedulers.mainThread())
 //                        .doOnSubscribe(new Action(){
@@ -51,7 +51,7 @@ public class RxUtils  {
                 .subscribeOn(Schedulers.io())               //指定网络请求在IO线程
                 .observeOn(AndroidSchedulers.mainThread()) ;    //显示数据在主线程
     }
-    /* public static <T> ObservableTransformer<BaseObj<T>, BaseObj<T>> rxSchedulerHelper(){
+    /* public static <ToastUtils> ObservableTransformer<BaseObj<ToastUtils>, BaseObj<ToastUtils>> rxSchedulerHelper(){
         return observable -> observable
                 .subscribeOn(Schedulers.io())               //指定网络请求在IO线程
                 .observeOn(AndroidSchedulers.mainThread()) ;    //显示数据在主线程

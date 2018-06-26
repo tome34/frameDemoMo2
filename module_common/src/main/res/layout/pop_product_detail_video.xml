@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="bottom"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="30dp"
+        android:text="请选择分享类型"
+        android:textColor="@color/title_black"
+        android:textSize="18sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_wx_picture"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80dp"
+            android:padding="@dimen/dp_10"
+            android:drawableTop="@mipmap/wx_picture"
+            android:gravity="center"
+            android:text="分享图片"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="0.6dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_wx_video"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80dp"
+            android:padding="@dimen/dp_10"
+            android:drawableTop="@mipmap/wx_video"
+            android:gravity="center"
+            android:text="分享视频"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

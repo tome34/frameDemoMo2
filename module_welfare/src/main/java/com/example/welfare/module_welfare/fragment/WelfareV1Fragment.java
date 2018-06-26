@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.BaseListFragment;
+import com.example.tome.component_base.base.mvp.BaseListFragment;
 import com.example.tome.component_base.util.L;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.R2;

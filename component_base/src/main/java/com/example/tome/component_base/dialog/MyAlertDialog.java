@@ -17,7 +17,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.example.tome.component_base.R;
-import com.example.tome.component_base.util.BasicTool;
+import com.example.tome.component_base.util.ObjectUtils;
 
 public class MyAlertDialog {
     private Context      context;
@@ -76,7 +76,7 @@ public class MyAlertDialog {
 
     public MyAlertDialog setTitle(String title) {
         showTitle = true;
-        if (BasicTool.isNotEmpty(title)) {
+        if (ObjectUtils.isNotEmpty(title)) {
             txt_title.setText(title);
         } else {
             txt_title.setVisibility(View.GONE);
@@ -86,7 +86,7 @@ public class MyAlertDialog {
 
     public MyAlertDialog setMsg(CharSequence msg) {
         showMsg = true;
-        if (!BasicTool.isNotEmpty(msg.toString())) {
+        if (!ObjectUtils.isNotEmpty(msg.toString())) {
             txt_msg.setText("");
         } else {
             txt_msg.setText(msg);
@@ -111,7 +111,7 @@ public class MyAlertDialog {
     public MyAlertDialog setPositiveButton(String text,
                                            final OnClickListenerAlertDialog listener) {
         showPosBtn = true;
-        if (!BasicTool.isNotEmpty(text)) {
+        if (!ObjectUtils.isNotEmpty(text)) {
             btn_pos.setText("确定");
         } else {
             btn_pos.setText(text);
@@ -140,7 +140,7 @@ public class MyAlertDialog {
     public MyAlertDialog setNegativeButton(String text,
                                            final OnClickListener listener) {
         showNegBtn = true;
-        if (!BasicTool.isNotEmpty(text)) {
+        if (!ObjectUtils.isNotEmpty(text)) {
             btn_neg.setText("取消");
         } else {
             btn_neg.setText(text);

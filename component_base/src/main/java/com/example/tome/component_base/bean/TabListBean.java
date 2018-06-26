@@ -1,6 +1,6 @@
 package com.example.tome.component_base.bean;
 
-import com.example.tome.component_base.base.BaseMVPFragment;
+import com.example.tome.component_base.base.mvp.BaseMVPFragment;
 
 /**
  * @Created by TOME .

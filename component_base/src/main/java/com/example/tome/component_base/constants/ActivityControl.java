@@ -2,8 +2,6 @@ package com.example.tome.component_base.constants;
 
 import android.app.Activity;
 
-import com.example.tome.component_base.base.BaseMVPActivity;
-
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package com.example.welfare.module_welfare.fragment;
 
-import com.example.tome.component_base.base.BaseTabListFragment;
+import com.example.tome.component_base.base.mvp.BaseTabListFragment;
 import com.example.tome.component_base.bean.TabListBean;
 import com.example.welfare.module_welfare.presenter.WelfarePresenter;
 
