@@ -103,7 +103,7 @@ dependencies {
     //图片
     api rootProject.ext.dependencies["glide"]
     //图片选择器 导致夜神在模拟器打不开
-   // api rootProject.ext.dependencies["PictureSelector"]
+    api rootProject.ext.dependencies["PictureSelector"]
     //图片缩放,View Pager中浏览库
     api rootProject.ext.dependencies["photoview"]
     //仿ios 的PickerView时间选择器和条件选择器
@@ -124,6 +124,8 @@ dependencies {
     api rootProject.ext.dependencies["stetho-okhttp3"]
     //bugly sdk
     api rootProject.ext.dependencies["tencent-bugly"]
+    //节操播放器
+    api rootProject.ext.dependencies["jiecao"]
 
 
     implementation project(':component_data')

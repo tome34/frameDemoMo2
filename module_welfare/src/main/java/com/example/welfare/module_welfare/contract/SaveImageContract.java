@@ -1,9 +1,8 @@
 package com.example.welfare.module_welfare.contract;
 
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
-
-import java.io.IOException;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 
 import okhttp3.ResponseBody;
 
@@ -14,11 +13,11 @@ import okhttp3.ResponseBody;
  */
 
 public interface SaveImageContract {
-    interface View extends BaseView{
+    interface View extends IView{
         void showSaveSuccess(ResponseBody result);
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
         void downloadImage(String url);
     }
 }

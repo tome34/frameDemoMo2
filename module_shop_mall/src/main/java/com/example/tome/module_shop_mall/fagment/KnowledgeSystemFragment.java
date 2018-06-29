@@ -13,16 +13,21 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.mvp.BaseMVPFragment;
+import com.example.tome.component_base.base.mvc.BaseVcFragment;
+import com.example.tome.component_base.base.mvp.BaseVpFragment;
 import com.example.tome.component_base.helper.ImageLoaderHelper;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.ConvertUtils;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.ObjectUtils;
 import com.example.tome.component_base.widget.CircularImageView;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.activity.KnowledgeDetailActivity;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.example.tome.module_shop_mall.contract.KnowledgeSystemContract;
@@ -32,8 +37,10 @@ import com.example.tome.module_shop_mall.widget.RotateAnimation;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 
-public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPresenter> implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
+//public class KnowledgeSystemFragment extends BaseVpFragment<KnowledgeSystemPresenter> implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
+public class KnowledgeSystemFragment extends BaseVcFragment implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
 
     @BindView(R2.id.title_back)
     TextView mTitleBack;
@@ -83,10 +90,11 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
         }
     };
 
-    @Override
-    protected KnowledgeSystemPresenter getPresenter() {
-        return new KnowledgeSystemPresenter();
-    }
+//    @Override
+//    public KnowledgeSystemPresenter createPresenter() {
+//        return new KnowledgeSystemPresenter();
+//    }
+
 
     @Override
     protected int getLayout() {
@@ -104,8 +112,22 @@ public class KnowledgeSystemFragment extends BaseMVPFragment<KnowledgeSystemPres
         //初始化圆形图片
         initCircularImage();
         //获取数据
-        mPresenter.getKnowledgeSystemData();
+       // mPresenter.getKnowledgeSystemData();
+        loadData();
+    }
 
+    protected void loadData() {
+        addDisposable(ModelVcService.getRemoteData(false, mView, new ModelVcService.MethodSelect<List<KnowledgeSystemBean>>() {
+            @Override
+            public Observable<BaseObj<List<KnowledgeSystemBean>>> selectM(ApiService service) {
+                return service.getKnowledgeHierarchyData();
+            }
+        }, new INetCallback<List<KnowledgeSystemBean>>() {
+            @Override
+            public void onSuccess(List<KnowledgeSystemBean> result) {
+               showKnowledgeSystem(result);
+            }
+        }));
     }
 
     private void initCircularImage() {

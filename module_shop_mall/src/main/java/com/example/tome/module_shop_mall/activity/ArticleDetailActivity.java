@@ -10,20 +10,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.mvp.BaseMVPActivity;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.widgetUtils.WebViewInitUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
-import com.example.tome.module_shop_mall.contract.ArticleDetailContract;
-import com.example.tome.module_shop_mall.presenter.ArticleDetailPresenter;
 
 import butterknife.BindView;
 
 /**
  * 文章详情页
  */
-public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresenter> implements ArticleDetailContract.View {
+public class ArticleDetailActivity extends BaseVcActivity {
 
     @BindView(R2.id.common_toolbar_title)
     TextView mTitle;
@@ -39,11 +37,6 @@ public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresente
     private boolean isCollect;
     private boolean isCommonSite;
     private boolean isCollectPage;
-
-    @Override
-    protected ArticleDetailPresenter getPresenter() {
-        return new ArticleDetailPresenter();
-    }
 
     @Override
     protected int getLayoutId() {
@@ -101,11 +94,6 @@ public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresente
 
             }
         });
-    }
-
-    @Override
-    public void showArticleData() {
-        mPresenter.getArticleData();
     }
 
     @Override

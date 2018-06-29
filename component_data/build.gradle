@@ -26,6 +26,10 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'typedefs.txt'
+    }
+
 }
 
 dependencies {

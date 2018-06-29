@@ -2,23 +2,18 @@ package com.example.welfare.module_welfare.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.example.tome.component_base.base.BaseFragmentAdapter;
 import com.example.tome.component_base.helper.ImageLoaderHelper;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.activity.ImagePreviewActivity;
 import com.example.welfare.module_welfare.bean.PreviewBean;
-import com.example.welfare.module_welfare.contract.WelfareContract;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;

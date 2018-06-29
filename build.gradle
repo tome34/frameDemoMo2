@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
 
+
 buildscript {
     
     repositories {
@@ -11,7 +12,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
        // classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'      //dagger2远程工具地址配置
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'     //lambda配置
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'     //lambda配置
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

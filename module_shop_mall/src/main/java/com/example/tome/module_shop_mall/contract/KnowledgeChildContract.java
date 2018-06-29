@@ -1,13 +1,11 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
-import com.example.tome.module_shop_mall.bean.FeedArticleListData;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IModel;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;
-import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
-import java.util.List;
 
 /**
  * @Created by TOME .
@@ -16,11 +14,15 @@ import java.util.List;
  */
 
 public interface KnowledgeChildContract  {
-    interface View extends BaseView{
+    interface View extends IView{
         void showKnowledgeChild(KnowledgeChildBean result);
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
         void getKnowledgeChild(int page, int cid, SmartRefreshLayout mRefreshLayout);
+    }
+
+    interface Model extends IModel {
+
     }
 }

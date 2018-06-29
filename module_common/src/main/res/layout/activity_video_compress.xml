@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tome.module_common.activity.VideoCompressActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:visibility="visible">
+
+        <!--视频-->
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/delete_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:src="@mipmap/manage_icon_del"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="16dp"
+            android:text="视频大小:"
+            android:textColor="@color/colorRed"
+            android:textSize="11sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_compress_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="6dp"
+            android:text="压缩后大小:"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_add_video"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shap_ring"
+            android:gravity="center"
+            android:text="添加视频"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_compress_video"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/shap_ring"
+            android:gravity="center"
+            android:text="压缩视频"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+</LinearLayout>

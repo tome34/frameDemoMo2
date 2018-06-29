@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+
+version = "1.0.0"
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    resourcePrefix "videoCompress_"    //这个随便填
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0.1"
+
+        ndk {
+            moduleName "compress"
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+        jni.srcDirs = [] //disable automatic ndk-build call
+//        jni.srcDir 'src/main/jni'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'org.aspectj:aspectjrt:1.8.5'
+}
+
+

@@ -1,16 +1,8 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelService;
-import com.example.tome.module_shop_mall.bean.NavigationBean;
+import com.example.tome.component_base.base.mvp.BasePresenter;
 import com.example.tome.module_shop_mall.contract.NavigationContract;
-
-import java.util.List;
-
-import io.reactivex.Observable;
+import com.example.tome.module_shop_mall.model.NavigationModel;
 
 /**
  * @Created by TOME .
@@ -18,11 +10,23 @@ import io.reactivex.Observable;
  * @描述 ${导航的presenter}
  */
 
-public class NavigationPresenter extends BasePresenter<NavigationContract.View> implements NavigationContract.Presenter{
-    @Override
-    public void getNavigationData() {
+public class NavigationPresenter extends BasePresenter<NavigationContract.View, NavigationContract.Model> implements NavigationContract.Presenter{
 
-        addSubscribe(ModelService.getRemoteData(false, mView, new ModelService.MethodSelect<List<NavigationBean>>() {
+    @Override
+    protected NavigationContract.Model createModel() {
+        return new NavigationModel(this);
+    }
+
+    @Override
+    public void getNavigation() {
+
+        mModel.getNavigationData();
+
+
+
+
+
+       /* addDisposable(ModelVcService.getRemoteData(false, mView, new ModelVcService.MethodSelect<List<NavigationBean>>() {
             @Override
             public Observable<BaseObj<List<NavigationBean>>> selectM(ApiService service) {
                 return service.getNavigationListData();
@@ -33,7 +37,8 @@ public class NavigationPresenter extends BasePresenter<NavigationContract.View> 
                 mView.showNavigation(result);
 
             }
-        }));
+        }));*/
 
     }
+
 }

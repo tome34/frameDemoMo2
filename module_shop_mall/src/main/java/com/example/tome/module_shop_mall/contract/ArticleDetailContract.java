@@ -1,8 +1,9 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IModel;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 
 
 /**
@@ -12,12 +13,16 @@ import com.example.tome.component_base.base.inter.BaseView;
  */
 
 public interface ArticleDetailContract  {
-    interface View extends BaseView{
+    interface View extends IView{
         void showArticleData();
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
 
         void getArticleData();
+    }
+
+    interface Model extends IModel {
+
     }
 }

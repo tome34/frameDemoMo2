@@ -1,8 +1,8 @@
 package com.example.welfare.module_welfare.activity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvp.BaseTabListActivity;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.mvc.BaseVcTabListActivity;
+
 import com.example.tome.component_base.bean.TabListBean;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.welfare.module_welfare.R;
@@ -18,14 +18,10 @@ import java.util.List;
  * @描述 ${福利页面}
  */
 @Route(path = RouterURLS.WELFARE_HOME)
-public class WelfareActivity extends BaseTabListActivity {
+public class WelfareActivity extends BaseVcTabListActivity {
 
     private WelfareTabFragment mWelfareTabFragment;
 
-    @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
-    }
 
     @Override
     protected void initTitle() {

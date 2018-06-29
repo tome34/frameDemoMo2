@@ -10,15 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.BaseFragmentAdapter;
-import com.example.tome.component_base.base.mvp.BaseMVPActivity;
+import com.example.tome.component_base.base.adapter.BaseFragmentAdapter;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.widgetUtils.TabLayoutUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.example.tome.module_shop_mall.fagment.KnowledgeChildFragment;
-import com.example.tome.module_shop_mall.presenter.KnowledgeDetailPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ import butterknife.BindView;
 /**
  * 知识体系详情子页面
  */
-public class KnowledgeDetailActivity extends BaseMVPActivity<KnowledgeDetailPresenter> {
+public class KnowledgeDetailActivity extends BaseVcActivity {
 
     @BindView(R2.id.title_back)
     TextView mTitleBack;
@@ -51,12 +50,6 @@ public class KnowledgeDetailActivity extends BaseMVPActivity<KnowledgeDetailPres
     private String mTitle;
     private List<String> mTabTitle;
     private List<Fragment> mFragmentList;
-
-
-    @Override
-    protected KnowledgeDetailPresenter getPresenter() {
-        return null;
-    }
 
     @Override
     protected int getLayoutId() {

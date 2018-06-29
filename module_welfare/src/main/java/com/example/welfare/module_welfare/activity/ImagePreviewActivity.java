@@ -1,6 +1,7 @@
 package com.example.welfare.module_welfare.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvp.BasePermissionActivity;
+import com.example.tome.component_base.base.mvc.BaseVcPermissionActivity;
+import com.example.tome.component_base.base.mvp.BaseVpPermissionActivity;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.file_download.FileDownLoadCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.d_arouter.IntentKV;
@@ -20,9 +23,10 @@ import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.R2;
 import com.example.welfare.module_welfare.adapter.ImagePreviewAdapter;
+import com.example.welfare.module_welfare.api.ApiService;
+import com.example.welfare.module_welfare.api.ModelService;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 import com.example.welfare.module_welfare.contract.SaveImageContract;
-import com.example.welfare.module_welfare.presenter.SaveImagePresenter;
 import com.example.welfare.module_welfare.widget.HackyViewPager;
 
 import java.io.File;
@@ -30,10 +34,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 
 @Route(path = RouterURLS.WELFARE_PREVIEW)
-public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresenter> implements SaveImageContract.View, View.OnClickListener {
+public class ImagePreviewActivity extends BaseVcPermissionActivity implements SaveImageContract.View, View.OnClickListener {
 
     @BindView(R2.id.view_pager)
     HackyViewPager mViewPager;
@@ -51,10 +56,10 @@ public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresen
     public int cuccentPosit ;
 
 
-    @Override
-    protected SaveImagePresenter getPresenter() {
-        return new SaveImagePresenter();
-    }
+//    @Override
+//    protected SaveImagePresenter getPresenter() {
+//        return new SaveImagePresenter();
+//    }
 
     @Override
     protected int getLayoutId() {
@@ -110,9 +115,25 @@ public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresen
         if (! getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISSION_STORAGE)){
             return;
         }
-        mPresenter.downloadImage(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
+        loadData(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
+       // mPresenter.downloadImage(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
 
 
+    }
+
+
+    protected void loadData(String imageUrl) {
+        addDisposable(ModelService.downloadFile(mView, new ModelService.MethodSelect<ResponseBody>() {
+            @Override
+            public Observable<ResponseBody> selectM(ApiService service) {
+                return service.downPic(imageUrl);
+            }
+        }, new INetCallback<ResponseBody>() {
+            @Override
+            public void onSuccess(ResponseBody result) {
+                showSaveSuccess(result);
+            }
+        }));
     }
 
     @Override
@@ -135,5 +156,10 @@ public class ImagePreviewActivity extends BasePermissionActivity<SaveImagePresen
         String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/avatar/" + "ToastUtils" + mPictureName + ".jpg";
         // 最后通知图库更新
         this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + path)));
+    }
+
+    @Override
+    public Context getContext() {
+        return null;
     }
 }

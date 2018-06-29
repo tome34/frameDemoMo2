@@ -22,6 +22,7 @@
     <color name="deep_red">#dc3b1f</color>
     <color name="while_most_color">#e4e4e4</color>
     <color name="blackish_green">#6D8FB0</color>
+    <color name="color_f6">#f6f6f6</color>
 
     <color name="light_transparent">#00ffffff</color>
     <color name="transparent">#00000000</color>
@@ -46,4 +47,7 @@
     <color name="mainColor">#F49423</color>
     <color name="windowBg">#F8F8F8</color>
     <color name="color33">#333333</color>
+
+    //主题红色
+    <color name="colorRed">#ed5650</color>
 </resources>

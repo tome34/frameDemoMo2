@@ -11,14 +11,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.mvp.BaseMVPFragment;
+import com.example.tome.component_base.base.mvc.BaseVcFragment;
+import com.example.tome.component_base.base.mvp.BaseVpFragment;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.activity.ArticleDetailActivity;
 import com.example.tome.module_shop_mall.adapter.OneTypeAdapter;
 import com.example.tome.module_shop_mall.adapter.TwoTypeAdapter;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
+import com.example.tome.module_shop_mall.api.ModelVpService;
 import com.example.tome.module_shop_mall.bean.NavigationBean;
 import com.example.tome.module_shop_mall.contract.NavigationContract;
 import com.example.tome.module_shop_mall.presenter.NavigationPresenter;
@@ -27,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -34,7 +41,8 @@ import butterknife.BindView;
  * @描述 ${导航页面}
  */
 
-public class NavigationFragment extends BaseMVPFragment<NavigationPresenter> implements NavigationContract.View, BaseQuickAdapter.OnItemChildClickListener {
+//public class NavigationFragment extends BaseVpFragment<NavigationPresenter> implements NavigationContract.View, BaseQuickAdapter.OnItemChildClickListener {
+public class NavigationFragment extends BaseVcFragment implements NavigationContract.View, BaseQuickAdapter.OnItemChildClickListener {
     @BindView(R2.id.title_back)
     TextView mTitleBack;
     @BindView(R2.id.title_content_text)
@@ -61,10 +69,10 @@ public class NavigationFragment extends BaseMVPFragment<NavigationPresenter> imp
     private List<NavigationBean.ArticlesBean> mArticles;
 
 
-    @Override
-    protected NavigationPresenter getPresenter() {
-        return new NavigationPresenter();
-    }
+//    @Override
+//    public NavigationPresenter createPresenter() {
+//        return new NavigationPresenter();
+//    }
 
     @Override
     protected int getLayout() {
@@ -80,7 +88,8 @@ public class NavigationFragment extends BaseMVPFragment<NavigationPresenter> imp
 
     @Override
     protected void initView() {
-        mPresenter.getNavigationData();
+       // mPresenter.getNavigationData();
+        loadData();
         mNavigationList = new ArrayList<>();
         mNavigationitemList = new ArrayList<>();
         mArticles = new ArrayList<>();
@@ -90,6 +99,21 @@ public class NavigationFragment extends BaseMVPFragment<NavigationPresenter> imp
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 2);
         mRvTwoSub.setLayoutManager(gridLayoutManager);
 
+    }
+
+    protected void loadData() {
+        addDisposable(ModelVcService.getRemoteData(false, mView, new ModelVcService.MethodSelect<List<NavigationBean>>() {
+            @Override
+            public Observable<BaseObj<List<NavigationBean>>> selectM(ApiService service) {
+                return service.getNavigationListData();
+            }
+        }, new INetCallback<List<NavigationBean>>() {
+            @Override
+            public void onSuccess(List<NavigationBean> result) {
+                showNavigation(result);
+
+            }
+        }));
     }
 
 
@@ -134,8 +158,6 @@ public class NavigationFragment extends BaseMVPFragment<NavigationPresenter> imp
             mTwoTypeAdapter.setOnItemChildClickListener(this);
             mRvTwoSub.setAdapter(mTwoTypeAdapter);
             //mTwoTypeAdapter.replaceData(mNavigationitemList);
-
-
 
         }else if (view.getId() == R.id.commonItemTitle){
             //跳转到web详情页

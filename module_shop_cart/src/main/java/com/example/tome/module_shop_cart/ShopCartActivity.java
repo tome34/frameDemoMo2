@@ -9,8 +9,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvp.BaseMVPActivity;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
+import com.example.tome.component_base.base.mvp.BaseVpActivity;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_cart.arouter.RouterCenter;
 
@@ -18,7 +19,7 @@ import butterknife.BindView;
 
 
 @Route(path = RouterURLS.SHOP_CART_MAIN)
-public class ShopCartActivity extends BaseMVPActivity implements RadioGroup.OnCheckedChangeListener {
+public class ShopCartActivity extends BaseVcActivity implements RadioGroup.OnCheckedChangeListener {
 
 
     @BindView(R2.id.fl_content)
@@ -34,10 +35,10 @@ public class ShopCartActivity extends BaseMVPActivity implements RadioGroup.OnCh
     public Fragment mShopCartFrament;
     public Fragment mProductFragment;
 
-       @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
-    }
+//       @Override
+//    protected IPresenter getPresenter() {
+//        return null;
+//    }
 
     @Override
     protected int getLayoutId() {

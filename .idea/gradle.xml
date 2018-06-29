@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseLib" />
             <option value="$PROJECT_DIR$/baseLib/alertview" />
+            <option value="$PROJECT_DIR$/baseLib/videocompressV2" />
             <option value="$PROJECT_DIR$/component_base" />
             <option value="$PROJECT_DIR$/component_data" />
             <option value="$PROJECT_DIR$/module_common" />

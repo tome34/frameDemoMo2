@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" filepath="$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" filepath="$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_welfare/module_welfare.iml" filepath="$PROJECT_DIR$/module_welfare/module_welfare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLib/videocompressV2/videocompressV2.iml" filepath="$PROJECT_DIR$/baseLib/videocompressV2/videocompressV2.iml" />
     </modules>
   </component>
 </project>

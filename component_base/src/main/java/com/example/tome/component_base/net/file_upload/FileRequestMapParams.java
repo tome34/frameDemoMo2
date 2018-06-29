@@ -1,5 +1,6 @@
 package com.example.tome.component_base.net.file_upload;
 
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 
@@ -70,7 +71,7 @@ public class FileRequestMapParams implements FileRequestMapBuild {
     }
 
     @Override
-    public FileRequestMapParams put(String s,String[] arrayOf) {
+    public FileRequestMapParams put(@NonNull String s, @NonNull String[] arrayOf) {
         mBuilder.addFormDataPart(s, getGson().toJson(arrayOf));
         return this;
     }

@@ -1,10 +1,9 @@
 package com.example.welfare.module_welfare.api;
 
-import com.example.tome.component_base.base.BaseObserver;
-import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.mvc.BaseObserver;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.net.HttpHelper;
 import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_base.net.file_download.FileDownLoadCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.RxUtils;
 import com.orhanobut.logger.Logger;

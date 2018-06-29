@@ -7,22 +7,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.mvp.BaseListFragment;
+import com.example.tome.component_base.base.mvc.BaseVcListFragment;
+import com.example.tome.component_base.base.mvp.BaseVpListFragment;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.R2;
 import com.example.welfare.module_welfare.adapter.WelfareV1Adapter;
+import com.example.welfare.module_welfare.api.ApiService;
+import com.example.welfare.module_welfare.api.ModelService;
 import com.example.welfare.module_welfare.arouter.RouterCenter;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 import com.example.welfare.module_welfare.contract.WelfareContract;
-import com.example.welfare.module_welfare.presenter.WelfarePresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -30,7 +34,8 @@ import butterknife.BindView;
  * @描述 ${TODO}
  */
 
-public class WelfareV1Fragment extends BaseListFragment<WelfarePresenter> implements WelfareContract.View {
+//public class WelfareV1Fragment extends BaseVpListFragment<WelfarePresenter> implements WelfareContract.View {
+public class WelfareV1Fragment extends BaseVcListFragment implements WelfareContract.View {
 
     @BindView(R2.id.rl_view)
     RecyclerView mRlView;
@@ -42,10 +47,10 @@ public class WelfareV1Fragment extends BaseListFragment<WelfarePresenter> implem
     private List<PhotoGirlBean.ResultsBean> mResults;
     private ArrayList<PreviewBean> mPreviewBeans ;
 
-    @Override
-    protected WelfarePresenter getPresenter() {
-        return new WelfarePresenter();
-    }
+//    @Override
+//    protected WelfarePresenter getPresenter() {
+//        return new WelfarePresenter();
+//    }
 
     @Override
     protected int getLayout() {
@@ -92,7 +97,22 @@ public class WelfareV1Fragment extends BaseListFragment<WelfarePresenter> implem
 
     @Override
     public void loadListData(SmartRefreshLayout rlRefreshLayout, int page, int pageSize) {
-        mPresenter.getPhotosListData(rlRefreshLayout, pageSize, page);
+       // mPresenter.getPhotosListData(rlRefreshLayout, pageSize, page);
+        loadData(pageSize, page);
+    }
+
+    protected void loadData(int size, int page ) {
+        addDisposable(ModelService.getRemoteListData(mView, rlRefreshLayout, new ModelService.MethodSelect<PhotoGirlBean>() {
+            @Override
+            public Observable<PhotoGirlBean> selectM(ApiService service) {
+                return service.getPhotoList(size, page);
+            }
+        }, new INetCallback<PhotoGirlBean>() {
+            @Override
+            public void onSuccess(PhotoGirlBean result) {
+                showPhotosListData(result);
+            }
+        }));
     }
 
     @Override

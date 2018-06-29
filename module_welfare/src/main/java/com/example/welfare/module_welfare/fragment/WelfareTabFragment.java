@@ -1,8 +1,8 @@
 package com.example.welfare.module_welfare.fragment;
 
-import com.example.tome.component_base.base.mvp.BaseTabListFragment;
+import com.example.tome.component_base.base.mvc.BaseVcTabListFragment;
+import com.example.tome.component_base.base.mvp.BaseVpTabListFragment;
 import com.example.tome.component_base.bean.TabListBean;
-import com.example.welfare.module_welfare.presenter.WelfarePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,7 @@ import java.util.List;
  * @描述 ${TODO}
  */
 
-public class WelfareTabFragment extends BaseTabListFragment {
-
-    @Override
-    protected WelfarePresenter getPresenter() {
-        return null;
-    }
+public class WelfareTabFragment extends BaseVcTabListFragment {
 
     @Override
     protected String setTitle() {

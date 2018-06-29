@@ -7,12 +7,18 @@ import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.mvp.BaseListFragment;
+import com.example.tome.component_base.base.mvc.BaseVcListFragment;
+import com.example.tome.component_base.base.mvp.BaseVpListFragment;
+import com.example.tome.component_base.net.common_callback.INetCallback;
+import com.example.tome.component_base.util.L;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.activity.ArticleDetailActivity;
 import com.example.tome.module_shop_mall.adapter.KnowledgeChildListAdapter;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;
 import com.example.tome.module_shop_mall.contract.KnowledgeChildContract;
 import com.example.tome.module_shop_mall.presenter.KnowledgeChildPresenter;
@@ -22,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -29,7 +36,8 @@ import butterknife.BindView;
  * @描述 ${知识体系子页面的item}
  */
 
-public class KnowledgeChildFragment extends BaseListFragment<KnowledgeChildPresenter> implements KnowledgeChildContract.View {
+//public class KnowledgeChildFragment extends BaseVpListFragment<KnowledgeChildPresenter> implements KnowledgeChildContract.View {
+public class KnowledgeChildFragment extends BaseVcListFragment implements KnowledgeChildContract.View {
 
     @BindView(R2.id.rv_knowledge)
     RecyclerView mRecyclerView;
@@ -42,10 +50,10 @@ public class KnowledgeChildFragment extends BaseListFragment<KnowledgeChildPrese
     KnowledgeChildListAdapter mAdapter ;
 
 
-    @Override
-    protected KnowledgeChildPresenter getPresenter() {
-        return new KnowledgeChildPresenter();
-    }
+//    @Override
+//    public KnowledgeChildPresenter createPresenter() {
+//        return new KnowledgeChildPresenter();
+//    }
 
     @Override
     protected int getLayout() {
@@ -86,10 +94,27 @@ public class KnowledgeChildFragment extends BaseListFragment<KnowledgeChildPrese
 
     }
 
+
+    protected void loadData(int currentPage) {
+        addDisposable(ModelVcService.getRemoteListData(mView, mRefreshLayout, new ModelVcService.MethodSelect<KnowledgeChildBean>() {
+            @Override
+            public Observable<BaseObj<KnowledgeChildBean>> selectM(ApiService service) {
+                return service.getKnowledgeHierarchyDetailData(page, mKnowledgeId);
+            }
+        }, new INetCallback<KnowledgeChildBean>() {
+            @Override
+            public void onSuccess(KnowledgeChildBean result) {
+                L.d("请求成功:"+result.getTotal());
+                showKnowledgeChild(result);
+            }
+        }));
+    }
+
     @Override
     public void loadListData(SmartRefreshLayout rlRefreshLayout, int page, int pageSize) {
         mCurrentPage = 0;
-        mPresenter.getKnowledgeChild(page, mKnowledgeId, rlRefreshLayout);
+        loadData(mKnowledgeId);
+       // mPresenter.getKnowledgeChild(page, mKnowledgeId, rlRefreshLayout);
 
     }
 

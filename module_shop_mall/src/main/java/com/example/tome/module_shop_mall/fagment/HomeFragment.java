@@ -2,6 +2,7 @@ package com.example.tome.module_shop_mall.fagment;
 
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,14 +14,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.mvp.BaseListFragment;
+import com.example.tome.component_base.base.mvc.BaseObserver;
+import com.example.tome.component_base.base.mvc.BaseVcListFragment;
+import com.example.tome.component_base.base.mvp.BaseVpListFragment;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.bean.EventBusBean;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.activity.ArticleDetailActivity;
 import com.example.tome.module_shop_mall.adapter.HomeListAdapter;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
@@ -39,7 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
+import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -47,7 +54,8 @@ import butterknife.Unbinder;
  * @描述 ${首页}
  */
 
-public class HomeFragment extends BaseListFragment<HomePresenter> implements HomeContract.View {
+//public class HomeFragment extends BaseVpListFragment<HomePresenter> implements HomeContract.View {
+public class HomeFragment extends BaseVcListFragment implements HomeContract.View{
 
     @BindView(R2.id.iv_left)
     ImageView mIvLeft;
@@ -75,8 +83,6 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
     @BindView(R2.id.layout_home)
     LinearLayout mLayoutHome;
 
-    Unbinder unbinder;
-
 
     private int articlePosition;
     private List<String> mBannerTitleList;
@@ -87,10 +93,10 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
     private HomeListAdapter mAdapter;
     private List<String> mBannerImageList;
 
-    @Override
-    protected HomePresenter getPresenter() {
-        return new HomePresenter();
-    }
+//    @Override
+//    public HomePresenter createPresenter() {
+//        return new HomePresenter();
+//    }
 
     @Override
     protected int getLayout() {
@@ -110,6 +116,7 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
                 EventBus.getDefault().post(new EventBusBean(EventBusBean.SHOP_MALL_HOME, 1));
             }
         });
+
     }
 
     @Override
@@ -156,9 +163,20 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private void loadData() {
+    public void loadData() {
         //加载banner图数据
-        mPresenter.getBannerData();
+     //   mPresenter.BannerData();
+        addDisposable(ModelVcService.getRemoteData(false ,mView, new ModelVcService.MethodSelect<List<BannerData>>() {
+            @Override
+            public Observable<BaseObj<List<BannerData>>> selectM(ApiService service) {
+                return service.getBannerData();
+            }
+        }, new INetCallback<List<BannerData>>() {
+            @Override
+            public void onSuccess(List<BannerData> result) {
+                showBannerData(result);
+            }
+        }));
     }
 
     @Override
@@ -178,7 +196,7 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
     }
 
     @Override
-    public void showArticleList(FeedArticleListData feedArticleListData) {
+    public void showArticleList(@NonNull FeedArticleListData feedArticleListData) {
         if (feedArticleListData == null) {
             return;
         }
@@ -244,6 +262,18 @@ public class HomeFragment extends BaseListFragment<HomePresenter> implements Hom
 
     @Override
     public void loadListData(SmartRefreshLayout rlRefreshLayout, int page, int pageSize) {
-        mPresenter.getFeedArticleListV2(rlRefreshLayout, page);
+   //     mPresenter.FeedArticleList(rlRefreshLayout, page);
+       // mPresenter.onRefresh();
+        addDisposable(ModelVcService.getRemoteListData(mView, rlRefreshLayout, new ModelVcService.MethodSelect<FeedArticleListData>() {
+            @Override
+            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+                return service.getFeedArticleList(page);
+            }
+        }, new INetCallback<FeedArticleListData>() {
+            @Override
+            public void onSuccess(FeedArticleListData result) {
+                showArticleList(result);
+            }
+        }));
     }
 }

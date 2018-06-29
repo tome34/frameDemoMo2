@@ -4,14 +4,14 @@ package com.example.tome.module_shop_mall.presenter;
 import android.app.Activity;
 import android.content.Context;
 
-import com.example.tome.component_base.base.BasePresenter;
+import com.example.tome.component_base.base.mvp.BasePresenter;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.ActivityUtils;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
 
@@ -23,7 +23,7 @@ import io.reactivex.Observable;
  * @描述 ${登录preshenter}
  */
 
-public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
+public class MainPresenter extends BasePresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
 
     private Context mContext ;
     public Activity mCurrentActivity;
@@ -36,8 +36,13 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     }
 
     @Override
+    protected MainContract.Model createModel() {
+        return null;
+    }
+
+    @Override
     public void getFeedArticleList(int page,RequestMapParams params) {
-        /*addSubscribe(ModelService.getFeedArticleList(page)
+        /*addDisposable(ModelVcService.getFeedArticleList(page)
                 .compose(RxUtils.<FeedArticleListResponse>rxSchedulerHelper())
                 // .filter(feedArticleListResponse -> mView != null)
                 .subscribeWith(new BaseObserver<FeedArticleListResponse>(mView) { //with 有返回值
@@ -53,14 +58,14 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
                     }
 
                 }
-              ));*/
+              ));*
 
        // int a  = 10;
-     /*  addSubscribe(ModelService.getRemoteData(page, mView, service -> service.getFeedArticleList(a), result -> {
+     /*  addDisposable(ModelVcService.getRemoteData(page, mView, service -> service.getFeedArticleList(a), result -> {
            mResult = result;
        }));*/
 
-      /* addSubscribe(ModelService.getRemoteData(mView, new ModelService.MethodSelect<FeedArticleListData>() {
+      /* addDisposable(ModelVcService.getRemoteData(mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
            @Override
            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
                return service.getFeedArticleList(page);
@@ -72,18 +77,18 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
            }
        }));*/
 
-        addSubscribe(ModelService.getRemoteData(true, mView, new ModelService.MethodSelect<FeedArticleListData>() {
-            @Override
-            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
-                return service.getFeedArticleList(page, params.build());
-            }
-        }, new INetCallback<FeedArticleListData>() {
-            @Override
-            public void onSuccess(FeedArticleListData result) {
-                L.d("成功返回数据"+result.getCurPage());
-                mView.showTestData(result);
-            }
-        }));
-
+//        addDisposable(ModelVcService.getRemoteData(true, mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
+//            @Override
+//            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+//                return service.getFeedArticleList(page, params.build());
+//            }
+//        }, new INetCallback<FeedArticleListData>() {
+//            @Override
+//            public void onSuccess(FeedArticleListData result) {
+//                L.d("成功返回数据"+result.getCurPage());
+//                mView.showTestData(result);
+//            }
+//        }));
+//
     }
 }

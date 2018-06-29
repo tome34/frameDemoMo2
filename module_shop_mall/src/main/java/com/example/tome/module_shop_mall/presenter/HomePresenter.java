@@ -1,18 +1,10 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelService;
-import com.example.tome.module_shop_mall.bean.BannerData;
+import com.example.tome.component_base.base.mvp.BasePresenter;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.HomeContract;
+import com.example.tome.module_shop_mall.model.HomeModel;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
-import java.util.List;
-
-import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -20,47 +12,47 @@ import io.reactivex.Observable;
  * @描述 ${TODO}
  */
 
-public class HomePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter {
+public class HomePresenter extends BasePresenter<HomeContract.View, HomeContract.Model> implements HomeContract.Presenter {
 
-    /**
-     * 获取文章数据
-     * @param page
-     */
-    @Override
-    public void getFeedArticleList(int page) {
-        addSubscribe(ModelService.getRemoteData(false, mView, service -> service.getFeedArticleList(page), result -> mView.showArticleList(result)));
+    //接收有参构造函数
+    public HomePresenter(String type) {
+    }
+
+    public HomePresenter() {
     }
 
     @Override
-    public void getFeedArticleListV2(SmartRefreshLayout rlRefreshLayout, int page) {
+    protected HomeContract.Model createModel() {
+        return new HomeModel(this);
+    }
 
-        addSubscribe(ModelService.getRemoteListData(mView, rlRefreshLayout, new ModelService.MethodSelect<FeedArticleListData>() {
-            @Override
-            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
-                return service.getFeedArticleList(page);
-            }
-        }, new INetCallback<FeedArticleListData>() {
-            @Override
-            public void onSuccess(FeedArticleListData result) {
-                mView.showArticleList(result);
-            }
-        }));
+    @Override
+    public void attachView(HomeContract.View view) {
+        super.attachView(view);
+    }
+
+
+    @Override
+    public void onRefresh() {
+        mModel.getBannerData();
+       // mModel.getFeedArticleListV2();
+     //   mView.showArticleList();
+    }
+
+    @Override
+    public void BannerData() {
+        mModel.getBannerData();
+    }
+
+    @Override
+    public void FeedArticleList(SmartRefreshLayout rlRefreshLayout, int page) {
 
     }
 
     @Override
-    public void getBannerData() {
-        addSubscribe(ModelService.getRemoteData(false ,mView, new ModelService.MethodSelect<List<BannerData>>() {
-            @Override
-            public Observable<BaseObj<List<BannerData>>> selectM(ApiService service) {
-                return service.getBannerData();
-            }
-        }, new INetCallback<List<BannerData>>() {
-            @Override
-            public void onSuccess(List<BannerData> result) {
-                mView.showBannerData(result);
-            }
-        }));
+    public void ArticleList(FeedArticleListData feedArticleListData) {
 
     }
+
+
 }

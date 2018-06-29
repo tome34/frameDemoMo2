@@ -1,10 +1,11 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IModel;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
-import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 
 public interface HomeContract {
-    interface View extends BaseView {
+    interface View extends IView {
 
         /**
          * 显示条目数据
@@ -32,7 +33,15 @@ public interface HomeContract {
 
     }
 
-    interface  Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
+
+        void onRefresh();
+        void  BannerData();
+        void  FeedArticleList(SmartRefreshLayout rlRefreshLayout, int page);
+        void ArticleList(FeedArticleListData feedArticleListData);
+    }
+
+    interface Model extends IModel{
         /**
          * 获取条目数据
          * @param page

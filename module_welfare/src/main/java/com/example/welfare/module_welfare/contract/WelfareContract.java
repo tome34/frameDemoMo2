@@ -1,11 +1,10 @@
 package com.example.welfare.module_welfare.contract;
 
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
-import java.util.List;
 
 /**
  * @Created by TOME .
@@ -14,11 +13,11 @@ import java.util.List;
  */
 
 public interface WelfareContract {
-    interface View extends BaseView{
+    interface View extends IView{
        void showPhotosListData(PhotoGirlBean photoGirls);
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
         void getPhotosListData(SmartRefreshLayout rlRefreshLayout, int size, int page);
     }
 }

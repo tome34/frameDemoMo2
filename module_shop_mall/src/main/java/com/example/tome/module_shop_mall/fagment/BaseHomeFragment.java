@@ -2,8 +2,7 @@ package com.example.tome.module_shop_mall.fagment;
 
 import android.os.Bundle;
 
-import com.example.tome.component_base.base.mvp.BaseMVPFragment;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.mvc.BaseVcFragment;
 import com.example.tome.module_shop_mall.R;
 
 /**
@@ -11,7 +10,7 @@ import com.example.tome.module_shop_mall.R;
  * BaseHomeFragment
  */
 
-public class BaseHomeFragment extends BaseMVPFragment {
+public class BaseHomeFragment extends BaseVcFragment {
 
     public static BaseHomeFragment newInstance(String info) {
         Bundle args = new Bundle();
@@ -21,10 +20,6 @@ public class BaseHomeFragment extends BaseMVPFragment {
         return fragment;
     }
 
-    @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
-    }
 
     @Override
     protected int getLayout() {
@@ -41,4 +36,6 @@ public class BaseHomeFragment extends BaseMVPFragment {
        // super.regEvent = true;
 
     }
+
+
 }

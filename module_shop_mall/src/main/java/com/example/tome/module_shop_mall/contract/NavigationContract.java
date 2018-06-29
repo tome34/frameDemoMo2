@@ -1,7 +1,9 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.inter.BaseView;
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IModel;
+import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.module_shop_mall.bean.NavigationBean;
 
 import java.util.List;
@@ -13,11 +15,15 @@ import java.util.List;
  */
 
 public interface NavigationContract {
-    interface View extends BaseView{
+    interface View extends IView{
         void showNavigation(List<NavigationBean> result);
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends IPresenter<View> {
+        void getNavigation();
+    }
+
+    interface Model extends IModel {
         void getNavigationData();
     }
 }

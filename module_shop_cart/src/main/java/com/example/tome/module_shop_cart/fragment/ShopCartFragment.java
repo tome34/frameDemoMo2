@@ -3,10 +3,11 @@ package com.example.tome.module_shop_cart.fragment;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvp.BaseMVPFragment;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
+import com.example.tome.component_base.base.mvc.BaseVcFragment;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_cart.R;
+
 
 /**
  * @Created by TOME .
@@ -15,7 +16,7 @@ import com.example.tome.module_shop_cart.R;
  */
 
 @Route(path = RouterURLS.PRODUCT_CART)
-public class ShopCartFragment extends BaseMVPFragment {
+public class ShopCartFragment extends BaseVcFragment {
 
 
     public static ShopCartFragment newInstance(String info) {
@@ -26,10 +27,11 @@ public class ShopCartFragment extends BaseMVPFragment {
         return fragment;
     }
 
-    @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
-    }
+//    @Override
+//    protected IPresenter getPresenter() {
+//        return null;
+//    }
+
 
     @Override
     protected int getLayout() {

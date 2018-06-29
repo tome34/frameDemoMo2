@@ -14,8 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.inter.AbstractPresenter;
-import com.example.tome.component_base.base.mvp.BaseMVPActivity;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.EventBusBean;
 import com.example.tome.component_data.constant.BaseEventbusBean;
@@ -41,7 +40,7 @@ import butterknife.BindView;
  */
 
 @Route(path = RouterURLS.SHOP_MALL_HOME)
-public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class HomeActivity extends BaseVcActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @BindView(R2.id.layout_pager)
     FrameLayout mFrameLayout;
@@ -62,11 +61,6 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
     private List<Fragment> mFragmentList;
     private Fragment mCurrentFragment;
 
-
-    @Override
-    protected AbstractPresenter getPresenter() {
-        return null;
-    }
 
     @Override
     protected int getLayoutId() {
@@ -99,7 +93,6 @@ public class HomeActivity extends BaseMVPActivity implements NavigationView.OnNa
         initFragment();
         initBottomNavigationView();
     }
-
 
     private void initNavigationView() {
         //头部布局  登录

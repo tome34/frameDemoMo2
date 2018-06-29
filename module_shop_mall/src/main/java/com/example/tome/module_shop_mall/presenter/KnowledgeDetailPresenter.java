@@ -1,6 +1,7 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.BasePresenter;
+import com.example.tome.component_base.base.mvp.BasePresenter;
+import com.example.tome.component_base.base.mvp.inter.IModel;
 
 /**
  * @Created by TOME .
@@ -9,4 +10,8 @@ import com.example.tome.component_base.base.BasePresenter;
  */
 
 public class KnowledgeDetailPresenter extends BasePresenter {
+    @Override
+    protected IModel createModel() {
+        return null;
+    }
 }

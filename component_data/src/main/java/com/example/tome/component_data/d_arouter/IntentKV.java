@@ -35,6 +35,11 @@ public interface IntentKV {
     //V
     int V_ADDRESS_EDIT_ADD = 1001;//地址新增
     int V_ADDRESS_EDIT_EDIT = 1002;//地址编辑
-
+    int FLAG_IMAGE_FROM_ALBUM = 60017;
+    int FLAG_IMAGE_FROM_CAMERA = 60018;
+    int FLAG_IMAGE_CUTTING = 60019;
+    int FLAG_IMAGE_CUTTING2 = 60020;
+    int FLAG_IMAGE_video = 60021;
+    int FLAG_IMAGE_video2 = 60022;
 
 }

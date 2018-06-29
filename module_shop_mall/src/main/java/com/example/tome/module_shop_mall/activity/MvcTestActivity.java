@@ -1,12 +1,11 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvc.BaseMVCActivity;
+import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.BaseObj;
@@ -14,15 +13,14 @@ import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.Observable;
 
 @Route(path = RouterURLS.MVC_TEST)
-public class MvcTestActivity extends BaseMVCActivity implements View.OnClickListener {
+public class MvcTestActivity extends BaseVcActivity implements View.OnClickListener {
 
     @BindView(R2.id.tv_test_mvc)
     Button mTvTestMvc;
@@ -46,11 +44,9 @@ public class MvcTestActivity extends BaseMVCActivity implements View.OnClickList
         mTvTestMvc.setOnClickListener(this);
     }
 
-    @Override
     protected void loadData() {
         int page = 0;
-
-        addSubscribe(ModelService.getRemoteData(true, mView, new ModelService.MethodSelect<FeedArticleListData>() {
+        addDisposable(ModelVcService.getRemoteData(true, mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
             @Override
             public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
                 return service.getFeedArticleList(page);

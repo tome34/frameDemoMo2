@@ -1,5 +1,7 @@
 package com.example.tome.component_base.net.params;
 
+import android.support.annotation.NonNull;
+
 import com.example.tome.component_base.util.JsonUtil;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
@@ -50,7 +52,7 @@ public class RequestMapParams implements RequestMapBuild<Map<String,String>> {
     }
 
     @Override
-    public RequestMapBuild<Map<String, String>> put(String s, String[] arrayOf) {
+    public RequestMapBuild<Map<String, String>> put(@NonNull String s, @NonNull String[] arrayOf) {
         map.put(s, getGson().toJson(arrayOf));
         return this;
     }

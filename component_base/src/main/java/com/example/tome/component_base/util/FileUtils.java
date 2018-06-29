@@ -1,6 +1,8 @@
 package com.example.tome.component_base.util;
 
 import android.annotation.SuppressLint;
+import android.net.Uri;
+import android.os.Environment;
 
 
 import java.io.File;
@@ -139,6 +141,34 @@ public final class FileUtils {
     public static boolean createOrExistsDir(File file) {
         // 如果存在，是目录则返回true，是文件则返回false，不存在则返回是否创建成功
         return file != null && (file.exists() ? file.isDirectory() : file.mkdirs());
+    }
+
+    /**
+     * 获取文件路径
+     * @param fileName
+     * @return
+     */
+    public static Uri getImageUri(String path ,String fileName) {
+        File avatar = new File(path);
+        if (!avatar.exists()) {
+            avatar.mkdirs();
+        }
+        File file = new File(avatar, fileName);
+        L.e("文件路径"+file.toString());
+        // 檢查文件是否存在
+        if (file.exists()) {
+            file.delete();
+        }
+        try {
+            file.createNewFile();
+//writable -- 如果为true，允许写访问权限;如果为false，写访问权限是不允许的。
+            file.setWritable(Boolean.TRUE);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return Uri.fromFile(file);// 返回格式化后的uri
     }
 
     /**

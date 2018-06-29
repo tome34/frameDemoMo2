@@ -19,7 +19,7 @@ import com.example.tome.component_base.R;
  *
  * url =    url.replaceAll("http:/", "http://");
  */
-public class ImageLoaderHelper {
+public class ImageLoaderHelper {  //待封装
 
     public static int IMG_LOADING = R.mipmap.ic_image_loading;
     public static int IMG_ERROR = R.mipmap.ic_empty_picture;
@@ -83,9 +83,7 @@ public class ImageLoaderHelper {
 
     public void load(Context context, String url, ImageView iv, int radius) {
 
-
         if (iv != null) {
-
             RequestOptions options = new RequestOptions()
                     .placeholder(IMG_LOADING)
                     .transform(new GlideRoundTransform(context))

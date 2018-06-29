@@ -6,24 +6,31 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvp.BasePermissionActivity;
+import com.example.tome.component_base.base.mvc.BaseVcPermissionActivity;
+import com.example.tome.component_base.base.mvp.BaseVpPermissionActivity;
+import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.file_upload.FileRequestMapParams;
 import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.presenter.MainPresenter;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 
 
 @Route(path = RouterURLS.BASE_MAIN)
-public class MainActivity extends BasePermissionActivity<MainPresenter> implements MainContract.View, View.OnClickListener {
+//public class MainActivity extends BaseVpPermissionActivity<MainPresenter> implements MainContract.View, View.OnClickListener {
+public class MainActivity extends BaseVcPermissionActivity implements  View.OnClickListener {
 
     @BindView(R2.id.layout_main)
     LinearLayout mLayoutMain;
@@ -56,11 +63,6 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
         return R.layout.mall_activity_main;
     }
 
-    @Override
-    protected MainPresenter getPresenter() {
-        return new MainPresenter();
-    }
-
     /**
      * 初始化标题
      */
@@ -88,7 +90,6 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
      * 显示测试数据
      * @param feedArticleListData
      */
-    @Override
     public void showTestData(FeedArticleListData feedArticleListData) {
         mTvData.setText("成功获取"+feedArticleListData.getDatas().size()+"条数据");
     }
@@ -105,7 +106,8 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
             MultipartBody build = fileParam.build();
             RequestMapParams params = new RequestMapParams();
             params.put("key","");
-            mPresenter.getFeedArticleList(0,params);
+            loadData(0,params);
+            //mPresenter.getFeedArticleList(0,params);
         } else if (v.getId() == R.id.tv_get_data_mvc){
             //测试网络请求mvc模式
             RouterCenter.toMVCTest();
@@ -116,5 +118,20 @@ public class MainActivity extends BasePermissionActivity<MainPresenter> implemen
         }
     }
 
+
+    protected void loadData(int page, RequestMapParams params) {
+        addDisposable(ModelVcService.getRemoteData(true, mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
+            @Override
+            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+                return service.getFeedArticleList(page, params.build());
+            }
+        }, new INetCallback<FeedArticleListData>() {
+            @Override
+            public void onSuccess(FeedArticleListData result) {
+                L.d("成功返回数据"+result.getCurPage());
+                showTestData(result);
+            }
+        }));
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.tome.component_base.bean;
 
-import com.example.tome.component_base.base.mvp.BaseMVPFragment;
+import com.example.tome.component_base.base.mvc.BaseVcFragment;
+import com.example.tome.component_base.base.mvp.BaseVpFragment;
 
 /**
  * @Created by TOME .
@@ -9,7 +10,7 @@ import com.example.tome.component_base.base.mvp.BaseMVPFragment;
  */
 public class TabListBean {
     private String title;
-    private BaseMVPFragment fragment;
+    private BaseVcFragment fragment;
 
     public String getTitle() {
         return title;
@@ -19,15 +20,15 @@ public class TabListBean {
         this.title = title;
     }
 
-    public BaseMVPFragment getFragment() {
+    public BaseVcFragment getFragment() {
         return fragment;
     }
 
-    public void setFragment(BaseMVPFragment fragment) {
+    public void setFragment(BaseVcFragment fragment) {
         this.fragment = fragment;
     }
 
-    public TabListBean(String title, BaseMVPFragment fragment) {
+    public TabListBean(String title, BaseVcFragment fragment) {
         this.title = title;
         this.fragment = fragment;
     }

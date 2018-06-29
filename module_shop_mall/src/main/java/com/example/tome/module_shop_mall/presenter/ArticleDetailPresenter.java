@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.BasePresenter;
-import com.example.tome.module_shop_mall.api.ModelService;
+import com.example.tome.component_base.base.mvp.BasePresenter;
+import com.example.tome.component_base.base.mvp.inter.IModel;
 import com.example.tome.module_shop_mall.contract.ArticleDetailContract;
 
 /**
@@ -10,9 +10,14 @@ import com.example.tome.module_shop_mall.contract.ArticleDetailContract;
  * @描述 ${文章详情的presenter}
  */
 
-public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.View> implements ArticleDetailContract.Presenter{
+public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.View, ArticleDetailContract.Model> implements ArticleDetailContract.Presenter{
     @Override
     public void getArticleData() {
 
+    }
+
+    @Override
+    protected ArticleDetailContract.Model createModel() {
+        return null;
     }
 }
