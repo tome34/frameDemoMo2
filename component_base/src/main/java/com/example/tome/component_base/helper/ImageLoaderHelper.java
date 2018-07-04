@@ -39,15 +39,23 @@ public class ImageLoaderHelper {  //待封装
                 }
             }
         }
+
         return instance;
+    }
+
+    private int optionsInit(int flag) {
+        int sourceId = 0;
+        if (flag == 0){
+            sourceId = R.mipmap.ic_image_loading ;
+        }
+        return sourceId ;
     }
 
     public void load(Context context, String url, ImageView iv) {
 
-
         if (iv != null && context != null && url != null) {
             RequestOptions options = new RequestOptions()
-                    .placeholder(IMG_LOADING)  //加载中显示的图片
+                    .placeholder(optionsInit(0))  //加载中显示的图片
                     .centerCrop()            //图像则位于视图的中央
                    // .override(1090, 1090*3/4)
                     .error(IMG_ERROR) //加载失败时显示的图片centerCrop().

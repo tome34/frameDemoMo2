@@ -1,14 +1,20 @@
 package com.example.tome.module_shop_mall.contract;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.inter.IModel;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;
+import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
+import com.example.tome.module_shop_mall.bean.LoginBean;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
+
+import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -23,22 +29,39 @@ public interface HomeContract {
          * 显示条目数据
          * @param feedArticleListData
          */
-        void showArticleList(FeedArticleListData feedArticleListData);
+       // void showArticleList(FeedArticleListData feedArticleListData);
 
         /**
          * 显示轮播图
-         * @param bannerDataList
          */
-        void showBannerData(List<BannerData> bannerDataList);
+       // void showBannerData(List<BannerData> bannerDataList);
+
 
     }
 
     interface Presenter extends IPresenter<View> {
-
-        void onRefresh();
+        /**
+         * 加载轮播图
+         */
         void  BannerData();
-        void  FeedArticleList(SmartRefreshLayout rlRefreshLayout, int page);
-        void ArticleList(FeedArticleListData feedArticleListData);
+
+        /**
+         * 获取文章数据
+         * @param isRefresh
+         * @param rlRefreshLayout
+         * @param page
+         */
+        void  FeedArticleList(boolean isRefresh, SmartRefreshLayout rlRefreshLayout, int page);
+
+        /**
+         * 轮播图自动播放
+         */
+        void startBannerPlay();
+
+        /**
+         * 轮播图停止播放
+         */
+        void stopBannerPlay();
     }
 
     interface Model extends IModel{
@@ -46,14 +69,12 @@ public interface HomeContract {
          * 获取条目数据
          * @param page
          */
-        void getFeedArticleList(int page);
-
-        void getFeedArticleListV2(SmartRefreshLayout rlRefreshLayout, int page);
+        Observable<BaseObj<FeedArticleListData>> getFeedArticleList(int page);
 
         /**
          * 获取轮播图数据
          */
-        void getBannerData();
+        Observable<BaseObj<List<BannerData>>> getBannerData();
     }
 
 

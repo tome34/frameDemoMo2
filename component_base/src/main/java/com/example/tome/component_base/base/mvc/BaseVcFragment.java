@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.BaseVpActivity;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.orhanobut.logger.Logger;
@@ -30,7 +31,7 @@ import io.reactivex.disposables.Disposable;
  * @描述 ${MVC模式的Base fragment}
  */
 
-public abstract class BaseVcFragment extends Fragment implements BaseView{
+public abstract class BaseVcFragment extends Fragment implements IView{
 
     private Unbinder unBinder;
     protected Context mContext;
@@ -39,7 +40,7 @@ public abstract class BaseVcFragment extends Fragment implements BaseView{
     //管理事件流订阅的生命周期CompositeDisposable
     private CompositeDisposable compositeDisposable;
 
-    public BaseView mView = this;
+    public IView mView = this;
 
     @Override
     public void onAttach(Context context) {
@@ -62,7 +63,7 @@ public abstract class BaseVcFragment extends Fragment implements BaseView{
     }
 
     /**
-     * 订阅关系
+     * rxjava管理订阅者
      */
     protected void addDisposable(Disposable disposable) {
         if (compositeDisposable == null) {

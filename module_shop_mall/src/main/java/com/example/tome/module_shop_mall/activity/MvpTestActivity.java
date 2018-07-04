@@ -1,0 +1,92 @@
+package com.example.tome.module_shop_mall.activity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.tome.component_base.base.mvp.BaseVpActivity;
+import com.example.tome.component_base.net.common_callback.INetCallback;
+import com.example.tome.component_base.net.params.RequestMapParams;
+import com.example.tome.component_base.util.L;
+import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.module_shop_mall.R;
+import com.example.tome.module_shop_mall.R2;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
+import com.example.tome.module_shop_mall.bean.FeedArticleListData;
+import com.example.tome.module_shop_mall.contract.MainContract;
+import com.example.tome.module_shop_mall.presenter.MainPresenter;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.reactivex.Observable;
+
+@Route(path = RouterURLS.MVP_TEST)
+public class MvpTestActivity extends BaseVpActivity<MainContract.View, MainContract.Presenter> implements MainContract.View, View.OnClickListener {
+
+    @BindView(R2.id.tv_test_mvp)
+    Button mTvTestMvp;
+    @BindView(R2.id.tv_data)
+    TextView mTvData;
+    @BindView(R2.id.tv_error)
+    TextView mTvError;
+
+    @Override
+    public MainContract.Presenter createPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
+    public MainContract.View createView() {
+        return this;
+    }
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.mall_activity_mvp_test;
+    }
+
+    @Override
+    protected void initTitle() {
+
+    }
+
+    @Override
+    protected void initView() {
+        mTvTestMvp.setOnClickListener(this);
+    }
+
+    @Override
+    public void showTestData(FeedArticleListData feedArticleListData) {
+        L.d("成功返回数据" + feedArticleListData.getCurPage());
+        mTvData.setText("成功获取"+feedArticleListData.getDatas().size()+"条数据");
+    }
+
+    protected void loadData(int page, RequestMapParams params) {
+//        addDisposable(ModelVcService.getRemoteData(true, mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
+//            @Override
+//            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+//                return service.getFeedArticleList(page, params.build());
+//            }
+//        }, new INetCallback<FeedArticleListData>() {
+//            @Override
+//            public void onSuccess(FeedArticleListData result) {
+//                L.d("成功返回数据" + result.getCurPage());
+//                showTestData(result);
+//
+//            }
+//        }));
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.tv_test_mvp){
+            mPresenter.initFeedArticleList();
+            // loadData(0,params);
+        }
+    }
+}

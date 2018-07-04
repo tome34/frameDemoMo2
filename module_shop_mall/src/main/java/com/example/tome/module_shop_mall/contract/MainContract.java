@@ -5,7 +5,13 @@ import com.example.tome.component_base.base.mvp.inter.IModel;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.net.params.RequestMapParams;
+import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
+
+import java.util.List;
+
+import io.reactivex.Observable;
 
 
 /**
@@ -24,10 +30,11 @@ public interface MainContract {
 
     interface Presenter extends IPresenter<View> {
 
-        void getFeedArticleList(int page,RequestMapParams params);
+       void initFeedArticleList();
     }
 
     interface Model extends IModel {
 
+        Observable<BaseObj<FeedArticleListData>> getFeedArticleList(int page, RequestMapParams params);
     }
 }

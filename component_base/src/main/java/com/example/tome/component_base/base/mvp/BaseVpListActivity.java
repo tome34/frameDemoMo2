@@ -1,6 +1,7 @@
 package com.example.tome.component_base.base.mvp;
 
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -12,7 +13,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  * @描述 ${activity列表基类,封装刷新和加载更多}
  */
 
-public abstract class BaseVpListActivity<P extends IPresenter> extends BaseVpActivity<P> implements OnRefreshListener, OnLoadMoreListener {
+public abstract class BaseVpListActivity<V extends IView, P extends IPresenter<V>> extends BaseVpActivity<V ,P> implements OnRefreshListener, OnLoadMoreListener {
 
     protected int page = 0;
     protected int pageSize = 10;

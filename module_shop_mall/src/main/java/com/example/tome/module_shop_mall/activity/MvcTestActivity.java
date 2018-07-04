@@ -1,5 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,6 +61,7 @@ public class MvcTestActivity extends BaseVcActivity implements View.OnClickListe
 
         }));
     }
+
 
     @Override
     public void showError(String msg, String code) {

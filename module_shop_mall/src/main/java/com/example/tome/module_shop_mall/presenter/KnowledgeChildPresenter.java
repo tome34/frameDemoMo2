@@ -31,7 +31,7 @@ public class KnowledgeChildPresenter extends BasePresenter<KnowledgeChildContrac
 //            @Override
 //            public void onSuccess(KnowledgeChildBean result) {
 //                L.d("请求成功:"+result.getTotal());
-//                mView.showKnowledgeChild(result);
+//               mView.showKnowledgeChild(result);
 //            }
 //        }));
 

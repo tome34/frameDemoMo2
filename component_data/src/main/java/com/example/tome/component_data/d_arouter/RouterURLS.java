@@ -15,6 +15,7 @@ public interface RouterURLS {
     String SHOP_MALL_HOME = "/mall/home";
     String SHOP_GOODS = "/shop1/goods";
     String MVC_TEST = "/mvc/test";
+    String MVP_TEST = "/mvp/test";
     String WELFARE_HOME = "/welfare/home";
     String WELFARE_PREVIEW = "/welfare/preview";
 

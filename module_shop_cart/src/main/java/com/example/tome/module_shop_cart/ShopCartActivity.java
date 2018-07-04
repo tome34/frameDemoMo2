@@ -1,6 +1,7 @@
 package com.example.tome.module_shop_cart;
 
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
@@ -90,6 +91,5 @@ public class ShopCartActivity extends BaseVcActivity implements RadioGroup.OnChe
 
         transaction.commitAllowingStateLoss();
     }
-
 
 }

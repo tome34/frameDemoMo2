@@ -7,18 +7,18 @@ import com.example.tome.component_base.base.mvc.inter.BaseView;
  * Description : mvp模式抽象vp的解绑和绑定过程
  */
 
-public interface MvpCallback<P> extends BaseView{
+public interface    MvpCallback<V extends IView, P extends IPresenter<V>> {
     //创建Presenter  调用在init中
     P createPresenter();
 
     //创建View
-   // V createView();
+    V createView();
 
     void setPresenter(P presenter);
 
     P getPresenter();
 
-  //  void setMvpView(V view);
+    void setMvpView(V view);
 
-   // V getMvpView();
+    V getMvpView();
 }

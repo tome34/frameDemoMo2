@@ -1,5 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -117,4 +118,5 @@ public class KnowledgeDetailActivity extends BaseVcActivity {
         return fragment;
 
     }
+
 }

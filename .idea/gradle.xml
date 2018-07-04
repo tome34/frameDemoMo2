@@ -12,10 +12,12 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseLib" />
             <option value="$PROJECT_DIR$/baseLib/alertview" />
+            <option value="$PROJECT_DIR$/baseLib/flowlayout-lib" />
+            <option value="$PROJECT_DIR$/baseLib/kprogresshud" />
             <option value="$PROJECT_DIR$/baseLib/videocompressV2" />
             <option value="$PROJECT_DIR$/component_base" />
             <option value="$PROJECT_DIR$/component_data" />
-            <option value="$PROJECT_DIR$/module_common" />
+            <option value="$PROJECT_DIR$/module_common_ui" />
             <option value="$PROJECT_DIR$/module_shop_cart" />
             <option value="$PROJECT_DIR$/module_shop_mall" />
             <option value="$PROJECT_DIR$/module_welfare" />

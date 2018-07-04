@@ -1,6 +1,7 @@
 package com.example.tome.component_base.base.mvc;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.helper.HUDFactory;
 import com.example.tome.component_base.util.StatuBarCompat;
@@ -31,7 +33,7 @@ import io.reactivex.disposables.Disposable;
  * @描述 ${MVC模式的Base Activity}
  */
 
-public abstract class BaseVcActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseVcActivity extends AppCompatActivity implements IView {
 
     private Unbinder unBinder;
     protected boolean regEvent;
@@ -41,7 +43,7 @@ public abstract class BaseVcActivity extends AppCompatActivity implements BaseVi
     //管理事件流订阅的生命周期CompositeDisposable
     private CompositeDisposable compositeDisposable;
 
-    public BaseView mView = this;
+    public IView mView = this;
 
 
     @Override
@@ -63,7 +65,7 @@ public abstract class BaseVcActivity extends AppCompatActivity implements BaseVi
     }
 
     /**
-     * 订阅关系
+     * rxjava管理订阅者
      */
     protected void addDisposable(Disposable disposable) {
         if (compositeDisposable == null) {
@@ -81,7 +83,10 @@ public abstract class BaseVcActivity extends AppCompatActivity implements BaseVi
 
     }
 
-
+    @Override
+    public Context getContext() {
+        return this;
+    }
 
     @Override
     public void showHUD(String msg) {

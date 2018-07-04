@@ -1,5 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -101,13 +102,8 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
             RouterCenter.toShopCart();
         } else if (v.getId() == R.id.tv_get_data) {
             //测试网络请求mvp模式
-            FileRequestMapParams fileParam = new FileRequestMapParams(); //文件上传
-            fileParam.put("file", "path");
-            MultipartBody build = fileParam.build();
-            RequestMapParams params = new RequestMapParams();
-            params.put("key","");
-            loadData(0,params);
-            //mPresenter.getFeedArticleList(0,params);
+            RouterCenter.toMVPTest();
+
         } else if (v.getId() == R.id.tv_get_data_mvc){
             //测试网络请求mvc模式
             RouterCenter.toMVCTest();
@@ -116,22 +112,6 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
         } else if (v.getId() == R.id.tv_list){
             RouterCenter.toCustomControl();
         }
-    }
-
-
-    protected void loadData(int page, RequestMapParams params) {
-        addDisposable(ModelVcService.getRemoteData(true, mView, new ModelVcService.MethodSelect<FeedArticleListData>() {
-            @Override
-            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
-                return service.getFeedArticleList(page, params.build());
-            }
-        }, new INetCallback<FeedArticleListData>() {
-            @Override
-            public void onSuccess(FeedArticleListData result) {
-                L.d("成功返回数据"+result.getCurPage());
-                showTestData(result);
-            }
-        }));
     }
 
 }

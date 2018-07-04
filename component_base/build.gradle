@@ -96,7 +96,7 @@ dependencies {
     //日志
     api rootProject.ext.dependencies["logger"]
     //仿ios进度条
-    api rootProject.ext.dependencies["kprogresshud"]
+    //api rootProject.ext.dependencies["kprogresshud"]
     //6.0权限
     api rootProject.ext.dependencies["permissionsdispatcher"]
     api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
@@ -129,4 +129,5 @@ dependencies {
 
 
     implementation project(':component_data')
+    implementation project(':baseLib:kprogresshud')
 }

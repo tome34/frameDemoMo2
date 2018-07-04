@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.tome.component_base.R;
 import com.example.tome.component_base.R2;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.bean.TabListBean;
 
 import java.util.List;
@@ -24,7 +25,7 @@ import butterknife.BindView;
  * @描述 ${Tab列表Activity}
  */
 
-public abstract class BaseVpTabListActivity<P extends IPresenter> extends BaseVpActivity<P> {
+public abstract class BaseVpTabListActivity<V extends IView, P extends IPresenter<V>> extends BaseVpActivity<V, P> {
 
 
     @BindView(R2.id.title_back)

@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.example.tome.component_base.R;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.dialog.MyAlertDialog;
 import com.example.tome.component_base.util.L;
 
@@ -21,7 +22,7 @@ import com.example.tome.component_base.util.L;
  * @描述 ${permissionsdispatcher 处理权限管理}
  */
 
-public abstract class BaseVpPermissionActivity<P extends IPresenter> extends BaseVpActivity<P> {
+public abstract class BaseVpPermissionActivity<V extends IView, P extends IPresenter<V>> extends BaseVpActivity<V, P> {
 
     /***照相机权限*/
     public static final int PERMISSION_CAMERA = 10001;

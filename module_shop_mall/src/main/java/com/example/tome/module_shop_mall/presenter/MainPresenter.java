@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.example.tome.component_base.base.mvp.BasePresenter;
+import com.example.tome.component_base.base.mvp.BaseVpObserver;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.net.common_callback.INetCallback;
+import com.example.tome.component_base.net.file_upload.FileRequestMapParams;
 import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.ActivityUtils;
 import com.example.tome.component_base.util.L;
@@ -14,38 +17,20 @@ import com.example.tome.module_shop_mall.api.ApiService;
 import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
+import com.example.tome.module_shop_mall.model.mainMvpModel;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 
 /**
  * @Created by TOME .
  * @时间 2018/5/4 11:03
  * @描述 ${登录preshenter}
  */
-
-public class MainPresenter extends BasePresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
-
-    private Context mContext ;
-    public Activity mCurrentActivity;
-    private FeedArticleListData mResult;
-
-    @Override
-    public void attachView(MainContract.View view) {
-        super.attachView(view);
-        mCurrentActivity = ActivityUtils.getInstance().currentActivity();
-    }
-
-    @Override
-    protected MainContract.Model createModel() {
-        return null;
-    }
-
-    @Override
-    public void getFeedArticleList(int page,RequestMapParams params) {
         /*addDisposable(ModelVcService.getFeedArticleList(page)
                 .compose(RxUtils.<FeedArticleListResponse>rxSchedulerHelper())
                 // .filter(feedArticleListResponse -> mView != null)
-                .subscribeWith(new BaseObserver<FeedArticleListResponse>(mView) { //with 有返回值
+                .subscribeWith(new BaseVcObserver<FeedArticleListResponse>(mView) { //with 有返回值
                     @Override
                     public void onNext(FeedArticleListResponse feedArticleListResponse) {
                         L.d("获取数据",":"+feedArticleListResponse.getMessage());
@@ -90,5 +75,39 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainContract
 //            }
 //        }));
 //
+public class MainPresenter extends BasePresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
+
+    private Context mContext;
+    public Activity mCurrentActivity;
+    private FeedArticleListData mResult;
+
+    @Override
+    public void attachView(MainContract.View view) {
+        super.attachView(view);
+        mCurrentActivity = ActivityUtils.getInstance().currentActivity();
+    }
+
+    @Override
+    protected MainContract.Model createModel() {
+        return new mainMvpModel();
+    }
+
+    @Override
+    public void initFeedArticleList() {
+        FileRequestMapParams fileParam = new FileRequestMapParams(); //文件上传
+        fileParam.put("file", "path");
+        MultipartBody build = fileParam.build();
+        RequestMapParams params = new RequestMapParams();
+        params.put("key", "");
+        addDisposable(
+                mModel.getFeedArticleList(0, params)
+                        .subscribeWith(new BaseVpObserver<BaseObj<FeedArticleListData>>(mView) {
+                            @Override
+                            public void onNext(BaseObj<FeedArticleListData> feedArticleListDataBaseObj) {
+                                L.d("成功返回数据" + feedArticleListDataBaseObj.getData().getCurPage());
+                                mView.showTestData(feedArticleListDataBaseObj.getData());
+                            }
+                        }));
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -262,5 +263,6 @@ public class HomeActivity extends BaseVcActivity implements NavigationView.OnNav
             L.d(TAG, "点击了登录");
         }
     }
+
 }
 

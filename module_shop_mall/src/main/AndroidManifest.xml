@@ -31,7 +31,8 @@
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.ArticleDetailActivity" />
         <activity android:name=".activity.KnowledgeDetailActivity" />
-        <activity android:name=".activity.MvcTestActivity"></activity>
+        <activity android:name=".activity.MvcTestActivity" />
+        <activity android:name=".activity.MvpTestActivity"></activity>
     </application>
 
 </manifest>

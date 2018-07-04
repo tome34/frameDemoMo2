@@ -80,7 +80,7 @@ ext{
             //Bugly集成
             "bugly"                          : 'com.tencent.bugly:crashreport_upgrade:latest.release',
             //仿ios进度条
-            "kprogresshud"                   : 'com.kaopiz:kprogresshud:1.1.0',
+           // "kprogresshud"                   : 'com.kaopiz:kprogresshud:1.1.0',
             //6.0权限管理
             "permissionsdispatcher"          : 'com.github.hotchemi:permissionsdispatcher:3.0.1',
             "permissionsdispatcher_processor": 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1',

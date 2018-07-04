@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.base.mvp.inter.MvpCallback;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
@@ -21,6 +22,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @Created by TOME .
@@ -28,17 +31,28 @@ import butterknife.Unbinder;
  * @描述 ${MVP模式的Base fragment}
  */
 
-public abstract class BaseVpFragment<P extends IPresenter> extends Fragment implements MvpCallback<P> {
+public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> extends Fragment implements MvpCallback<V, P>, IView {
 
     private Unbinder unBinder;
     protected Context mContext;
     protected boolean regEvent;
     protected P mPresenter;
+    protected V mView;
+    private BaseVpActivity mBaseActivity;
+
+    //管理事件流订阅的生命周期CompositeDisposable
+    private CompositeDisposable compositeDisposable;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.mContext = context;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        init(savedInstanceState);
     }
 
     @Nullable
@@ -56,33 +70,42 @@ public abstract class BaseVpFragment<P extends IPresenter> extends Fragment impl
         return view ;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
     /**
      * 初始化presenter
      */
     public void onViewCreated() {
+        mView = createView();
         if (getPresenter()==null) {
             mPresenter = createPresenter();
             getLifecycle().addObserver(mPresenter);
         }
         mPresenter = getPresenter();
-
+        //在这个时候才attach view是因为这个时候view的初始化已经基本完成,在Presenter中调用view的域也不会为空
+        mPresenter.attachView(getMvpView());
     }
-
 
 
     @Override
     public void showHUD(String msg) {
-        if (getActivity() != null) {
-            BaseVpActivity baseActivity = (BaseVpActivity) getActivity();
-            baseActivity.showHUD(msg);
+        if (getActivity() != null ) {
+            if (mBaseActivity == null){
+                mBaseActivity = (BaseVpActivity) getActivity();
+            }
+            mBaseActivity.showHUD(msg);
         }
+
     }
 
     @Override
     public void dismissHUD() {
-        if (getActivity() != null) {
-            BaseVpActivity baseActivity = (BaseVpActivity) getActivity();
-            baseActivity.dismissHUD();
+        if (getActivity() != null && mBaseActivity != null) {
+            mBaseActivity.dismissHUD();
         }
     }
 
@@ -105,6 +128,7 @@ public abstract class BaseVpFragment<P extends IPresenter> extends Fragment impl
         }
     }
 
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(BaseEventbusBean event) {
         onEvent(event);
@@ -121,6 +145,7 @@ public abstract class BaseVpFragment<P extends IPresenter> extends Fragment impl
             unBinder.unbind();
         }
         setPresenter(null);
+        setMvpView(null);
         if (regEvent) {
             EventBus.getDefault().unregister(this);
         }
@@ -134,6 +159,16 @@ public abstract class BaseVpFragment<P extends IPresenter> extends Fragment impl
     @Override
     public void setPresenter(P presenter) {
         this.mPresenter = presenter;
+    }
+
+    @Override
+    public void setMvpView(V view) {
+        this.mView = view;
+    }
+
+    @Override
+    public V getMvpView() {
+        return this.mView;
     }
 
     /**
@@ -152,5 +187,12 @@ public abstract class BaseVpFragment<P extends IPresenter> extends Fragment impl
      * 初始化数据
      */
     protected abstract void initView();
+
+    /**
+     * view填充之前 过去Intent数据  绑定Presenter等
+     * 注意:获取intent的数据需要在super之前,否则如果创建Presenter使用到这些数据的话,这些数据在使用时还未被赋值
+     * @param savedInstanceState
+     */
+    protected void init(Bundle savedInstanceState){};
 
 }

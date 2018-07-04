@@ -9,5 +9,18 @@ import android.content.Context;
  */
 
 public interface IView extends LifecycleOwner {
+
     Context getContext();
+
+    void showError(String msg, String code);
+
+    /**
+     * 显示Dialog
+     */
+    void showHUD(String msg);
+
+    /**
+     * 关闭Dialog
+     */
+    void dismissHUD();
 }

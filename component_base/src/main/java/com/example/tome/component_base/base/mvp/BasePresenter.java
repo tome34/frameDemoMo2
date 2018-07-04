@@ -3,6 +3,8 @@ package com.example.tome.component_base.base.mvp;
 import android.content.Context;
 import android.support.annotation.CallSuper;
 
+import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IDisposablePool;
 import com.example.tome.component_base.base.mvp.inter.IModel;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;
@@ -17,11 +19,13 @@ import io.reactivex.disposables.Disposable;
  * @描述 ${管理事件流订阅的生命周期CompositeDisposable}
  */
 
-public abstract class BasePresenter<V extends IView,M extends IModel> {
+public abstract class BasePresenter<V extends IView,M extends IModel>  {
 
     protected V mView;
     protected M mModel;
 
+    //管理事件流订阅的生命周期CompositeDisposable
+    private CompositeDisposable compositeDisposable;
 
     @CallSuper
     public void attachView(V view) {
@@ -34,7 +38,7 @@ public abstract class BasePresenter<V extends IView,M extends IModel> {
     @CallSuper
     public void detachView() {
         if (mModel != null) {
-            mModel.clearPool();
+            clearPool();
         }
         mModel = null;
         mView = null;
@@ -44,6 +48,28 @@ public abstract class BasePresenter<V extends IView,M extends IModel> {
     public Context getContext() {
         return mView.getContext();
     }
+
+    /**
+     * rxjava管理订阅者
+     */
+    protected void addDisposable(Disposable disposable) {
+        if (compositeDisposable == null) {
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
+    /**
+     * 取消订阅关系
+      * @return
+     */
+    public void clearPool() {
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+            compositeDisposable = null;
+        }
+    }
+
     public M getModel(){
         return  mModel;
     }

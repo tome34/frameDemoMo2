@@ -1,5 +1,6 @@
 package com.example.tome.module_shop_mall.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -104,4 +105,5 @@ public class ArticleDetailActivity extends BaseVcActivity {
             super.onBackPressed();
         }
     }
+
 }

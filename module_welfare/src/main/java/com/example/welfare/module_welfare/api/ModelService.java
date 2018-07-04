@@ -1,7 +1,8 @@
 package com.example.welfare.module_welfare.api;
 
-import com.example.tome.component_base.base.mvc.BaseObserver;
+import com.example.tome.component_base.base.mvc.BaseVcObserver;
 import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.net.HttpHelper;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
@@ -42,12 +43,12 @@ public class ModelService {
      * @param mView
      * @return
      */
-    public static <T> BaseObserver<T> getRemoteData(boolean isShowHUD, BaseView mView, MethodSelect<T> select, INetCallback<T> callback) {
+    public static <T> BaseVcObserver<T> getRemoteData(boolean isShowHUD, IView mView, MethodSelect<T> select, INetCallback<T> callback) {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(2)
                 .create(ApiService.class))
                 .compose(RxUtils.<T>rxSchedulerHelper())
-                .subscribeWith(new BaseObserver<T>(mView, isShowHUD) {
+                .subscribeWith(new BaseVcObserver<T>(mView, isShowHUD) {
                                    @Override
                                    public void onNext(T result) {
                                        L.d("获取数据", ":" + result);
@@ -68,12 +69,12 @@ public class ModelService {
      * @param <T>
      * @return
      */
-    public static <T> BaseObserver<T> getRemoteListData(BaseView mView, SmartRefreshLayout rlRefresh, MethodSelect<T> select, INetCallback<T> callback) {
+    public static <T> BaseVcObserver<T> getRemoteListData(IView mView, SmartRefreshLayout rlRefresh, MethodSelect<T> select, INetCallback<T> callback) {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(2)
                 .create(ApiService.class))
                 .compose(RxUtils.<T>rxSchedulerHelper())
-                .subscribeWith(new BaseObserver<T>(mView, rlRefresh,false) {
+                .subscribeWith(new BaseVcObserver<T>(mView, rlRefresh,false) {
                                    @Override
                                    public void onNext(T result) {
                                        Logger.json("获取数据"+result.toString());
@@ -85,19 +86,25 @@ public class ModelService {
     }
 
 
-
-
-
-    public static <T> BaseObserver<T> downloadFile(BaseView mView, MethodSelect<T> select, INetCallback<T> callback){
+    /**
+     * 下载图片
+     * @param mView
+     * @param select
+     * @param callback
+     * @param <T>
+     * @return
+     */
+    public static <T> BaseVcObserver<T> downloadFile(IView mView, MethodSelect<T> select, INetCallback<T> callback){
         return select.selectM(HttpHelper.getDefault(2)
                 .create(ApiService.class))
                 .compose(RxUtils.<T>rxSchedulerHelper())
-                .subscribeWith(new BaseObserver<T>(mView, "正在保存...") {
+                .subscribeWith(new BaseVcObserver<T>(mView, "正在保存...") {
                                    @Override
                                    public void onNext(T result) {
                                        L.d("获取数据", ":" + result);
-                                       callback.onSuccess(result);
+                                      callback.onSuccess(result);
                                    }
+
                                }
                 );
 

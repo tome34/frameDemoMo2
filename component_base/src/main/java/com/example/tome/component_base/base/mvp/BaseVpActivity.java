@@ -1,8 +1,10 @@
 package com.example.tome.component_base.base.mvp;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -35,9 +37,10 @@ import io.reactivex.disposables.Disposable;
  * @描述 ${MVP模式的Base Activity}
  */
 
-public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActivity implements MvpCallback<P> {
+public abstract class BaseVpActivity<V extends IView, P extends IPresenter<V>> extends AppCompatActivity implements MvpCallback<V, P>, IView {
 
     protected P mPresenter ;
+    protected V mView;
     private Unbinder unBinder;
     protected boolean regEvent;
     public BaseVpActivity mActivity ;
@@ -63,28 +66,27 @@ public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActi
         if (regEvent){
             EventBus.getDefault().register(this);
         }
+        initListener();
     }
 
     /**
      * 初始化presenter
      */
     public void onViewCreated() {
+        mView = createView();
         if (getPresenter()==null) {
             mPresenter = createPresenter();
             getLifecycle().addObserver(mPresenter);
         }
         mPresenter = getPresenter();
+        mPresenter.attachView(getMvpView());
     }
 
-    /**
-     * 订阅关系
-     */
-    protected void addDisposable(Disposable disposable) {
-        if (compositeDisposable == null) {
-            compositeDisposable = new CompositeDisposable();
-        }
-        compositeDisposable.add(disposable);
+    @CallSuper
+    protected void initListener() {
+        mPresenter.attachView(getMvpView());
     }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(BaseEventbusBean event) {
@@ -95,7 +97,10 @@ public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActi
 
     }
 
-
+    @Override
+    public Context getContext() {
+        return this;
+    }
 
     @Override
     public void showHUD(String msg) {
@@ -145,6 +150,8 @@ public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActi
         finish();
     }
 
+
+
     @Override
     protected void onDestroy() {
         if (mPresenter != null) {
@@ -155,6 +162,7 @@ public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActi
             unBinder.unbind();
         }
         setPresenter(null);
+        setMvpView(null);
         if (regEvent) {
             EventBus.getDefault().unregister(this);
         }
@@ -181,6 +189,16 @@ public abstract class BaseVpActivity<P extends IPresenter> extends AppCompatActi
     @Override
     public void setPresenter(P presenter) {
         this.mPresenter = presenter;
+    }
+
+    @Override
+    public void setMvpView(V view) {
+        this.mView = view;
+    }
+
+    @Override
+    public V getMvpView() {
+        return this.mView;
     }
 
     /**

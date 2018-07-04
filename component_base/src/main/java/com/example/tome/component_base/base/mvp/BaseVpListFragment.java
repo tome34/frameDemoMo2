@@ -1,6 +1,7 @@
 package com.example.tome.component_base.base.mvp;
 
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
+import com.example.tome.component_base.base.mvp.inter.IView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -12,7 +13,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  * @描述 ${列表基类,封装刷新和加载更多}
  */
 
-public abstract class BaseVpListFragment<P extends IPresenter> extends BaseVpFragment<P> implements OnRefreshListener, OnLoadMoreListener {
+public abstract class BaseVpListFragment<V extends IView,P extends IPresenter<V>> extends BaseVpFragment<V, P> implements OnRefreshListener, OnLoadMoreListener {
 
     protected int page = 0;
     protected int pageSize = 20;
@@ -36,7 +37,7 @@ public abstract class BaseVpListFragment<P extends IPresenter> extends BaseVpFra
     public void onRefresh(RefreshLayout refreshLayout) {
         this.page = 0;
         isRefresh = true ;
-        loadListData(rlRefreshLayout ,page, pageSize);
+        loadListData(isRefresh, rlRefreshLayout ,page, pageSize);
     }
 
     /**
@@ -47,9 +48,9 @@ public abstract class BaseVpListFragment<P extends IPresenter> extends BaseVpFra
     public void onLoadMore(RefreshLayout refreshLayout) {
         page++;
         isRefresh = false ;
-        loadListData(rlRefreshLayout ,page, pageSize);
+        loadListData(isRefresh, rlRefreshLayout ,page, pageSize);
     }
 
-    public abstract void loadListData(SmartRefreshLayout rlRefreshLayout , int page, int pageSize);
+    public abstract void loadListData(boolean isRefresh, SmartRefreshLayout rlRefreshLayout , int page, int pageSize);
 
 }
