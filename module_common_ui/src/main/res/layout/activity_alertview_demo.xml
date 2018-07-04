@@ -53,4 +53,11 @@
         android:onClick="alertShowExt"
         android:text="窗口拓展点这里" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:onClick="alertCustom"
+        android:text="自定义布局" />
+
 </LinearLayout>

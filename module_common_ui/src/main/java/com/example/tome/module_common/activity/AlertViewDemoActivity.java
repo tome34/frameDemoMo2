@@ -14,7 +14,9 @@ import android.widget.Toast;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
+import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.module_common.R;
+import com.example.tome.module_common.widget.dialog.AlertDialog;
 
 /**
  * 精仿iOSAlertViewController控件Demo
@@ -82,6 +84,29 @@ public class AlertViewDemoActivity extends Activity implements OnItemClickListen
 
     public void alertShowExt(View view) {
         mAlertViewExt.show();
+    }
+
+    /**
+     * 自己写的diolog,可以自定义布局
+     * @param view
+     */
+    public void alertCustom(View view) {
+        AlertDialog dialog = new AlertDialog(this);
+        dialog.builder()
+                .setTitle("自定义布局")
+                .setMsg("哈哈哈")
+                .setCancelable(false)
+                .setNegativeButton("取消", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtils.showShort(AlertViewDemoActivity.this, "取消");
+                    }
+                }).setPositiveButton("确定", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort(AlertViewDemoActivity.this, "确定");
+            }
+        }).show();
     }
     private void closeKeyboard() {
         //关闭软键盘

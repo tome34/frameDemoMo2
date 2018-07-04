@@ -100,6 +100,7 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
                // .setLabel(null)
                 .setCancellable(true)
                 .setAnimationSpeed(2)
+                .setSize(30,30)
                 .setDimAmount(0.3f).show();
     }
 
