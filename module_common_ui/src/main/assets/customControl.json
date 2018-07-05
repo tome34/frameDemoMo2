@@ -7,4 +7,7 @@
   {"title":"时间,地址,条件选择器Demo","type":"6"},
   {"title":"修改头像","type":"7"},
   {"title":"视频压缩","type":"8"},
-  {"title":"PictureSelector图片选择器Demo","type":"9"}]
+  {"title":"PictureSelector图片选择器Demo","type":"9"},
+  {"title":"kprogresshud进度条demo","type":"10"},
+  {"title":"dialog提示框","type":"11"},
+  {"title":"EmptyView空页面状态","type":"12"}]

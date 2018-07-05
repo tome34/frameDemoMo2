@@ -58,9 +58,7 @@ dependencies {
     api rootProject.ext.dependencies["support-v4"]
     api rootProject.ext.dependencies["design"]
     api rootProject.ext.dependencies["support_annotations"]
-    testApi rootProject.ext.dependencies["junit"]
-    androidTestApi rootProject.ext.dependencies["runner"]
-    androidTestApi rootProject.ext.dependencies["espresso_core"]
+
 
     /*implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.dependencies["appcompat_v7"]

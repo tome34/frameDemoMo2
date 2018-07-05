@@ -51,4 +51,5 @@ dependencies {
     implementation project(':baseLib:alertview')
     implementation project(path: ':baseLib:videocompressV2')
     implementation project(':baseLib:flowlayout-lib')
+    implementation project(':baseLib:kprogresshud')
 }

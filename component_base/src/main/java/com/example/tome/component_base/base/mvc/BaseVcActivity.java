@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.tome.component_base.R;
 import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.constants.BaseApplication;
@@ -95,12 +96,11 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         }
         kProgressHUD = HUDFactory.getInstance().creatHUD(this);
         kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-               // .setLabel(getString(R.string.loading))
+                .setLabel(getString(R.string.loading))
                 .setLabel(msg)
                // .setLabel(null)
                 .setCancellable(true)
                 .setAnimationSpeed(2)
-                .setSize(30,30)
                 .setDimAmount(0.3f).show();
     }
 
