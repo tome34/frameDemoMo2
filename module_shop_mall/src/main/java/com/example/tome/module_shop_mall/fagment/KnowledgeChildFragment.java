@@ -5,10 +5,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-
+import butterknife.BindView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.tome.component_base.base.mvc.BaseVcListFragment;
-import com.example.tome.component_base.base.mvp.BaseVpListFragment;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.BaseObj;
@@ -20,15 +19,10 @@ import com.example.tome.module_shop_mall.adapter.KnowledgeChildListAdapter;
 import com.example.tome.module_shop_mall.api.ApiService;
 import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;
-import com.example.tome.module_shop_mall.contract.KnowledgeChildContract;
-import com.example.tome.module_shop_mall.presenter.KnowledgeChildPresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
+import io.reactivex.Observable;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -37,7 +31,7 @@ import io.reactivex.Observable;
  */
 
 //public class KnowledgeChildFragment extends BaseVpListFragment<KnowledgeChildPresenter> implements KnowledgeChildContract.View {
-public class KnowledgeChildFragment extends BaseVcListFragment implements KnowledgeChildContract.View {
+public class KnowledgeChildFragment extends BaseVcListFragment {
 
     @BindView(R2.id.rv_knowledge)
     RecyclerView mRecyclerView;
@@ -93,7 +87,13 @@ public class KnowledgeChildFragment extends BaseVcListFragment implements Knowle
         mRecyclerView.setAdapter(mAdapter);
 
     }
+    @Override
+    public void loadListData(SmartRefreshLayout rlRefreshLayout, int page, int pageSize) {
+        mCurrentPage = 0;
+        loadData(mKnowledgeId);
+        // mPresenter.getKnowledgeChild(page, mKnowledgeId, rlRefreshLayout);
 
+    }
 
     protected void loadData(int currentPage) {
         addDisposable(ModelVcService.getRemoteListData(mView, mRefreshLayout, new ModelVcService.MethodSelect<KnowledgeChildBean>() {
@@ -110,15 +110,6 @@ public class KnowledgeChildFragment extends BaseVcListFragment implements Knowle
         }));
     }
 
-    @Override
-    public void loadListData(SmartRefreshLayout rlRefreshLayout, int page, int pageSize) {
-        mCurrentPage = 0;
-        loadData(mKnowledgeId);
-       // mPresenter.getKnowledgeChild(page, mKnowledgeId, rlRefreshLayout);
-
-    }
-
-    @Override
     public void showKnowledgeChild(KnowledgeChildBean result) {
 
         if (isRefresh) {
@@ -132,4 +123,33 @@ public class KnowledgeChildFragment extends BaseVcListFragment implements Knowle
 
     }
 
+
+    /**
+     * 显示正在加载中
+     */
+    @Override
+    public void showLoading() {
+        super.showLoading();
+        if (mEmptyView != null){
+            mEmptyView.showLoading();
+            L.d("空布局加载中");
+        }
+    }
+
+    @Override
+    public void showError() {
+        if (mEmptyView != null){
+            mEmptyView.showError(R.mipmap.icon_error,"出错了",null,"重新加载",new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    L.d("点击了重新刷新");
+                    mCurrentPage = 0;
+                    loadData(mKnowledgeId);
+                }
+            });
+        }else{
+            L.d("空布局");
+        }
+
+    }
 }

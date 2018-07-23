@@ -3,23 +3,16 @@ package com.example.tome.module_shop_mall.api;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
-import com.example.tome.module_shop_mall.bean.FeedArticleListResponse;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
-import com.example.tome.module_shop_mall.bean.LoginResponse;
 import com.example.tome.module_shop_mall.bean.NavigationBean;
-import com.example.tome.module_shop_mall.params.LoginParams;
-
+import com.example.tome.module_shop_mall.bean.ProjectClassifyBean;
+import com.example.tome.module_shop_mall.bean.ProjectListBean;
+import com.example.tome.module_shop_mall.bean.TopSearchBean;
+import io.reactivex.Observable;
 import java.util.List;
 import java.util.Map;
-
-import io.reactivex.Observable;
-import okhttp3.MultipartBody;
-import retrofit2.http.Body;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
@@ -89,4 +82,33 @@ public interface ApiService {
      */
     @GET("navi/json")
     Observable<BaseObj<List<NavigationBean>>> getNavigationListData();
+
+    /**
+     * 热搜
+     * http://www.wanandroid.com//hotkey/json
+     *
+     * @return 热门搜索数据
+     */
+    @GET("hotkey/json")
+    Observable<BaseObj<List<TopSearchBean>>> getTopSearchData();
+
+    /**
+     * 项目分类
+     * http://www.wanandroid.com/project/tree/json
+     *
+     * @return 导航数据
+     */
+    @GET("project/tree/json")
+    Observable<BaseObj<List<ProjectClassifyBean>>> getProjectClassifyData();
+
+    /**
+     * 项目类别数据
+     * http://www.wanandroid.com/project/list/1/json?cid=294
+     *
+     * @param page page num
+     * @param cid second page id
+     * @return 项目分类数据
+     */
+    @GET("project/list/{page}/json")
+    Observable<BaseObj<ProjectListBean>> getProjectListData(@Path("page") int page, @Query("cid") int cid);
 }

@@ -5,10 +5,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
+import butterknife.BindView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.tome.component_base.base.mvc.BaseVcListFragment;
-import com.example.tome.component_base.base.mvp.BaseVpListFragment;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.L;
 import com.example.welfare.module_welfare.R;
@@ -21,12 +20,9 @@ import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 import com.example.welfare.module_welfare.contract.WelfareContract;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
+import io.reactivex.Observable;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import io.reactivex.Observable;
 
 /**
  * @Created by TOME .
@@ -39,7 +35,7 @@ public class WelfareV1Fragment extends BaseVcListFragment implements WelfareCont
 
     @BindView(R2.id.rl_view)
     RecyclerView mRlView;
-    @BindView(R2.id.srl_layout)
+    @BindView(R2.id.refresh_layout)
     SmartRefreshLayout mSrlLayout;
 
     public WelfareV1Adapter mV1Adapter;

@@ -5,6 +5,7 @@
     <item name="test2" type="id"/>
     <item name="test3" type="id"/>
     <item name="refreshLayout" type="id"/>
+    <item name="refresh_layout" type="id"/>
     <item name="statu_title" type="id"/>
     <item name="item_image" type="id"/>
 </resources>

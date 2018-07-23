@@ -1,5 +1,8 @@
 package com.example.tome.component_base.base.mvc;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.example.tome.component_base.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -11,7 +14,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  * @描述 ${列表基类,封装刷新和加载更多}
  */
 
-public abstract class BaseVcListFragment extends BaseVcFragment implements OnRefreshListener, OnLoadMoreListener {
+public abstract class BaseVcListFragment extends BaseEmptyVcFragment implements OnRefreshListener, OnLoadMoreListener {
 
     protected int page = 0;
     protected int pageSize = 20;
@@ -25,6 +28,16 @@ public abstract class BaseVcListFragment extends BaseVcFragment implements OnRef
             rlRefreshLayout.setOnLoadMoreListener(this);
             rlRefreshLayout.autoRefresh();
         }
+    }
+
+    /**
+     *  空布局
+     * @param view
+     * @return
+     */
+    @Override
+    public ViewGroup getViewGroup(View view) {
+        return (ViewGroup) view.findViewById(R.id.refresh_layout);
     }
 
     /**

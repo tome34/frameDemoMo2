@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light">
 
+        <item name="QMUIButtonStyle">@style/QMUI.RoundButton</item>
+        <item name="qmui_round_btn_border_color">@color/s_btn_blue_border</item>
+
+    </style>-->
     <style name="AnimRight" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
         <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
@@ -11,16 +16,8 @@
         <item name="android:windowExitAnimation">@anim/slile_bottom_out</item>
     </style>
 
-    <!-- 自定义仿IOS的AlertDialog的样式 -->
-    <style name="AlertDialogStyle" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
+
+
 
     <!--默认样式 共有4种,可以查看demo-->
     <style name="picture.default.style" parent="Theme.AppCompat.Light.DarkActionBar">

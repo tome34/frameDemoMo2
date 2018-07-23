@@ -2,46 +2,102 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'me.tatarka.retrolambda'
 
-android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        signingConfigs {
+            //签名配置
+            release {
+                keyAlias 'tome'
+                keyPassword '455202'
+                storeFile file('../frameKey.jks')
+                storePassword '455202'
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
+        }
+        //MultiDex分包方法
         multiDexEnabled true
 
+        //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
             }
         }
 
+        //目录指向配置
         sourceSets {
             //设置依赖so库路径
             main.jniLibs.srcDirs = ['libs']
         }
 
         ndk {
-            // 设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            // 设置支持的SO库架构(cpu)
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
     buildTypes {
+        debug{
+            //是否进行混淆
+            minifyEnabled false
+            // 混淆文件的位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //配置签名文件
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
+            //是否清理无用资源,依赖于minifyEnabled
+            shrinkResources false
+            //是否启用zipAlign压缩
+            zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //配置签名文件
+            signingConfig signingConfigs.release
+            //配置apk路径
+            applicationVariants.all {
+                variant ->
+                    variant.outputs.each { output ->
+                        def outputFile = output.outputFile
+                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                            // 输出apk名称为XXX20160328_v1.0.0_vc10_XXXX_test.apk
+                            if (project.hasProperty('ENVIRONMENT_PARA')) {
+                                def fileName = "frame_${releaseTime()}_v${rootProject.ext.android.versionName}.apk"
+                                //控制输出的APK的存放路径
+                                if (project.hasProperty('OUT_PUT_DIR_PARA')) {
+                                    //                                File output_dir1 = project.file("${OUT_PUT_DIR_PARA}");
+                                 //   output.outputFile = new File("${OUT_PUT_DIR_PARA}", fileName)
+                                //    output.outputFile = new File(outputFile.parent, fileName)
+                               //     println "输出文件位置： " + output.outputFile
+                                } else {
+                                    output.outputFile = new File(outputFile.parent, fileName)
+                                    println "输出文件位置： " + output.outputFile
+                                }
+                            }
+                        }
+                    }
+            }
         }
     }
-
-    buildToolsVersion '27.0.3'
 }
 
-
+// 定义一个打包时间
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -50,17 +106,16 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies["espresso_core"]
     implementation project(':component_data')
     implementation project(':component_base')
-    implementation project(':module_common_ui')
-
     if (!rootProject.ext.isModule) {
         implementation project(':module_shop_mall')
         implementation project(':module_shop_cart')
         implementation project(':module_welfare')
+        implementation project(':module_common_ui')
     }
-
     //常用控件依赖包
     implementation project(':baseLib:alertview')
     implementation project(':baseLib:videocompressV2')
     implementation project(':baseLib:kprogresshud')
     implementation project(':baseLib:flowlayout-lib')
+    implementation project(':baseLib:customview')
 }

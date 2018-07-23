@@ -2,13 +2,8 @@ package com.example.tome.component_base.base.mvp;
 
 import android.content.Context;
 import android.support.annotation.CallSuper;
-
-import com.example.tome.component_base.base.mvc.inter.BaseView;
-import com.example.tome.component_base.base.mvp.inter.IDisposablePool;
 import com.example.tome.component_base.base.mvp.inter.IModel;
-import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

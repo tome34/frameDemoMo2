@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.BaseVpActivity;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.util.ToastUtils;
@@ -48,19 +46,37 @@ public abstract class BaseVcFragment extends Fragment implements IView{
         this.mContext = context;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayout(), container, false);
         unBinder = ButterKnife.bind(this , view);
         initTitle();
-        initView();
 
         if (regEvent){
             EventBus.getDefault().register(this);
         }
         return view ;
     }
+
+    /**
+     * 返回view
+     * @param view
+     * @param savedInstanceState
+     */
+    @Override
+    public void onViewCreated(@NonNull View view,@Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view,savedInstanceState);
+        init(view);
+        initView();
+    }
+
+    protected void init(View view){};
 
     /**
      * rxjava管理订阅者
@@ -94,6 +110,29 @@ public abstract class BaseVcFragment extends Fragment implements IView{
     }
 
     /**
+     * 空界面显示
+     */
+    @Override
+    public void showNormal() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showEmptyView() {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    /**
      * 提示网络请求错误信息
      * @param msg
      * @param code
@@ -103,8 +142,12 @@ public abstract class BaseVcFragment extends Fragment implements IView{
         String mCode ="-1";
         if (mCode.equals(code)){
             ToastUtils.showShort(mContext, msg);
+            showError();
         }
     }
+
+
+
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(BaseEventbusBean event) {

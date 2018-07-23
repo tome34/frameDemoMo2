@@ -28,4 +28,13 @@
     <color name="mall_account_color_orange_f59">#F59523</color>
     <color name="mall_colorFEFF">#FEFEFF</color>
     <color name="mall_colorE75">#E75353</color>
+
+    <color name="mall_dialog_background">#ffffff</color>
+    <color name="mall_search_grey_gone">#bbbbbb</color>
+    <color name="mall_search_grey">#FF000000</color>
+    <!--通用触摸背景色-->
+    <color name="mall_common_touch_bg">#E3E3E3</color>
+    <!--通用背景色-->
+    <color name="mall_common_bg">@color/white</color>
+    <color name="deep_grey">#e6e6e6</color>
 </resources>

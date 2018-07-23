@@ -1,7 +1,6 @@
 package com.example.tome.module_shop_mall.api;
 
-import com.example.tome.component_base.base.mvc.BaseVcObserver;
-import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.net.HttpHelper;
 import com.example.tome.component_base.net.common_callback.INetCallback;
@@ -44,13 +43,13 @@ public class ModelVcService {
         return apiService.getFeedArticleList(pageNum);
     }*
 
-/*    public static BaseVcObserver<BaseObj<FeedArticleListData>> getRemoteData(int pageNum, MainContract.View mView, INetCallback callback) {
+/*    public static BaseObserver<BaseObj<FeedArticleListData>> getRemoteData(int pageNum, MainContract.View mView, INetCallback callback) {
         //设置不同的BaseUrl
         return HttpHelper.getDefault(1)
                 .create(ApiService.class)
                 .getFeedArticleList(pageNum)
                 .compose(RxUtils.<BaseObj<FeedArticleListData>>rxSchedulerHelper())
-                .subscribeWith(new BaseVcObserver<BaseObj<FeedArticleListData>>(mView) {
+                .subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView) {
                                    @Override
                                    public void onNext(BaseObj<FeedArticleListData> feedArticleListData) {
                                        L.d("获取message", ":" + feedArticleListData.getMessage());
@@ -81,16 +80,17 @@ public class ModelVcService {
      * @param <T>
      * @return
      */
-    public static <T> BaseVcObserver<BaseObj<T>> getRemoteData(boolean isShowHUD, IView mView, MethodSelect<T> select, INetCallback<T> callback) {
+    public static <T> BaseObserver<BaseObj<T>> getRemoteData(boolean isShowHUD, IView mView, MethodSelect<T> select, INetCallback<T> callback) {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(1)
                 .create(ApiService.class))
                 .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())
-                .subscribeWith(new BaseVcObserver<BaseObj<T>>(mView, isShowHUD) {
+                .subscribeWith(new BaseObserver<BaseObj<T>>(mView, isShowHUD) {
                                    @Override
                                    public void onNext(BaseObj<T> result) {
                                        L.d("获取message", ":" + result.getMessage());
                                        if (BaseResponse.SUCCESS.equals(result.getCode())) {
+                                           mView.showNormal();
                                            callback.onSuccess(result.getData());
                                        } else {
                                            mView.showError(result.getMessage(), result.getCode());
@@ -110,19 +110,21 @@ public class ModelVcService {
      * @param <T>
      * @return
      */
-    public static <T> BaseVcObserver<BaseObj<T>> getRemoteListData(IView mView, SmartRefreshLayout rlRefresh, MethodSelect<T> select, INetCallback<T> callback) {
+    public static <T> BaseObserver<BaseObj<T>> getRemoteListData(IView mView, SmartRefreshLayout rlRefresh, MethodSelect<T> select, INetCallback<T> callback) {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(1)
                 .create(ApiService.class))
                 .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())
-                .subscribeWith(new BaseVcObserver<BaseObj<T>>(mView, rlRefresh,false) {
+                .subscribeWith(new BaseObserver<BaseObj<T>>(mView, rlRefresh) {
                                    @Override
                                    public void onNext(BaseObj<T> result) {
                                        L.d("获取message", ":" + result.getMessage());
                                        if (BaseResponse.SUCCESS.equals(result.getCode())) {
+                                           mView.showNormal();
                                            callback.onSuccess(result.getData());
                                        } else {
                                            mView.showError(result.getMessage(), result.getCode());
+                                           mView.showError();
                                        }
                                    }
                                }

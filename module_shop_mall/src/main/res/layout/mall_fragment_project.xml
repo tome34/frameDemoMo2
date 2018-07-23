@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <include layout="@layout/title_bar_content"/>
+
+    <View style="@style/HorizontalLineStyle"/>
+
+    <LinearLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/project_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/windowBg"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            app:tl_indicator_color="@color/light_red"
+            app:tl_textSelectColor="@color/white"
+            app:tl_textUnselectColor="@color/grey"
+            app:tl_divider_color="@color/light_red"
+            app:tl_divider_width="@dimen/dp_1"
+            app:tl_divider_padding="@dimen/dp_10"
+            app:tl_indicator_corner_radius="@dimen/dp_5"
+            app:tl_indicator_margin_left="@dimen/dp_5"
+            app:tl_indicator_margin_right="@dimen/dp_5"
+            app:tl_indicator_style="BLOCK"
+            android:visibility="visible" />
+
+        <View style="@style/HorizontalLineStyle"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/project_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

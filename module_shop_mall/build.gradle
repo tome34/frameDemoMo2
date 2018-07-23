@@ -5,6 +5,7 @@ if (Boolean.valueOf(rootProject.ext.moduleShopMall)) {
 }
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'me.tatarka.retrolambda'  //lambda配置
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -31,6 +32,16 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 1
+        //自定义生成数据库文件的目录
+        targetGenDir 'src/main/java'
+        //通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名；
+        daoPackage 'com.example.tome.module_shop_mall.dao'
     }
 
     buildTypes {
@@ -75,9 +86,16 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+
+    //垂直的tabLayout
+    implementation rootProject.ext.dependencies["VerticalTabLayout"]
+    //水平的tabLayout
+    implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+
+
     //公用依赖包
     implementation project(':component_base')
     implementation project(':component_data')
-    //implementation project(':baseLib:alertview')
+    implementation project(':baseLib:flowlayout-lib')
     //implementation project(':alertview')
 }

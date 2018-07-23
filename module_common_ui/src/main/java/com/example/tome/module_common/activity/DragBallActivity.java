@@ -10,10 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.tome.module_common.R;
-import com.example.tome.module_common.widget.DragBallView;
+import com.example.customview.widget.DragBallView;
 
 /**
  * 仿QQ消息红点拖拽效果view
+ * 更多自定义效果: https://github.com/lygttpod/AndroidCustomView
  */
 
 public class DragBallActivity extends AppCompatActivity {

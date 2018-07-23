@@ -6,10 +6,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
-
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.example.tome.component_base.R;
-import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.helper.HUDFactory;
@@ -18,15 +19,11 @@ import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.orhanobut.logger.Logger;
-
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 /**
  * @Created by TOME .
@@ -94,10 +91,12 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         if (isDestory){
             return;
         }
+        if (TextUtils.isEmpty(msg)){
+            msg = getString(R.string.loading);
+        }
         kProgressHUD = HUDFactory.getInstance().creatHUD(this);
         kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel(getString(R.string.loading))
-                .setLabel(msg)
+                    .setLabel(TextUtils.isEmpty(msg) ? getString(R.string.loading) : msg)
                // .setLabel(null)
                 .setCancellable(true)
                 .setAnimationSpeed(2)
@@ -122,6 +121,29 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         if (mCode.equals(code)){
             ToastUtils.showShort(mActivity, msg);
         }
+
+    }
+
+    /**
+     * 空界面显示
+     */
+    @Override
+    public void showNormal() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showEmptyView() {
+
+    }
+
+    @Override
+    public void showError() {
 
     }
 

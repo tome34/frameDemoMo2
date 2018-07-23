@@ -5,7 +5,7 @@ package com.example.tome.component_base.constants;
  *     author: Blankj
  *     blog  : http://blankj.com
  *     time  : 2017/03/13
- *     desc  : constants of regex
+ *     desc  : 正则
  * </pre>
  */
 public final class RegexConstants {

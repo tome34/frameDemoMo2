@@ -88,6 +88,14 @@ public class CommonMainActivity extends AppCompatActivity implements BaseQuickAd
             startActivity(new Intent(CommonMainActivity.this, VideoCompressActivity.class));
         }else if ("9".equals(mJsonList.get(position).getType())){
             startActivity(new Intent(CommonMainActivity.this, PictureSelectorActivity.class));
+        }else if ("10".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, KProgressHudActivity.class));
+        }else if ("11".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, TipDialogActivity.class));
+        }else if ("12".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, EmptyLayoutActivity.class));
+        }else if ("13".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, ZxingActivity.class));
         }
     }
 

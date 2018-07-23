@@ -1,6 +1,5 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.mvc.inter.BaseView;
 import com.example.tome.component_base.base.mvp.inter.IModel;
 import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;

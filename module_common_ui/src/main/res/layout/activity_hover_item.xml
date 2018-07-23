@@ -28,7 +28,7 @@
 
     </FrameLayout>
 
-    <com.example.tome.module_common.widget.IndexView
+    <com.example.customview.widget.IndexView
         android:id="@+id/index_view"
         android:layout_width="25dp"
         android:layout_height="match_parent"

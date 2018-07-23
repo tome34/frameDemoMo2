@@ -11,11 +11,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-
 import com.example.tome.component_base.R;
-import com.zhy.autolayout.utils.ScreenUtils;
-
-
+import com.luck.picture.lib.tools.ScreenUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

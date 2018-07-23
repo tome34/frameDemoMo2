@@ -1,6 +1,5 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -13,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.L;
@@ -23,16 +22,13 @@ import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
-import com.example.tome.module_shop_mall.fagment.BaseHomeFragment;
 import com.example.tome.module_shop_mall.fagment.HomeFragment;
 import com.example.tome.module_shop_mall.fagment.KnowledgeSystemFragment;
-import com.example.tome.module_shop_mall.fagment.NavigationFragment;
+import com.example.tome.module_shop_mall.fagment.NavigationV2Fragment;
+import com.example.tome.module_shop_mall.fagment.ProjectFragment;
 import com.example.tome.module_shop_mall.helper.BottomNavigationViewHelper;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * @Created by TOME .
@@ -156,8 +152,9 @@ public class HomeActivity extends BaseVcActivity implements NavigationView.OnNav
         mFragmentList = new ArrayList<>();
         mFragmentList.add(new HomeFragment());
         mFragmentList.add(new KnowledgeSystemFragment());
-        mFragmentList.add(new NavigationFragment());
-        mFragmentList.add(BaseHomeFragment.newInstance("我的"));
+        mFragmentList.add(new NavigationV2Fragment());
+        mFragmentList.add(new ProjectFragment());
+       // mFragmentList.add(BaseHomeFragment.newInstance("我的"));
     }
 
     private void initBottomNavigationView() {

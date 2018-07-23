@@ -21,6 +21,8 @@ public interface IntentKV {
     String K_IS_COLLECT_PAGE = "K_IS_COLLECT_PAGE";
     String K_IS_COMMON_SITE = "K_IS_COMMON_SITE";
 
+    String K_SEARCH_KEYWORD = "k_search_keyword";
+
     //welfare页面
     String K_WELFARE_PHOTO = "K_WELFARE_PHOTO";
     String K_WELFARE_POSITION = "K_WELFARE_POSITION";

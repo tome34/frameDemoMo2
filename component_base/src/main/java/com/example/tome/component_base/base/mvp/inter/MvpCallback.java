@@ -1,6 +1,5 @@
 package com.example.tome.component_base.base.mvp.inter;
 
-import com.example.tome.component_base.base.mvc.inter.BaseView;
 
 /**
  * Created by XQ Yang on 2017/9/8  14:04.

@@ -2,19 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tome.module_common">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
     <application>
-        <activity android:name=".activity.CommonMainActivity" />
-        <activity android:name=".activity.TagFlowActivity" />
-        <activity android:name=".activity.AlertViewDemoActivity" />
-        <activity android:name=".activity.HoverItemActivity" />
-        <activity android:name=".activity.DragBallActivity" />
-        <activity android:name=".activity.RatingBarActivity" />
-        <activity android:name=".activity.PopupWindowActivity" />
-        <activity android:name=".activity.MyAccountActivity" />
-        <activity android:name=".activity.VideoCompressActivity" />
-        <activity android:name=".activity.PickerViewActivity" />
-        <activity android:name=".activity.JsonDataActivity" />
-        <activity android:name=".activity.PictureSelectorActivity"></activity>
+        <activity android:name=".activity.CommonMainActivity"/>
+        <activity android:name=".activity.TagFlowActivity"/>
+        <activity android:name=".activity.AlertViewDemoActivity"/>
+        <activity android:name=".activity.HoverItemActivity"/>
+        <activity android:name=".activity.DragBallActivity"/>
+        <activity android:name=".activity.RatingBarActivity"/>
+        <activity android:name=".activity.PopupWindowActivity"/>
+        <activity android:name=".activity.MyAccountActivity"/>
+        <activity android:name=".activity.VideoCompressActivity"/>
+        <activity android:name=".activity.PickerViewActivity"/>
+        <activity android:name=".activity.JsonDataActivity"/>
+        <activity android:name=".activity.PictureSelectorActivity"/>
+        <activity android:name=".activity.KProgressHudActivity">
+        </activity>
+        <activity android:name=".activity.TipDialogActivity">
+        </activity>
+        <activity android:name=".activity.EmptyLayoutActivity">
+        </activity>
+        <activity android:name=".activity.ZxingActivity">
+        </activity>
+        <activity android:name=".activity.zxing.SecondActivity"/>
+        <activity android:name=".activity.zxing.ThreeActivity"/>
     </application>
 
 </manifest>

@@ -12,9 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import com.example.tome.component_base.base.mvc.BaseVcFragment;
-import com.example.tome.component_base.base.mvp.BaseVpFragment;
+import butterknife.BindView;
+import com.example.tome.component_base.base.mvc.BaseEmptyVcFragment;
 import com.example.tome.component_base.helper.ImageLoaderHelper;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.util.ConvertUtils;
@@ -31,16 +30,12 @@ import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.example.tome.module_shop_mall.contract.KnowledgeSystemContract;
-import com.example.tome.module_shop_mall.presenter.KnowledgeSystemPresenter;
 import com.example.tome.module_shop_mall.widget.RotateAnimation;
-
+import io.reactivex.Observable;
 import java.util.List;
 
-import butterknife.BindView;
-import io.reactivex.Observable;
-
 //public class KnowledgeSystemFragment extends BaseVpFragment<KnowledgeSystemPresenter> implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
-public class KnowledgeSystemFragment extends BaseVcFragment implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
+public class KnowledgeSystemFragment extends BaseEmptyVcFragment implements KnowledgeSystemContract.View, RotateAnimation.InterpolatedTimeListener, Animation.AnimationListener {
 
     @BindView(R2.id.title_back)
     TextView mTitleBack;
@@ -68,6 +63,7 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
      */
     private boolean  rotateState = true;
     private boolean             enableRefresh;
+    private boolean isAnimation;
     //轮播时间ms
     private static final int AUTO_PLAY_DURATION = 4000;
 
@@ -85,7 +81,10 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
             super.handleMessage(msg);
             if (msg.what == 1){
                 //旋转动画
-                initAnimation();
+                if (isAnimation){
+                    initAnimation();
+                }
+
             }
         }
     };
@@ -116,6 +115,17 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
         loadData();
     }
 
+    @Override
+    public ViewGroup getViewGroup(View view) {
+        return (ViewGroup) view.findViewById(com.example.tome.component_base.R.id.scrollView);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isAnimation = true;
+    }
+
     protected void loadData() {
         addDisposable(ModelVcService.getRemoteData(false, mView, new ModelVcService.MethodSelect<List<KnowledgeSystemBean>>() {
             @Override
@@ -129,6 +139,15 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
             }
         }));
     }
+
+    @Override
+    public void showLoading() {
+        super.showLoading();
+        if (mEmptyView != null){
+            mEmptyView.showLoading();
+        }
+    }
+
 
     private void initCircularImage() {
         setCivHeight(mCivWelfareOne);
@@ -161,6 +180,8 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
         mCivWelfareTwo.startAnimation(rotateAnim);
         rotateAnim.setAnimationListener(this);
     }
+
+
 
     @Override
     public void showKnowledgeSystem(List<KnowledgeSystemBean> result) {
@@ -306,4 +327,24 @@ public class KnowledgeSystemFragment extends BaseVcFragment implements Knowledge
     public void onAnimationRepeat(Animation animation) {
 
     }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        L.d("onHiddenChanged:"+hidden);
+        if (hidden){
+            isAnimation = false;
+        }else{
+            isAnimation = true;
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isAnimation = false;
+        L.d("onHiddenChanged:+");
+    }
+
+
 }

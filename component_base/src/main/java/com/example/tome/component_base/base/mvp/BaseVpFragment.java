@@ -62,7 +62,6 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
         unBinder = ButterKnife.bind(this , view);
         onViewCreated();
         initTitle();
-        initView();
 
         if (regEvent){
             EventBus.getDefault().register(this);
@@ -73,8 +72,15 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        init(view);
+        initView();
     }
+
+    /**
+     * 回传view
+     * @param view
+     */
+    protected void init(View view){};
 
     /**
      * 初始化presenter
@@ -90,6 +96,7 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
         mPresenter.attachView(getMvpView());
     }
 
+//------------------------显示进度圈strat-----------------------------------------//
 
     @Override
     public void showHUD(String msg) {
@@ -108,6 +115,8 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
             mBaseActivity.dismissHUD();
         }
     }
+
+    //------------------------显示进度圈end-----------------------------------------//
 
     @Override
     public void onResume() {
@@ -128,7 +137,34 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
         }
     }
 
+    //------------------空界面显示START-------------------------//
 
+    @Override
+    public void showNormal() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showEmptyView() {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    //------------------空界面显示END-------------------------//
+
+    /**
+     * eventBut
+     * @param event
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(BaseEventbusBean event) {
         onEvent(event);

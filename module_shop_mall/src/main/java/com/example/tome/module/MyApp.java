@@ -1,7 +1,5 @@
 package com.example.tome.module;
 
-
-import com.example.tome.component_base.arouter.RouterConfig;
 import com.example.tome.component_base.constants.BaseApplication;
 
 /**

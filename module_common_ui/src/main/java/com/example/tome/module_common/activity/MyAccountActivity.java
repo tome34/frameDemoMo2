@@ -1,22 +1,18 @@
 package com.example.tome.module_common.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.bumptech.glide.Glide;
+import butterknife.BindView;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
+import com.example.tome.component_base.helper.ImageLoaderHelper;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.widget.CircularImageView;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.R2;
 import com.example.tome.module_common.widget.ImageAlertDialog;
-
 import java.io.File;
-
-import butterknife.BindView;
 
 public class MyAccountActivity extends BaseVcActivity implements ImageAlertDialog.OnImageSelectResult, View.OnClickListener {
 
@@ -63,7 +59,8 @@ public class MyAccountActivity extends BaseVcActivity implements ImageAlertDialo
         dissHud = 3;
         L.d("getImage =fileName = " + fileName);
        // 加载本地图片 ,待封装图片
-        Glide.with(this).load(fileName).into(mCivMemberIcon);
+       // Glide.with(this).load(fileName).into(mCivMemberIcon);
+        ImageLoaderHelper.getInstance().load(this, fileName, mCivMemberIcon);
     }
 
     @Override

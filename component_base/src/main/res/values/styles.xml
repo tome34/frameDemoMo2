@@ -46,22 +46,51 @@
         <item name="android:windowAnimationStyle">@style/otherui_Animation_Bottom_Dialog</item>
     </style>
 
+    <!-- bottomDialog进出动画 -->
     <style name="otherui_Animation_Bottom_Dialog">
         <item name="android:windowEnterAnimation">@anim/otherui_bottom_dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/otherui_bottom_dialog_exit</item>
+    </style>
+
+  <!--  <item name="QMUIButtonStyle">@style/QMUI.RoundButton</item>-->
+    <!--********************* Button *********************-->
+    <style name="QMUI.RoundButton" parent="android:Widget.Holo.Light.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--<item name="android:padding">0dp</item>--><!-- 不用 android:padding，而用各个方向分别指定 padding，方便子类覆盖 -->
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="qmui_isRadiusAdjustBounds">true</item>
+        <item name="qmui_backgroundColor">@color/qmui_s_transparent</item>
+        <item name="qmui_borderWidth">1dp</item>
+        <item name="qmui_borderColor">@color/qmui_btn_blue_border</item>
+        <item name="android:textColor">@color/qmui_btn_blue_text</item>
+    </style>
+
+    <!--********************* Loading *********************-->
+    <style name="Loading">
+        <item name="qmui_loading_view_size">20dp</item>
+        <item name="android:color">@color/qmui_config_color_gray_5</item>
     </style>
 
     <!--水平线-->
     <style name="HorizontalLineStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
-        <item name="android:background">@color/colorDD</item>
+        <item name="android:background">@color/colorCC</item>
     </style>
     <!--垂直线-->
     <style name="VerticalLineStyle">
         <item name="android:layout_width">1px</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/colorDD</item>
+        <item name="android:background">@color/colorCC</item>
     </style>
     <!--水平小分割线-->
     <style name="otherui_TabLayoutTextStyle">

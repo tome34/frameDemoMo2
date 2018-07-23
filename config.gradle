@@ -4,9 +4,11 @@ ext {
     moduleShopMall = false
     moduleShopCart = false
     moduleWelfare = false
+    moduleCommonUi = false
 
 
-    android = [compileSdkVersion       : 27,
+    android = [
+               compileSdkVersion       : 27,
                buildToolsVersion       : '27.0.3',
                minSdkVersion           : 17,
                targetSdkVersion        : 23,
@@ -14,7 +16,7 @@ ext {
                versionName             : "1.0.0",
                applicationId           : "com.example.tome.framedemomo2",
 
-               androidSupportSdkVersion: "27.0.2"
+               androidSupportSdkVersion: "27.1.0"
 
     ]
 
@@ -75,8 +77,8 @@ ext {
                     "baseRecyclerViewAdapterHelper"  : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22',
                     //Bugly集成
                     "bugly"                          : 'com.tencent.bugly:crashreport_upgrade:latest.release',
-                    //仿ios进度条
-                    // "kprogresshud"                   : 'com.kaopiz:kprogresshud:1.1.0',
+                    //仿ios进度条 已抽取到lib中
+                     "kprogresshud"                   : 'com.kaopiz:kprogresshud:1.1.0',
                     //6.0权限管理
                     "permissionsdispatcher"          : 'com.github.hotchemi:permissionsdispatcher:3.0.1',
                     "permissionsdispatcher_processor": 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1',
@@ -85,16 +87,22 @@ ext {
                     "dagger-compiler"                : 'com.google.dagger:dagger-compiler:2.0.2',
                     "javax-annotation"               : 'org.glassfish:javax.annotation:10.0-b28',
                     //greendao
-                    "greendao"                       : 'org.greenrobot:greendao:3.2.2',
+                    "greendao3"                       : 'org.greenrobot:greendao:3.2.2',
                     //Android屏幕适配
                     "autolayout"                     : 'com.zhy:autolayout:1.4.5',
                     //安卓调试神器-Stetho
                     "stetho"                         : 'com.facebook.stetho:stetho:1.5.0',
                     "stetho-okhttp3"                 : 'com.facebook.stetho:stetho-okhttp3:1.5.0',
-                    // 仿ios弹出对话窗体
+                    // 仿ios弹出对话窗体 已抽取到lib中
                     "alertview"                      : 'com.bigkoo:alertview:1.0.3',
                     //bugly sdk
                     "tencent-bugly"                  : 'com.tencent.bugly:crashreport_upgrade:latest.release',
                     //节操播放器
-                    "jiecao"                         : 'fm.jiecao:jiecaovideoplayer:5.7',]
+                    "jiecao"                         : 'fm.jiecao:jiecaovideoplayer:5.7',
+                    //垂直的tabLayout
+                    "VerticalTabLayout"                 : "q.rorbin:VerticalTabLayout:1.2.5",
+                    //水平tablayout
+                    "FlycoTabLayout_Lib"                : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+
+    ]
 }

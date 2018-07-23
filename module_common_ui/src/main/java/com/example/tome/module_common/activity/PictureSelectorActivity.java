@@ -1,21 +1,19 @@
 package com.example.tome.module_common.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.adapter.GridImageAdapter;
-import com.example.tome.module_common.widget.FullyGridLayoutManager;
+import com.example.tome.module_common.uiHelper.FullyGridLayoutManager;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
-
 import java.util.ArrayList;
 import java.util.List;
 

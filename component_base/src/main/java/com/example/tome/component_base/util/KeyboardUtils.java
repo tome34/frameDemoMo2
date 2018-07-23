@@ -5,10 +5,8 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-
+import android.widget.EditText;
 import com.example.tome.component_base.constants.BaseApplication;
-
-import butterknife.internal.Utils;
 
 /**
  * @author by TOME .
@@ -32,7 +30,9 @@ public class KeyboardUtils {
     public static void showSoftInput(final Activity activity) {
         InputMethodManager imm =
                 (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        if (imm == null) return;
+        if (imm == null){
+            return;
+        }
         View view = activity.getCurrentFocus();
         if (view == null) {
             view = new View(activity);
@@ -41,6 +41,13 @@ public class KeyboardUtils {
             view.requestFocus();
         }
         imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+    }
+
+    public static void openKeyboard(Context context, EditText editText) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert imm != null;
+        imm.showSoftInput(editText, InputMethodManager.RESULT_SHOWN);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 
     /**
@@ -70,6 +77,12 @@ public class KeyboardUtils {
         View view = activity.getCurrentFocus();
         if (view == null) view = new View(activity);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public static void closeKeyboard(Context context, EditText editText) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert imm != null;
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
     /**

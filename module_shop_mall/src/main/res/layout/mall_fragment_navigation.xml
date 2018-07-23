@@ -13,6 +13,7 @@
     <View style="@style/HorizontalLineStyle"/>
 
     <LinearLayout
+        android:id="@+id/layout_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -24,6 +25,8 @@
             android:background="@color/colorCC">
 
         </android.support.v7.widget.RecyclerView>
+
+        <View style="@style/VerticalLineStyle"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_two_sub"

@@ -93,10 +93,11 @@ dependencies {
     api rootProject.ext.dependencies["butterknife"]
     //日志
     api rootProject.ext.dependencies["logger"]
-    //仿ios进度条
+    //仿ios进度条 已抽取到lib中
     //api rootProject.ext.dependencies["kprogresshud"]
     //6.0权限
     api rootProject.ext.dependencies["permissionsdispatcher"]
+    //baseadapter
     api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
     //图片
     api rootProject.ext.dependencies["glide"]
@@ -115,8 +116,8 @@ dependencies {
     api rootProject.ext.dependencies["banner"]
     //RecyclerView万能适配器
     api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
-    //Android屏幕适配
-    api rootProject.ext.dependencies["autolayout"]
+    //Android屏幕适配 ,暂时不用
+   // api rootProject.ext.dependencies["autolayout"]
     //安卓调试神器-Stetho
     api rootProject.ext.dependencies["stetho"]
     api rootProject.ext.dependencies["stetho-okhttp3"]
@@ -124,7 +125,11 @@ dependencies {
     api rootProject.ext.dependencies["tencent-bugly"]
     //节操播放器
     api rootProject.ext.dependencies["jiecao"]
+    //greendao3
+    api rootProject.ext.dependencies["greendao3"]
 
+    //二维码扫描
+    api 'cn.yipianfengye.android:zxing-library:2.2'
 
     implementation project(':component_data')
     implementation project(':baseLib:kprogresshud')

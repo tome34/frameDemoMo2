@@ -7,13 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.base.mvc.inter.BaseView;
+import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.mvp.BasePresenter;
-import com.example.tome.component_base.base.mvp.BaseVpObserver;
 import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.LogUtil;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
@@ -30,14 +27,10 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Created by TOME .
@@ -114,7 +107,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View, HomeContract
 
                         })
                         // .compose(RxLifecycleUtils.bindToLifecycle(mRootView))//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-                        .subscribeWith(new BaseVpObserver<BaseObj<List<BannerData>>>() {
+                        .subscribeWith(new BaseObserver<BaseObj<List<BannerData>>>() {
                             @Override
                             public void onNext(BaseObj<List<BannerData>> listBaseObj) {
                                 List<BannerData> data = listBaseObj.getData();
@@ -195,7 +188,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View, HomeContract
                             }
                         })
                         // .compose(RxLifecycleUtils.bindToLifecycle(mRootView))//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-                        .subscribeWith(new BaseVpObserver<BaseObj<FeedArticleListData>>(rlRefreshLayout) {
+                        .subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView,rlRefreshLayout) {
                             @Override
                             public void onNext(BaseObj<FeedArticleListData> listBaseObj) {
                                 FeedArticleListData data = listBaseObj.getData();

@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/baseLib/baseLib.iml" filepath="$PROJECT_DIR$/baseLib/baseLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/component_base/component_base.iml" filepath="$PROJECT_DIR$/component_base/component_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/component_data/component_data.iml" filepath="$PROJECT_DIR$/component_data/component_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLib/customview/customview.iml" filepath="$PROJECT_DIR$/baseLib/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/flowlayout-lib/flowlayout-lib.iml" filepath="$PROJECT_DIR$/baseLib/flowlayout-lib/flowlayout-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/frameDemoMo2.iml" filepath="$PROJECT_DIR$/frameDemoMo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/kprogresshud/kprogresshud.iml" filepath="$PROJECT_DIR$/baseLib/kprogresshud/kprogresshud.iml" />

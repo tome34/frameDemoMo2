@@ -1,7 +1,6 @@
 package com.example.tome.module_shop_cart.fragment;
 
 import android.os.Bundle;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.component_base.base.mvc.BaseVcFragment;
 import com.example.tome.component_data.d_arouter.RouterURLS;

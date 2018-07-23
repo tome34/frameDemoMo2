@@ -15,6 +15,7 @@ public class DisposablePool implements IDisposablePool{
 
     /**
      * 管理rxjava订阅关系
+     * 暂时没用
      */
     private CompositeDisposable mDisposable;
 

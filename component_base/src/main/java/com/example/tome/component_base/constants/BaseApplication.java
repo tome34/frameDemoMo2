@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.support.multidex.MultiDex;
-
 import com.example.tome.component_base.BuildConfig;
 import com.example.tome.component_base.R;
 import com.example.tome.component_base.arouter.RouterConfig;
@@ -22,7 +21,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.zhy.autolayout.config.AutoLayoutConifg;
+
 
 /**
  * @Created by TOME .
@@ -95,7 +94,7 @@ public class BaseApplication extends Application{
         //bugly初始化
         initBugly();
         //AutoLayout适配初始化
-        AutoLayoutConifg.getInstance().useDeviceSize();
+        //AutoLayoutConifg.getInstance().useDeviceSize();
         //Stetho调试工具初始化
         Stetho.initializeWithDefaults(this);
 

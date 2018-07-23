@@ -83,5 +83,14 @@
     <string name="common_hint_registered_phone_number">手机号已被注册</string>
     <string name="common_hint_fill_verifying_code">填写验证码</string>
 
+    <string name="open_project">开源项目</string>
+    <string name="minute">分钟</string>
+    <string name="hour">小时</string>
+    <string name="one_day">1天</string>
+    <string name="text_new">新</string>
+    <string name="failed_to_cast_mode">\"切换模式失败ヽ(≧Д≦)ノ\"</string>
+    <string name="share_view">shareView</string>
 
+    <string name="project">项目</string>
+    <string name="navigation">导航</string>
 </resources>

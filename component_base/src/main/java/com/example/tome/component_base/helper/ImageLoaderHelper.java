@@ -9,6 +9,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.tome.component_base.R;
+import java.io.File;
 
 /**
  * 参考设置：http://www.tuicool.com/articles/3Af6Zby
@@ -102,6 +103,35 @@ public class ImageLoaderHelper {  //待封装
                     .load(url)
                     .transition(new DrawableTransitionOptions().crossFade(200))
                     .apply(options).into(iv);
+        }
+
+    }
+
+    public void load(Context context, File fileName, ImageView iv) {
+
+        if (iv != null) {
+            RequestOptions options = new RequestOptions()
+                .placeholder(IMG_LOADING)
+                .centerCrop()//centerCrop是利用图片图填充ImageView设置的大小
+                .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(context).load(fileName).apply(options).into(iv);
+        }
+
+    }
+
+    /**
+     * 加载资源图片
+     * @param context
+     * @param resourceId
+     * @param iv
+     */
+    public void load(Context context, Integer resourceId, ImageView iv) {
+
+        if (iv != null) {
+            RequestOptions options = new RequestOptions()
+                .placeholder(IMG_LOADING)
+                .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(context).load(resourceId).apply(options).into(iv);
         }
 
     }

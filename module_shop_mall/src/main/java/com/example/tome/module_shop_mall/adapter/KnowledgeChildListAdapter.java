@@ -55,6 +55,6 @@ public class KnowledgeChildListAdapter extends BaseQuickAdapter<KnowledgeChildBe
             cardView.setBackground(ContextCompat.getDrawable(mContext, R.drawable.mall_selector_search_item_bac));
         }
 
-        helper.addOnClickListener(R.id.item_home_like_iv);
+
     }
 }

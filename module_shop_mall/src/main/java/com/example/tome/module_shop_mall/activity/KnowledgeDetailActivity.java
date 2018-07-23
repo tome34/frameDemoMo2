@@ -1,6 +1,5 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.tome.component_base.base.adapter.BaseFragmentAdapter;
+import com.example.tome.component_base.adapter.BaseFragmentAdapter;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.widgetUtils.TabLayoutUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;

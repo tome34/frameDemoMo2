@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
 
-    <com.example.tome.module_common.widget.DragBallView
+    <com.example.customview.widget.DragBallView
         android:id="@+id/drag_ball_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

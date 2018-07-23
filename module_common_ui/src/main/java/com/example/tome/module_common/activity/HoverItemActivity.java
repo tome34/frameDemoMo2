@@ -12,8 +12,8 @@ import com.example.tome.module_common.adapter.HoverAdapter;
 import com.example.tome.module_common.bean.HoverItemBean;
 import com.example.tome.module_common.utils.CharacterParser;
 import com.example.tome.module_common.utils.PinyinComparator;
-import com.example.tome.module_common.widget.HoverItemDecoration;
-import com.example.tome.module_common.widget.IndexView;
+import com.example.customview.widget.HoverItemDecoration;
+import com.example.customview.widget.IndexView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +22,7 @@ import java.util.List;
 /**
  *吸顶效果
  * 类似电话本样式
+ * 更多自定义效果: https://github.com/lygttpod/AndroidCustomView
  */
 
 public class HoverItemActivity extends AppCompatActivity {

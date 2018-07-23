@@ -1,6 +1,10 @@
-apply plugin: 'com.android.library'
+if (Boolean.valueOf(rootProject.ext.moduleCommonUi)) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'me.tatarka.retrolambda'  //lambda配置
+apply plugin: 'me.tatarka.retrolambda' //lambda配置
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -33,6 +37,21 @@ android {
         }
     }
 
+    /*java插件引入了一个概念叫做SourceSets，通过修改SourceSets中的属性，可以指定哪些源文件
+   （或文件夹下的源文件）要被编译，哪些源文件要被排除。*/
+    sourceSets {
+        main {
+            if (rootProject.ext.moduleCommonUi) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    //排除java/debug文件夹下的所有文件
+                    exclude '*module'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -43,13 +62,18 @@ dependencies {
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
 
+
+    //6.0权限
+    implementation 'pub.devrel:easypermissions:1.2.0'
+
     //公用依赖包
     implementation project(':component_base')
     implementation project(':component_data')
 
-    //依赖包
+    //控件依赖包
     implementation project(':baseLib:alertview')
     implementation project(path: ':baseLib:videocompressV2')
     implementation project(':baseLib:flowlayout-lib')
     implementation project(':baseLib:kprogresshud')
+    implementation project(':baseLib:customview')
 }

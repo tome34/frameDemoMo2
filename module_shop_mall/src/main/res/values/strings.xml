@@ -26,4 +26,8 @@
     //文章页面
     <string name="mall_web_tint">网页由 www.wanandroid.com 提供\n开源不易，欢迎各路大神Star</string>
 
+    <string name="mall_search_null_tint">快来搜点干货吧*≧▽≦*</string>
+    <string name="mall_history_search">搜索历史</string>
+    <string name="mall_clear_all">清空</string>
+    <string name="mall_hot_search">热搜</string>
 </resources>

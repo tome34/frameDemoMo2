@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <Button
+            android:id="@+id/indeterminate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="菊花转圈"/>
+
+        <Button
+            android:id="@+id/label_indeterminate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="菊花转圈+标题"/>
+
+        <Button
+            android:id="@+id/detail_indeterminate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="菊花转圈+标题+小标题"/>
+
+        <Button
+            android:id="@+id/grace_indeterminate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="菊花转圈+定时间1秒"/>
+
+        <Button
+            android:id="@+id/determinate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="圆圈进度样式1"/>
+
+        <Button
+            android:id="@+id/annular_determinate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="圆圈进度样式2"/>
+
+        <Button
+            android:id="@+id/bar_determinate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="进度条样式"/>
+
+        <Button
+            android:id="@+id/custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="针动画样式"/>
+
+        <Button
+            android:id="@+id/dim_background"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="设置背景透明度"/>
+
+        <Button
+            android:id="@+id/custom_color_animate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="设置背景颜色"/>
+    </LinearLayout>
+</ScrollView>

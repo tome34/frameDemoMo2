@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
+import com.example.customview.widget.dialog.AlertDialog;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.module_common.R;
-import com.example.tome.module_common.widget.dialog.AlertDialog;
 
 /**
  * 精仿iOSAlertViewController控件Demo

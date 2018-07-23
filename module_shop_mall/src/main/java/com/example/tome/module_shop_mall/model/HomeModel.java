@@ -1,21 +1,15 @@
 package com.example.tome.module_shop_mall.model;
 
-import com.example.tome.component_base.base.mvp.BaseVpObserver;
 import com.example.tome.component_base.base.mvp.DisposablePool;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.api.ModelVpService;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.HomeContract;
 import com.example.tome.module_shop_mall.presenter.HomePresenter;
-
-import java.util.List;
-
 import io.reactivex.Observable;
+import java.util.List;
 
 /**
  * @author by TOME .
@@ -105,7 +99,7 @@ public class HomeModel extends DisposablePool implements HomeContract.Model{
 //
 //    @Override
 //    public void getFeedArticleListV2(SmartRefreshLayout rlRefreshLayout, int page) {
-//        BaseVcObserver<BaseObj<FeedArticleListData>> remoteListData = ModelVcService.getRemoteListData(mView, rlRefreshLayout, new ModelVcService.MethodSelect<FeedArticleListData>() {
+//        BaseObserver<BaseObj<FeedArticleListData>> remoteListData = ModelVcService.getRemoteListData(mView, rlRefreshLayout, new ModelVcService.MethodSelect<FeedArticleListData>() {
 //            @Override
 //            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
 //                return service.getFeedArticleList(page);

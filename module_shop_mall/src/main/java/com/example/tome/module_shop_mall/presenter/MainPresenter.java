@@ -1,25 +1,17 @@
 package com.example.tome.module_shop_mall.presenter;
 
-
 import android.app.Activity;
 import android.content.Context;
-
+import com.example.tome.component_base.base.BaseObserver;
 import com.example.tome.component_base.base.mvp.BasePresenter;
-import com.example.tome.component_base.base.mvp.BaseVpObserver;
-import com.example.tome.component_base.base.mvp.inter.IView;
-import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.file_upload.FileRequestMapParams;
 import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.ActivityUtils;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.model.mainMvpModel;
-
-import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 
 /**
@@ -30,7 +22,7 @@ import okhttp3.MultipartBody;
         /*addDisposable(ModelVcService.getFeedArticleList(page)
                 .compose(RxUtils.<FeedArticleListResponse>rxSchedulerHelper())
                 // .filter(feedArticleListResponse -> mView != null)
-                .subscribeWith(new BaseVcObserver<FeedArticleListResponse>(mView) { //with 有返回值
+                .subscribeWith(new BaseObserver<FeedArticleListResponse>(mView) { //with 有返回值
                     @Override
                     public void onNext(FeedArticleListResponse feedArticleListResponse) {
                         L.d("获取数据",":"+feedArticleListResponse.getMessage());
@@ -101,7 +93,7 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainContract
         params.put("key", "");
         addDisposable(
                 mModel.getFeedArticleList(0, params)
-                        .subscribeWith(new BaseVpObserver<BaseObj<FeedArticleListData>>(mView) {
+                        .subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView) {
                             @Override
                             public void onNext(BaseObj<FeedArticleListData> feedArticleListDataBaseObj) {
                                 L.d("成功返回数据" + feedArticleListDataBaseObj.getData().getCurPage());

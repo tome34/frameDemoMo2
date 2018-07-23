@@ -53,4 +53,11 @@
     <color name="otherui_color_33">#333333</color>
     <color name="otherui_actionsheet_blue">#037BFF</color>
     <color name="otherui_color_black">#000000</color>
+
+    <color name="qmui_config_color_white">#ffffff</color>
+    <color name="qmui_config_color_75_pure_black">#C0000000</color>
+    <color name="qmui_config_color_transparent">#00000000</color>
+
+    <color name="scan_corner_color">#0effc2</color>
+
 </resources>
