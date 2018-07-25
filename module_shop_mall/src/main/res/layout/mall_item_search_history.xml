@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_search_history_tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|end"
+    android:background="@drawable/mall_touch_bg"
+    tools:text="Android 进阶"
+    android:textColor="@color/mall_search_grey_gone"
+    android:drawableStart="@drawable/mall_ic_search_history"
+    android:drawablePadding="@dimen/dp_10"
+    android:padding="@dimen/dp_10" />
