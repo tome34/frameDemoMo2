@@ -23,3 +23,9 @@ Android组件化项目框架
   
   ![git3.gif](https://upload-images.jianshu.io/upload_images/4167938-9a7991663198bfd9.gif?imageMogr2/auto-orient/strip)
   
+  
+  2018.8.14
+  更新了购物车,商品详情页,仿淘宝属性选择
+  
+  ![商品详情页及购物车.gif](https://upload-images.jianshu.io/upload_images/4167938-b0ec67226ca47b88.gif?imageMogr2/auto-orient/strip)
+  
