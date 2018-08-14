@@ -4,4 +4,69 @@
     <string name="cart_tab_product">商品</string>
     <string name="cart_tab_cart">购物车</string>
 
+    <!--貨品详情-->
+    <string name="cart_product">货品</string>
+    <string name="cart_product_detail">详情</string>
+    <string name="cart_product_goods_detail">货品详情</string>
+    <string name="cart_product_after_sales_services">售后服务</string>
+    <string name="cart_product_evaluate">评论</string>
+    <string name="cart_product_collection">收藏</string>
+    <string name="cart_product_join_shop_cart">加入购物车</string>
+    <string name="cart_product_buy_now">立即购买</string>
+    <string name="cart_product_promotion">优惠</string>
+
+    <string name="cart_product_evaluate_all">全部评论</string>
+    <string name="cart_product_evaluate_positive">好评</string>
+    <string name="cart_product_evaluate_neutral">中评</string>
+    <string name="cart_product_evaluate_negative">差评</string>
+    <string name="cart_product_evaluate_image">有图</string>
+
+    <!--登录-->
+    <string name="cart_login_find_pwd_hint_1">如忘记密码，请拨打客服热线--申请重置密码</string>
+    <string name="cart_login_find_pwd_hint_2">如忘记密码，请拨打客服热线</string>
+    <string name="cart_login_find_pwd_hint_3"> 申请重置密码</string>
+    <string name="cart_member_remark_1">如忘记密码请拨打客服热线--申请重置密码</string>
+    <string name="cart_member_remark_2">如忘记密码请拨打客服热线</string>
+    <string name="cart_member_remark_3">申请重置密码</string>
+    <string name="cart_login_login">登录</string>
+    <string name="cart_login_login_success">登录成功</string>
+    <string name="cart_login_login_fail">登录失败</string>
+    <string name="cart_login_tel">手机号</string>
+    <string name="cart_login_pwd">密码</string>
+    <string name="cart_login_pwd_hint">请输入密码</string>
+    <string name="cart_login_tel_hint">请输入手机号</string>
+    <string name="cart_login_find_pwd_hint">如忘记密码，请拨打客服热线400-800-8888 申请重置密码</string>
+    <string name="cart_login_account_or_password_error">该用户名或密码输入有误，请重新输入.</string>
+    <string name="cart_login_account_exception">账号异常</string>
+    <string name="cart_login_user_disable">该用户已停用，请联系管理员.</string>
+    <string name="cart_login_account_disable">该账号停用，请联系管理员.</string>
+
+    <!--购物车-->
+    <string name="cart_shop_buy">立即购买</string>
+    <string name="cart_grounding_state">已上架</string>
+    <string name="cart_undercarriage_state">已下架</string>
+    <string name="cart_detail_dialog_stock_not_enough">库存不足</string>
+    <string name="cart_shop_add_cart">加入购物车</string>
+    <string name="cart_shop_buy_num">购买数量</string>
+    <string name="cart_please_select">请选择</string>
+
+    <string name="cart_empty_warn">空空如也，赶紧去购物吧</string>
+    <string name="cart_empty_topay">立即购物</string>
+    <string name="cart_collection_cancel_success">取消收藏成功</string>
+    <string name="cart_all_select">全选</string>
+    <string name="cart_continue_buy">继续购物</string>
+    <string name="cart_add_collection">移入收藏夹</string>
+    <string name="cart_order">立即下单</string>
+    <string name="cart_del">删除</string>
+    <string name="cart_shop_cart">购物车</string>
+    <string name="cart_edit">编辑</string>
+    <string name="cart_complete">完成</string>
+    <string name="cart_shop_total">合计：</string>
+    <string name="cart_please_shop">请选择商品</string>
+    <string name="cart_delete_product_hint">确定删除商品？</string>
+    <string name="cart_delete_success">删除成功</string>
+    <string name="cart_shop_cancel">取消</string>
+    <string name="cart_shop_confrim">确定</string>
+    <string name="cart_collection_add_success">添加收藏成功</string>
+
 </resources>

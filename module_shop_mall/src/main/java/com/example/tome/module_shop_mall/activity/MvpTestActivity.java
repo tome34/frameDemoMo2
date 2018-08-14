@@ -1,28 +1,19 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.component_base.base.mvp.BaseVpActivity;
-import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.params.RequestMapParams;
 import com.example.tome.component_base.util.L;
-import com.example.tome.component_data.bean.BaseObj;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
-import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.presenter.MainPresenter;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import io.reactivex.Observable;
 
 @Route(path = RouterURLS.MVP_TEST)
 public class MvpTestActivity extends BaseVpActivity<MainContract.View, MainContract.Presenter> implements MainContract.View, View.OnClickListener {
@@ -52,7 +43,7 @@ public class MvpTestActivity extends BaseVpActivity<MainContract.View, MainContr
 
     @Override
     protected void initTitle() {
-
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
     }
 
     @Override

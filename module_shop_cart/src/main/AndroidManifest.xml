@@ -3,7 +3,7 @@
     package="com.example.tome.module_shop_cart">
 
     <application>
-        <activity android:name=".ShopCartActivity" />
+        <activity android:name=".activity.ShopCartActivity"/>
 
         <!--
        autolayout meta
@@ -11,12 +11,16 @@
         -->
         <meta-data
             android:name="design_width"
-            android:value="1080" />
+            android:value="1080"/>
         <meta-data
             android:name="design_height"
-            android:value="1920" />
+            android:value="1920"/>
 
-        <activity android:name=".activity.TestActivity"></activity>
+        <activity android:name=".activity.TestActivity"/>
+        <activity android:name=".activity.ProductDetailActivity">
+        </activity>
+        <activity android:name=".activity.LoginActivity">
+        </activity>
     </application>
 
 </manifest>

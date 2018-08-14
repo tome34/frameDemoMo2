@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_linear"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <View
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"/>
+
+    <include layout="@layout/title_search_layout"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+    <Button
+        android:id="@+id/btn_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="商品列表"
+        android:layout_marginTop="10dp"
+        android:text="商品详情页"
         android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="登录"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btn_exit_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="退出登录"
+        android:textSize="20dp"/>
+
+</LinearLayout>
 
 </LinearLayout>

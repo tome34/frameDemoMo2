@@ -2,7 +2,7 @@
 apply from: "config.gradle"
 
 buildscript {
-    
+    // 仓库
     repositories {
         google()
         jcenter()
@@ -20,7 +20,7 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+// 所有项目都依赖于已下中央仓库
 allprojects {
     repositories {
         google()
@@ -31,6 +31,7 @@ allprojects {
     }
 }
 
+// gradle在执行构建任务时的清理配置
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

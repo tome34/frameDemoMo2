@@ -1,13 +1,10 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
-
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
-
+import com.gyf.barlibrary.ImmersionBar;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -15,6 +12,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mall_activity_splash);
+        ImmersionBar.with(this).transparentBar().init();
         initView();
     }
 
@@ -31,5 +29,11 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }).start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ImmersionBar.with(this).destroy();
     }
 }

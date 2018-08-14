@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cb_arrt_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cart_selector_maincolor_to_88_btnbg"
+    android:button="@null"
+    android:gravity="center"
+    android:paddingBottom="3dp"
+    android:paddingTop="3dp"
+    android:paddingLeft="10dp"
+    android:layout_marginTop="8dp"
+    android:paddingRight="10dp"
+    android:layout_marginRight="10dp"
+    android:maxLines="1"
+    android:ellipsize="end"
+    tools:text="属性"
+    android:textColor="@color/cart_maincolor_to_88"
+    android:textSize="12sp">
+
+
+</RadioButton>

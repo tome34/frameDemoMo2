@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/activity_product_detail"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ico_back"
+            android:layout_centerVertical="true"
+            android:onClick="onBack"
+            android:padding="10dp"/>
+
+        <RadioGroup
+            android:layout_centerInParent="true"
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_product"
+                style="@style/cart_product_detail_radiobutton_style"
+                android:text="@string/cart_product"/>
+
+            <RadioButton
+                android:id="@+id/rb_detail"
+                style="@style/cart_product_detail_radiobutton_style"
+                android:text="@string/cart_product_detail"/>
+
+            <RadioButton
+                android:id="@+id/rb_evaluate"
+                style="@style/cart_product_detail_radiobutton_style"
+                android:text="@string/cart_product_evaluate"/>
+
+        </RadioGroup>
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_shop_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@mipmap/ico_shop_cart_black"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <View style="@style/cart_parting_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_collection"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_collection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ico_collection_uncheck"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="@string/cart_product_collection"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_join_shop_cart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@mipmap/ico_select_left_bg"
+            android:gravity="center"
+            android:text="@string/cart_product_join_shop_cart"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_buy_now"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@mipmap/ico_select_right_bg"
+            android:gravity="center"
+            android:text="@string/cart_product_buy_now"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -8,7 +8,7 @@
         android:label="购物车"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-         <activity android:name=".ShopCartActivity">
+         <activity android:name=".activity.ShopCartActivity">
              <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.example.tome.component_base.adapter.BaseFragmentAdapter;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.widgetUtils.TabLayoutUtils;
@@ -18,11 +18,8 @@ import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
 import com.example.tome.module_shop_mall.fagment.KnowledgeChildFragment;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * 知识体系详情子页面
@@ -58,6 +55,9 @@ public class KnowledgeDetailActivity extends BaseVcActivity {
 
     @Override
     protected void initTitle() {
+        //状态栏
+        mImmersionBar.titleBar(R.id.rl_title_bar_content).init();
+
         knowledgeSystemBean = getIntent().getParcelableExtra(IntentKV.K_KNOWLEDGE_DATA);
 
         mTitleBack.setVisibility(View.VISIBLE);

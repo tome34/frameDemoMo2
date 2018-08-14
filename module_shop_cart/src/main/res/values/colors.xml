@@ -20,4 +20,17 @@
     <color name="cart_account_color_orange_f59">#F59523</color>
     <color name="cart_colorFEFF">#FEFEFF</color>
     <color name="cart_colorE75">#E75353</color>
+    <color name="cart_actionsheet_red">#FD4A2E</color>
+    <color name="cart_color_red">#FF0000</color>
+    <color name="cart_color_trans">#00000000</color>
+    <color name="cart_transparent">#00000000</color>
+    <!--半黑-->
+    <color name="cart_black_half">#7f000000</color>
+    <!--半白-->
+    <color name="cart_white_half">#7fffffff</color>
+    <color name="cart_color_22">#222222</color>
+    <!--分割线-->
+    <color name="cart_color_ee">#EEEEEE</color>
+    <color name="cart_theme_color">#51A6FB</color>
+
 </resources>

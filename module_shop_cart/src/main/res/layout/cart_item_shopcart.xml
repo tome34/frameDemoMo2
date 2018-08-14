@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.tome.module_shop_cart.widget.EasySwipeMenuLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cart_contentView="@+id/content_view"
+    app:cart_rightMenuView="@+id/right_menu">
+
+
+    <LinearLayout
+        android:id="@id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="15dp">
+
+
+        <LinearLayout
+            android:id="@+id/llyt_product_sale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_product_sale_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="满减"
+                android:background="@drawable/cart_shape_fram1_maincolor_4dp"
+                android:textSize="@dimen/sp_12"
+                android:paddingBottom="1dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="1dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/tv_product_sale_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="满减"
+                android:textSize="13sp"
+                android:textColor="@color/color66"/>
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_next_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_shop_check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/cart_selector_circle_select"
+            android:paddingRight="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_product_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/cart_shape_square_boder"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="12dp">
+
+            <TextView
+                android:id="@+id/iv_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="--"
+                android:textColor="@color/color33"
+                android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:id="@+id/llyt_lables"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="2.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/iv_product_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="--"
+                    android:textColor="@color/mainColor"
+                    android:textSize="12sp" />
+
+                <com.example.tome.module_shop_cart.widget.CustomNumInputView
+                    android:id="@+id/civ_product_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/right_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_to_collection"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/mainColor"
+            android:gravity="center"
+            android:padding="7dp"
+            android:text="@string/cart_add_collection"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_del_product"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/cart_actionsheet_red"
+            android:gravity="center"
+            android:padding="7dp"
+            android:text="@string/cart_del"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+    </LinearLayout>
+</com.example.tome.module_shop_cart.widget.EasySwipeMenuLayout>

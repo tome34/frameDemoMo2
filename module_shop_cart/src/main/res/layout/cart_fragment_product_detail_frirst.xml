@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.tome.module_shop_cart.widget.CustScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <com.example.tome.module_shop_cart.widget.AutoLoopView
+            android:id="@+id/banner_product_detail"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:cart_autoChangeDuration="3000"
+            app:cart_changeDuration="800"
+            app:cart_dotLayoutGravity="center"
+            app:cart_dot_size="8dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_product_detail_goods_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/cart_color33"
+                android:textSize="16dp"
+                tools:text="灣仔碼頭手打天下水餃"
+                />
+
+            <TextView
+                android:id="@+id/tv_product_detail_goods_sale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:textColor="@color/cart_theme_color"
+                android:textSize="12sp"
+                tools:text="500"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_product_detail_goods_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="09dp"
+            android:textColor="@color/cart_color99"
+            android:textSize="12sp"
+            tools:text="鲜嫩爽滑醇香味浓"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="3dp"
+                android:text="HK$"
+                android:textColor="@color/cart_color_red"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_product_detail_goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/cart_color_red"
+                android:textSize="20sp"
+                tools:text="88.00"
+                />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_divider"
+            style="@style/cart_parting_line_home_divider"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_product_detail_goods_specification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已选"
+                android:textColor="@color/cart_color33"
+                />
+
+            <TextView
+                android:id="@+id/tv_product_detail_goods_specification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:textColor="@color/cart_color33"
+                android:textSize="15dp"
+                tools:text="720/袋、豬肉香菇水餃  1件"
+                />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5sp"
+                android:src="@mipmap/ico_arrow"
+                />
+
+        </LinearLayout>
+
+
+        <View
+            style="@style/cart_parting_line_home_divider"/>
+
+        <LinearLayout
+            android:id="@+id/ll_product_detail_see_more_evalution"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:drawablePadding="5dp"
+                android:drawableRight="@mipmap/ico_arrow"
+                android:gravity="center"
+                android:text="查看更多评论"
+                android:textColor="@color/cart_color33"
+                android:textSize="15sp"
+                />
+
+        </LinearLayout>
+
+        <View style="@style/cart_parting_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/cart_color33"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="1dp"
+                android:background="@color/cart_color99"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="上拉查看货品详情"
+                android:textColor="@color/color_66"
+                android:textSize="15sp"
+                />
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="1dp"
+                android:background="@color/cart_color99"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</com.example.tome.module_shop_cart.widget.CustScrollView>

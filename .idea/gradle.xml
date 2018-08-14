@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseLib" />
             <option value="$PROJECT_DIR$/baseLib/alertview" />
+            <option value="$PROJECT_DIR$/baseLib/cockroach-x" />
             <option value="$PROJECT_DIR$/baseLib/customview" />
             <option value="$PROJECT_DIR$/baseLib/flowlayout-lib" />
             <option value="$PROJECT_DIR$/baseLib/kprogresshud" />

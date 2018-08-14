@@ -88,6 +88,7 @@ public class ProjectFragment extends BaseVpFragment<IProjectContract.View,IProje
             mFragments.add(projectListFragment);
             mTitleList.add(data.getName());
         }
+
         //设置adapter
         mViewpager.setAdapter(new BaseFragmentStateAdapter(getChildFragmentManager(), mFragments, mTitleList));
         //监听滑动

@@ -154,8 +154,11 @@ public class EmptyView extends FrameLayout {
     }
 
     public void setImageView(Context context,int image) {
-        ImageLoaderHelper.getInstance().load(context, image,mImageView);
-        mImageView.setVisibility(image == 0 ?  GONE : VISIBLE);
+        if (context !=null || image != 0){
+            ImageLoaderHelper.getInstance().load(context, image,mImageView);
+            mImageView.setVisibility(image == 0 ?  GONE : VISIBLE);
+        }
+
     }
 
     public void setTitleText(String text) {

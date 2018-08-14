@@ -1,26 +1,26 @@
-package com.example.tome.module_shop_cart;
+package com.example.tome.module_shop_cart.activity;
 
-
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvc.BaseVcActivity;
-import com.example.tome.component_base.base.mvp.BaseVpActivity;
-import com.example.tome.component_base.base.mvp.inter.IPresenter;
-import com.example.tome.component_data.d_arouter.RouterURLS;
-import com.example.tome.module_shop_cart.arouter.RouterCenter;
-
 import butterknife.BindView;
-
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.tome.component_base.util.SPUtil;
+import com.example.tome.component_data.d_arouter.IntentKV;
+import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.module_shop_cart.R;
+import com.example.tome.module_shop_cart.R2;
+import com.example.tome.module_shop_cart.arouter.RouterCenter;
+import com.example.tome.module_shop_cart.base.CommonActivity;
+import com.example.tome.module_shop_cart.base.Contract;
+import com.example.tome.module_shop_cart.net.OKHttpHelper;
+import com.example.tome.module_shop_cart.utils.BasicTool;
 
 @Route(path = RouterURLS.SHOP_CART_MAIN)
-public class ShopCartActivity extends BaseVcActivity implements RadioGroup.OnCheckedChangeListener {
+public class ShopCartActivity extends CommonActivity implements RadioGroup.OnCheckedChangeListener {
 
 
     @BindView(R2.id.fl_content)
@@ -36,23 +36,30 @@ public class ShopCartActivity extends BaseVcActivity implements RadioGroup.OnChe
     public Fragment mShopCartFrament;
     public Fragment mProductFragment;
 
-//       @Override
-//    protected IPresenter getPresenter() {
-//        return null;
-//    }
+    private String mToken;
+    //token是否存在
+    private boolean isToken = false;
 
     @Override
-    protected int getLayoutId() {
+    public int setContentLayout() {
         return R.layout.cart_activity_shop_cart;
     }
 
-    @Override
-    protected void initTitle() {
 
+    @Override
+    public void initTitle() {
+        mToken = (String)SPUtil.get(this,IntentKV.K_TOKEN_VALUE,"");
+        OKHttpHelper.token = mToken;
+
+        if (BasicTool.isEmpty(OKHttpHelper.token)) {
+            isToken = false;
+        } else {
+            isToken = true;
+        }
     }
 
     @Override
-    protected void initView() {
+    public void initView() {
         //radiobutton监听
         mRgTab.setOnCheckedChangeListener(this);
         //选择商品tab
@@ -60,6 +67,23 @@ public class ShopCartActivity extends BaseVcActivity implements RadioGroup.OnChe
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String flagStr = getIntent().getStringExtra(Contract.K_FRAGMENT);
+        if ("1".equals(flagStr)){
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.hide(mProductFragment);
+            transaction.show(mShopCartFrament);
+            mRgTab.check(R.id.rb_cart);
+        }
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {

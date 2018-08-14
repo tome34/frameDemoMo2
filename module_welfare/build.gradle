@@ -54,15 +54,14 @@ android {
                     exclude '*debug'
                 }
             }
-
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //Arouter路由
+    implementation 'com.android.support:support-v4:27.1.1'
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]

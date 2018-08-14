@@ -1,6 +1,5 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -10,14 +9,12 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.util.widgetUtils.WebViewInitUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
-
-import butterknife.BindView;
 
 /**
  * 文章详情页
@@ -55,6 +52,8 @@ public class ArticleDetailActivity extends BaseVcActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);
+        //状态栏
+        mImmersionBar.titleBar(R.id.common_toolbar).init();
 
         String title = intent.getStringExtra(IntentKV.K_ARTICLE_TITLE);
         mTitle.setText(title);
@@ -106,4 +105,8 @@ public class ArticleDetailActivity extends BaseVcActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

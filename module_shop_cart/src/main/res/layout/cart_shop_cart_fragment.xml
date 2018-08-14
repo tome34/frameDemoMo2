@@ -1,15 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/windowBg"
+    android:id="@+id/layout_shop_cart"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="购物车"
-        android:textSize="20dp"/>
+    <include layout="@layout/title_bar_content" />
+
+    <View style="@style/HorizontalLineStyle" />
+
+
+    <LinearLayout
+        android:id="@+id/lin_shopcart_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_shopcart_empty"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color99"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:text="@string/cart_empty_warn"/>
+        <TextView
+            android:id="@+id/tv_shop_cart_topay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:background="@drawable/cart_shape_fillet1_maincolor_boder_4dp"
+            android:textSize="14sp"
+            android:textColor="@color/account_color_orange_f59"
+            android:text="@string/cart_empty_topay"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lin_shopcart_notempty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_shop_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            tools:ignore="RtlCompat">
+
+            <CheckBox
+                android:id="@+id/cb_all_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/cart_selector_circle_select"
+                android:paddingLeft="10dp"
+                android:text="@string/cart_all_select" />
+
+            <TextView
+                android:id="@+id/tv_total_money"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="right" />
+
+            <Button
+                android:id="@+id/btn_add_collection2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/mainColor"
+                android:text="@string/cart_add_collection"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_order2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/mainColor"
+                android:text="@string/cart_order"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_del"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/cart_actionsheet_red"
+                android:text="@string/cart_del"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

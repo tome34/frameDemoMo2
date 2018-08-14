@@ -1,6 +1,5 @@
 package com.example.tome.component_base.base.mvc;
 
-
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +16,7 @@ import com.example.tome.component_base.helper.HUDFactory;
 import com.example.tome.component_base.util.StatuBarCompat;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
+import com.gyf.barlibrary.ImmersionBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.orhanobut.logger.Logger;
 import io.reactivex.disposables.CompositeDisposable;
@@ -40,7 +40,7 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
     protected boolean isDestory = false;
     //管理事件流订阅的生命周期CompositeDisposable
     private CompositeDisposable compositeDisposable;
-
+    public ImmersionBar mImmersionBar;
     public IView mView = this;
 
 
@@ -52,6 +52,7 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         //加入activity管理
         BaseApplication.getAppContext().getActivityControl().addActivity(this);
         //沉浸式状态栏
+        initImmersionBar();
         //setImmeriveStatuBar();
         mActivity = this ;
 
@@ -60,6 +61,12 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         if (regEvent){
             EventBus.getDefault().register(this);
         }
+    }
+
+    private void initImmersionBar() {
+        mImmersionBar = ImmersionBar.with(this);
+        // 所有子类都将继承这些相同的属性
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
     }
 
     /**
@@ -161,6 +168,17 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         finish();
     }
 
+    /**
+     * 退出应用
+     */
+    public void exitApp() {
+        BaseApplication.getAppContext().getActivityControl().finishiAll();
+        //用于杀掉当前进程
+        android.os.Process.killProcess(android.os.Process.myPid());
+        //参数0和1代表退出的状态，0表示正常退出，1表示异常退出
+        System.exit(0);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -175,12 +193,19 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
         if (regEvent) {
             EventBus.getDefault().unregister(this);
         }
+        //必须调用该方法，防止内存泄漏
+        if (mImmersionBar != null){
+            mImmersionBar.destroy();
+        }
+
         isDestory = true;
         dismissHUD();
         //移除类
         BaseApplication.getAppContext().getActivityControl().removeActivity(this);
 
     }
+
+
 
     /**
      * 沉浸式状态栏

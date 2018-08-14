@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="12dp"
+    android:layout_height="wrap_content" android:paddingTop="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_shop_attr_name"
+        android:layout_marginRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cart_color_66"
+        android:textSize="12sp" />
+
+    <com.example.tome.module_shop_cart.widget.MyGridView
+        android:id="@+id/mgrid_atts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="8dp"
+        android:numColumns="4"
+        android:visibility="visible"
+        android:verticalSpacing="8dp" />
+
+</LinearLayout>

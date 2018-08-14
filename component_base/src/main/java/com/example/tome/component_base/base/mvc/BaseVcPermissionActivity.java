@@ -9,7 +9,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
-
 import com.example.tome.component_base.R;
 import com.example.tome.component_base.dialog.MyAlertDialog;
 import com.example.tome.component_base.util.L;
@@ -66,6 +65,7 @@ public abstract class BaseVcPermissionActivity extends BaseVcActivity {
     /**判断当前版本为6.0以上*/
     protected boolean isMarshmallow(){
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+
     }
 
 
@@ -84,11 +84,12 @@ public abstract class BaseVcPermissionActivity extends BaseVcActivity {
 
 
     private void showPresmissionDialog(int requestCode){
-
-
        // dialog = new MyAlertDialog("权限设置",initView(requestCode),"取消",new String[]{"去设置"},null,this, AlertView.Style.Alert, IFlag.FLAG_SET_PERMISSION,this);
-        dialog = new MyAlertDialog(this).builder().setTitle("权限设置")
-                .setMsg(initView(requestCode)).setNegativeButton("取消", new View.OnClickListener() {
+        dialog = new MyAlertDialog(this)
+            .builder()
+            .setTitle("权限设置")
+            .setMsg(initView(requestCode))
+            .setNegativeButton("取消", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();

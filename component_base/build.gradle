@@ -47,10 +47,12 @@ android {
     }
 
 }
-
+//项目依赖
 dependencies {
-    //把implementation 用api代替,它是对外部公开的, 所有其他的module就不需要添加该依赖
+
+    // 在项目中的libs中的所有的.jar结尾的文件，都是依赖
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //把implementation 用api代替,它是对外部公开的, 所有其他的module就不需要添加该依赖
     api rootProject.ext.dependencies["appcompat_v7"]
     api rootProject.ext.dependencies["constraint_layout"]
     api rootProject.ext.dependencies["cardview-v7"]
@@ -109,7 +111,8 @@ dependencies {
     api rootProject.ext.dependencies["pickerView"]
     //上拉加载
     api rootProject.ext.dependencies["smartRefreshLayout"]
-    api rootProject.ext.dependencies["SmartRefreshHeader"]
+    //没有特殊的样式需求,可不加
+   // api rootProject.ext.dependencies["SmartRefreshHeader"]
     //eventbus 发布/订阅事件总线
     api rootProject.ext.dependencies["eventbus"]
     //banner轮播图
@@ -127,10 +130,16 @@ dependencies {
     api rootProject.ext.dependencies["jiecao"]
     //greendao3
     api rootProject.ext.dependencies["greendao3"]
-
     //二维码扫描
     api 'cn.yipianfengye.android:zxing-library:2.2'
+    //leakcanary-android
+    debugImplementation rootProject.ext.dependencies["leakcanary-android"]
+    //release不检测
+    releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
+    //沉浸式状态栏
+    api rootProject.ext.dependencies["barlibrary"]
 
     implementation project(':component_data')
     implementation project(':baseLib:kprogresshud')
+    compile project(path: ':baseLib:cockroach-x')
 }

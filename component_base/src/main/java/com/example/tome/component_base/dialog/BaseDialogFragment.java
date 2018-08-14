@@ -12,9 +12,11 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.example.tome.component_base.base.mvp.BaseVpActivity;
 import com.example.tome.component_base.base.mvp.inter.IView;
+import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.RefWatcher;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import org.greenrobot.eventbus.EventBus;
@@ -131,9 +133,10 @@ public abstract class BaseDialogFragment extends DialogFragment implements IView
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //LeakCanary
-        //        RefWatcher refWatcher = GeeksApp.getRefWatcher(getActivity());
-        //        refWatcher.watch(this);
+
+        //leakCanary 监控
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(mContext);
+        refWatcher.watch(this);
     }
 
     /**

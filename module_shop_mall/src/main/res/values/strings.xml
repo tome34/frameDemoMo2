@@ -30,4 +30,6 @@
     <string name="mall_history_search">搜索历史</string>
     <string name="mall_clear_all">清空</string>
     <string name="mall_hot_search">热搜</string>
+
+    <string name="exit">再按一次退出程序</string>
 </resources>

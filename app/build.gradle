@@ -68,34 +68,28 @@ android {
             //配置签名文件
             signingConfig signingConfigs.release
             //配置apk路径
-            applicationVariants.all {
-                variant ->
-                    def buildType = variant.buildType.name
-                    variant.getPackageApplication().outputDirectory = new File(rootProject.rootDir,"releaseApk")
-                    variant.outputs.each { output ->
-                        def outputFile = output.outputFile
-                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                            // 输出apk名称为XXX20160328_v1.0.0_vc10_XXXX_test.apk
-                            if (project.hasProperty('ENVIRONMENT_PARA')) {
-                                def fileName = "frame_${releaseTime()}_v${rootProject.ext.android.versionName}.apk"
-                                //控制输出的APK的存放路径
-                                if (project.hasProperty('OUT_PUT_DIR_PARA')) {
-                                    //AS 3.0之前自定义apk名称：
-                                    //File output_dir1 = project.file("${OUT_PUT_DIR_PARA}");
-                                   // output.outputFile = new File("${OUT_PUT_DIR_PARA}", fileName)
-                                  //  println "输出文件位置： " + output.outputFile
-
-                                    //AS 3.0后
-                                    output.apkData.outputFileName = fileName  //  output.outputFile 改为 outputFileName
-
-                                } else {
-                                    output.outputFile = new File(outputFile.parent, fileName)
-                                    println "输出文件位置： " + output.outputFile
-                                }
-                            }
-                        }
-                    }
-            }
+//            applicationVariants.all {
+//                variant ->
+//                    def buildType = variant.buildType.name
+//                    if(buildType=='release'){
+//                        // variant.getPackageApplication().outputDirectory = new File(rootProject.rootDir,"releaseApk")
+//                        variant.getPackageApplication().outputDirectory = new File("F:/apk/frameDemoApk","releaseApk")
+//                    }else {
+//                        //debug版本
+//                        variant.getPackageApplication().outputDirectory = new File("F:/apk/frameDemoApk","debugApk")
+//                    }
+//
+//                    variant.outputs.each { output ->
+//                        def outputFile = output.outputFile
+//                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                            // 输出apk名称为XXX20160328_v1.0.0_vc10_XXXX_test.apk
+//                                def fileName = "frame_${releaseTime()}_v${rootProject.ext.android.versionName}.apk"
+//                            //  output.outputFile 改为 outputFileName
+//                                output.apkData.outputFileName = fileName
+//
+//                        }
+//                    }
+//            }
         }
     }
 }
@@ -110,6 +104,7 @@ dependencies {
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["runner"]
     androidTestImplementation rootProject.ext.dependencies["espresso_core"]
+
     implementation project(':component_data')
     implementation project(':component_base')
     if (!rootProject.ext.isModule) {
@@ -124,4 +119,6 @@ dependencies {
     implementation project(':baseLib:kprogresshud')
     implementation project(':baseLib:flowlayout-lib')
     implementation project(':baseLib:customview')
+    //杀不死的小强,防止app崩溃
+    implementation project(':baseLib:cockroach-x')
 }

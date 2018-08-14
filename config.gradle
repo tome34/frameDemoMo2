@@ -16,7 +16,7 @@ ext {
                versionName             : "1.0.0",
                applicationId           : "com.example.tome.framedemomo2",
 
-               androidSupportSdkVersion: "27.1.0"
+               androidSupportSdkVersion: "27.1.1"
 
     ]
 
@@ -103,6 +103,12 @@ ext {
                     "VerticalTabLayout"                 : "q.rorbin:VerticalTabLayout:1.2.5",
                     //水平tablayout
                     "FlycoTabLayout_Lib"                : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+                    //leakcanary内存泄露
+                    "leakcanary-android"                : "com.squareup.leakcanary:leakcanary-android:1.5.1",
+                    "leakcanary-android-no-op"                : "com.squareup.leakcanary:leakcanary-android-no-op:1.5.1",
+                    //沉浸式状态栏
+                    "barlibrary"                : "com.gyf.barlibrary:barlibrary:2.3.0",
+
 
     ]
 }

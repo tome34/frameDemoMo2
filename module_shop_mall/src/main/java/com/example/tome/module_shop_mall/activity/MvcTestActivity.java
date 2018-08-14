@@ -1,10 +1,9 @@
 package com.example.tome.module_shop_mall.activity;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.component_base.base.mvc.BaseVcActivity;
 import com.example.tome.component_base.net.common_callback.INetCallback;
@@ -16,8 +15,6 @@ import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.api.ApiService;
 import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
-
-import butterknife.BindView;
 import io.reactivex.Observable;
 
 @Route(path = RouterURLS.MVC_TEST)
@@ -37,7 +34,7 @@ public class MvcTestActivity extends BaseVcActivity implements View.OnClickListe
 
     @Override
     protected void initTitle() {
-
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
     }
 
     @Override

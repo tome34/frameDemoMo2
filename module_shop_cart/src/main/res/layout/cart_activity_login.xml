@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBg"
+    android:id="@+id/layout_login"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_marginTop="24dp"
+        android:id="@+id/title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:drawableLeft="@mipmap/back_img"
+        android:gravity="center"
+        android:onClick="back"
+        android:visibility="gone"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" />
+
+    <ImageView
+        android:layout_marginTop="85dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_title_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/cart_login_tel"
+        android:textColor="@color/color66"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <com.example.tome.module_shop_cart.widget.EditTextWithDel
+            android:id="@+id/etd_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/cart_login_tel_hint"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/color33"
+            android:textSize="14sp" />
+
+        <View
+            style="@style/HorizontalLineStyle"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/cart_login_pwd"
+        android:textColor="@color/color66"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.example.tome.module_shop_cart.widget.EditTextWithDel
+                android:id="@+id/etd_pwd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/cart_login_pwd_hint"
+                android:inputType="textPassword"
+                android:textAlignment="viewStart"
+                android:textDirection="locale"
+                android:gravity="start"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textColor="@color/color33"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/cb_show_hide_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/cart_selector_show_hide_pwd" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/HorizontalLineStyle"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/cart_NextBtn"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:padding="0dp"
+        android:text="@string/cart_login_login" />
+
+    <TextView
+        android:id="@+id/tv_service_phone_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/cart_login_find_pwd_hint_1"
+        android:textColor="@color/color99"
+        android:textSize="13sp" />
+</LinearLayout>

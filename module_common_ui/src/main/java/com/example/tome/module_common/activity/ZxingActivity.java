@@ -189,10 +189,10 @@ public class ZxingActivity extends AppCompatActivity implements View.OnClickList
         if (v.getId() == R.id.button1){
             cameraTask(1);
 
-        }else if (v.getId() == R.id.button2){
+        }else if (v.getId() == R.id.button3){
             cameraTask(2);
 
-        }else if (v.getId() == R.id.button3){
+        }else if (v.getId() == R.id.button2){
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_PICK);
             intent.setType("image/*");

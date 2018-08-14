@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="cart_AutoLoopView">
+        <attr name="cart_dot_size" format="dimension"/>
+        <attr name="cart_autoChangeDuration" format="integer"/>
+        <attr name="cart_changeDuration" format="integer"/>
+        <attr name="cart_selectedDotRes" format="reference"/>
+        <attr name="cart_noSelectedDotRes" format="reference"/>
+        <attr name="cart_dotLayoutGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <!--加减控件-->
+    <declare-styleable name="cart_CustomNumInputView">
+        <attr name="cart_isFocus" format="boolean" />
+    </declare-styleable>
+</resources>

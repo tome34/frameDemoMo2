@@ -1,7 +1,6 @@
 package com.example.welfare.module_welfare.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -10,14 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.component_base.base.mvc.BaseVcPermissionActivity;
-import com.example.tome.component_base.base.mvp.BaseVpPermissionActivity;
 import com.example.tome.component_base.net.common_callback.INetCallback;
 import com.example.tome.component_base.net.file_download.FileDownLoadCallback;
 import com.example.tome.component_base.util.L;
+import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.d_arouter.IntentKV;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.welfare.module_welfare.R;
@@ -28,13 +27,10 @@ import com.example.welfare.module_welfare.api.ModelService;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 import com.example.welfare.module_welfare.contract.SaveImageContract;
 import com.example.welfare.module_welfare.widget.HackyViewPager;
-
+import io.reactivex.Observable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 
 @Route(path = RouterURLS.WELFARE_PREVIEW)
@@ -115,9 +111,9 @@ public class ImagePreviewActivity extends BaseVcPermissionActivity implements Sa
         if (! getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISSION_STORAGE)){
             return;
         }
-        loadData(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
+       // loadData(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
        // mPresenter.downloadImage(mPreviewBeans.get((cuccentPosit - 1)).getUrlString());
-
+        ToastUtils.show(ImagePreviewActivity.this,"hahha",1);
 
     }
 

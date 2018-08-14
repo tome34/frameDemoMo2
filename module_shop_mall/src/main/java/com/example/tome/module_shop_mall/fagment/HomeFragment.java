@@ -71,6 +71,7 @@ public class HomeFragment extends BaseVpListFragment<HomeContract.View, HomeCont
 
     @Override
     protected void initTitle() {
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.white).statusBarDarkFont(true, 0.1f).init();
         mIvLeft.setVisibility(View.VISIBLE);
         mEtCommentSearch.setHint("请输入搜索内容");
         mEtCommentSearch.setEnabled(true);
@@ -120,6 +121,18 @@ public class HomeFragment extends BaseVpListFragment<HomeContract.View, HomeCont
         super.onResume();
         mPresenter.startBannerPlay();
 
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && mImmersionBar != null){
+            mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.white)
+                         .statusBarDarkFont(true, 0.1f).init();
+
+        }else if (hidden && mImmersionBar != null){
+            mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
+        }
     }
 
     @Override

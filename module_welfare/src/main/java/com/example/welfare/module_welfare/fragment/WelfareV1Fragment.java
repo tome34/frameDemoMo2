@@ -63,6 +63,7 @@ public class WelfareV1Fragment extends BaseVcListFragment implements WelfareCont
 
     @Override
     protected void initTitle() {
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
         String type = getArguments().getString("type");
     }
 

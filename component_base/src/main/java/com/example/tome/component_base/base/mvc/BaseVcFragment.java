@@ -8,20 +8,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.example.tome.component_base.base.mvp.BaseVpActivity;
 import com.example.tome.component_base.base.mvp.inter.IView;
+import com.example.tome.component_base.constants.BaseApplication;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
+import com.gyf.barlibrary.ImmersionBar;
 import com.orhanobut.logger.Logger;
-
+import com.squareup.leakcanary.RefWatcher;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 /**
  * @Created by TOME .
@@ -34,6 +35,7 @@ public abstract class BaseVcFragment extends Fragment implements IView{
     private Unbinder unBinder;
     protected Context mContext;
     protected boolean regEvent;
+    public ImmersionBar mImmersionBar;
 
     //管理事件流订阅的生命周期CompositeDisposable
     private CompositeDisposable compositeDisposable;
@@ -56,6 +58,8 @@ public abstract class BaseVcFragment extends Fragment implements IView{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayout(), container, false);
         unBinder = ButterKnife.bind(this , view);
+        //沉浸式状态栏
+        initImmersionBar();
         initTitle();
 
         if (regEvent){
@@ -101,6 +105,11 @@ public abstract class BaseVcFragment extends Fragment implements IView{
             BaseVpActivity baseActivity = (BaseVpActivity) getActivity();
             baseActivity.dismissHUD();
         }
+    }
+
+    private void initImmersionBar() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.keyboardEnable(true).navigationBarWithKitkatEnable(false).init();
     }
 
     @Override
@@ -164,9 +173,15 @@ public abstract class BaseVcFragment extends Fragment implements IView{
         if (unBinder != null) {
             unBinder.unbind();
         }
+        if (mImmersionBar != null){
+            mImmersionBar.destroy();
+        }
         if (regEvent) {
             EventBus.getDefault().unregister(this);
         }
+        //leakCanary 监控
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(mContext);
+        refWatcher.watch(this);
     }
 
 

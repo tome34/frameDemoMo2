@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/baseLib/alertview/alertview.iml" filepath="$PROJECT_DIR$/baseLib/alertview/alertview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/baseLib.iml" filepath="$PROJECT_DIR$/baseLib/baseLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLib/cockroach-x/cockroach-x.iml" filepath="$PROJECT_DIR$/baseLib/cockroach-x/cockroach-x.iml" />
       <module fileurl="file://$PROJECT_DIR$/component_base/component_base.iml" filepath="$PROJECT_DIR$/component_base/component_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/component_data/component_data.iml" filepath="$PROJECT_DIR$/component_data/component_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/customview/customview.iml" filepath="$PROJECT_DIR$/baseLib/customview/customview.iml" />

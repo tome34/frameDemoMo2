@@ -13,6 +13,7 @@ public class MyApplication extends BaseApplication {
 
     private static MyApplication myApplication;
 
+
     public static MyApplication getInstance() {
         return myApplication;
     }
@@ -21,6 +22,7 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         myApplication = this ;
+
         ZXingLibrary.initDisplayOpinion(this);
     }
 }
