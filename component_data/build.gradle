@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'  //lambda配置
+//apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion

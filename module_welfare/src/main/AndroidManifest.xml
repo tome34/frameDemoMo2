@@ -4,7 +4,9 @@
 
     <application>
         <activity android:name="com.example.welfare.module_welfare.activity.WelfareActivity" />
-        <activity android:name="com.example.welfare.module_welfare.activity.ImagePreviewActivity"></activity>
+        <activity android:name="com.example.welfare.module_welfare.activity.ImagePreviewActivity">
+
+        </activity>
     </application>
 
 </manifest>

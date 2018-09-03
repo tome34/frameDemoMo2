@@ -122,3 +122,17 @@ dependencies {
     //杀不死的小强,防止app崩溃
     implementation project(':baseLib:cockroach-x')
 }
+//解决支持库版本不兼容问题
+//configurations.all {
+//    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//        def requested = details.requested
+//        if (requested.group == 'com.android.support') {
+//            if (!requested.name.startsWith("multidex")) {
+//                details.useVersion '25.3.0'
+//            }
+//        }
+//    }
+//}
+//repositories {
+//    mavenCentral()
+//}

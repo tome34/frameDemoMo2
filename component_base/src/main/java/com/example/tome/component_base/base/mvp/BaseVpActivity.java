@@ -70,7 +70,7 @@ public abstract class BaseVpActivity<V extends IView, P extends IPresenter<V>> e
     private void initImmersionBar() {
             mImmersionBar = ImmersionBar.with(this);
             //所有子类都将继承这些相同的属性
-            mImmersionBar.init();
+           // mImmersionBar.init();
     }
 
     /**

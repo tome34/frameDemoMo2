@@ -2,9 +2,11 @@ if (Boolean.valueOf(rootProject.ext.moduleCommonUi)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'me.tatarka.retrolambda' //lambda配置
 }
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'me.tatarka.retrolambda' //lambda配置
+
+
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -22,8 +24,13 @@ android {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
             }
+
         }
+
+        //MultiDex分包方法
+        multiDexEnabled true
     }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

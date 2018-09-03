@@ -53,8 +53,8 @@ public class ArticleDetailActivity extends BaseVcActivity {
         assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);
         //状态栏
-        mImmersionBar.titleBar(R.id.common_toolbar).init();
-
+       // mImmersionBar.titleBar(R.id.common_toolbar).init();
+        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
         String title = intent.getStringExtra(IntentKV.K_ARTICLE_TITLE);
         mTitle.setText(title);
         articleLink = intent.getStringExtra(IntentKV.K_ARTICLE_LINK);

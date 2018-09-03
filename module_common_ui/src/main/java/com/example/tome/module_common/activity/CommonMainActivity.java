@@ -1,24 +1,21 @@
 package com.example.tome.module_common.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.tome.component_base.util.JsonUtil;
-import com.example.tome.component_base.widget.SuperDividerItemDecoration;
 import com.example.tome.component_data.d_arouter.RouterURLS;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.adapter.CommonAdapter;
 import com.example.tome.module_common.bean.CommonBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 import java.util.List;
 @Route(path = RouterURLS.CUSTOM_CONTROL)
@@ -56,10 +53,10 @@ public class CommonMainActivity extends AppCompatActivity implements BaseQuickAd
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //分割线
-        mRecyclerView.addItemDecoration(new SuperDividerItemDecoration.Builder(this)
-                .setDividerWidth(0)
-                .setDividerColor(getResources().getColor(R.color.white))
-                .build());
+        //mRecyclerView.addItemDecoration(new SuperDividerItemDecoration.Builder(this)
+        //        .setDividerWidth(0)
+        //        .setDividerColor(getResources().getColor(R.color.white))
+        //        .build());
         mAdapter = new CommonAdapter(R.layout.item_common, mJsonList);
         mAdapter.setOnItemClickListener(this);
         mRecyclerView.setAdapter(mAdapter);
@@ -96,6 +93,8 @@ public class CommonMainActivity extends AppCompatActivity implements BaseQuickAd
             startActivity(new Intent(CommonMainActivity.this, EmptyLayoutActivity.class));
         }else if ("13".equals(mJsonList.get(position).getType())){
             startActivity(new Intent(CommonMainActivity.this, ZxingActivity.class));
+        }else if ("14".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, HeaderListActivity.class));
         }
     }
 

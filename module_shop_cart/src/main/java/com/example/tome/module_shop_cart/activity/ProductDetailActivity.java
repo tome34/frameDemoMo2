@@ -35,8 +35,8 @@ import java.util.List;
 /**
  * 商品详情页
  */
-public class ProductDetailActivity extends CommonActivity implements RadioGroup.OnCheckedChangeListener, DragLayout.ShowPageNotifier, View.OnClickListener, SelectedProductDialog.ProductSelect,
-    SelectedProductDialog.GetProductIdListener {
+public class ProductDetailActivity extends CommonActivity implements RadioGroup.OnCheckedChangeListener, DragLayout.ShowPageNotifier, View.OnClickListener,
+    SelectedProductDialog.ProductSelect, SelectedProductDialog.GetProductIdListener {
 
     @BindView(R2.id.iv_back)
     ImageView mIvBack;
@@ -62,12 +62,14 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
     TextView mTvBuyNow;
     @BindView(R2.id.activity_product_detail)
     LinearLayout mActivityProductDetail;
+    @BindView(R2.id.view_title)
+    View mViewTitle;
     private String mProductId;
     private GetProductDetailsParams mParams;
     private int currentIndex;
     private Fragment currentFragment;
 
-    private List<Fragment> fragmentList ;
+    private List<Fragment> fragmentList;
     //监听
     private List<OnDimensionSelectListener> mOnDimensionSelectListeners;
     private ProductIntroFragment mProductIntroFragment;
@@ -82,7 +84,7 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
 
     @Override
     public void initTitle() {
-
+        setTitleMargin(mViewTitle);
     }
 
     @Override
@@ -98,12 +100,11 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
         mRbProduct.setChecked(true);
         Intent intent = getIntent();
         mProductId = intent.getStringExtra(Contract.K_PRODUCT_ID);
-        L.d("商品id:"+mProductId);
+        L.d("商品id:" + mProductId);
         mParams = new GetProductDetailsParams();
         mParams.setProductId(mProductId);
         //网络请求
-        ShopDataManager.getProductDetails(this, mParams);
-
+        ShopDataManager.getProductDetails(this,mParams);
     }
 
     private void initFragments() {
@@ -123,9 +124,8 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
         //获取商品详情页
         if (flag == IFlag.FLAG_PRODUCT_GETPRODUCTDETAIL) {
             L.d("获取详情页信息成功");
-            BaseObjs<GetProductDetailsBean> productDetailsBeanBase = (BaseObjs<GetProductDetailsBean>) baseBean;
+            BaseObjs<GetProductDetailsBean> productDetailsBeanBase = (BaseObjs<GetProductDetailsBean>)baseBean;
             productDetails = productDetailsBeanBase.getData().getData();
-
 
             if (selectedProductDialog != null) {
                 selectedProductDialog.onCreateData();
@@ -135,9 +135,7 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
             for (OnDimensionSelectListener listener : mOnDimensionSelectListeners) {
                 listener.onProductIntroShow(productDetails);
             }
-
-
-        }else if (flag == IFlag.FLAG_ADD_PRODUCT_TOB2B_CART2){
+        } else if (flag == IFlag.FLAG_ADD_PRODUCT_TOB2B_CART2) {
             //加入购物车
             ToastUtils.showCenter("已加入购物车");
         }
@@ -145,26 +143,24 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
 
     /**
      * tab的监听
-     * @param group
-     * @param checkedId
      */
     @Override
     public void onCheckedChanged(RadioGroup group,int checkedId) {
-        if (checkedId == R.id.rb_product){
+        if (checkedId == R.id.rb_product) {
             //商品
             currentIndex = 0;
             showFragment();
             if (mRbProduct.isPressed()) {
                 mProductIntroFragment.showProductIntro();
             }
-        }else if (checkedId == R.id.rb_detail){
+        } else if (checkedId == R.id.rb_detail) {
             //详情
             currentIndex = 0;
             showFragment();
             if (mRbDetail.isPressed()) {
                 mProductIntroFragment.showProductDetail();
             }
-        }else if (checkedId == R.id.rb_evaluate){
+        } else if (checkedId == R.id.rb_evaluate) {
             //评论
             currentIndex = 1;
             showFragment();
@@ -178,7 +174,7 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
         }
         if (!fragmentList.get(currentIndex).isAdded()) {
             //第三个参数为添加当前的fragment时绑定一个tag
-            transaction.add(R.id.fl_container, fragmentList.get(currentIndex), "" + currentIndex);
+            transaction.add(R.id.fl_container,fragmentList.get(currentIndex),"" + currentIndex);
         } else {
             transaction.show(fragmentList.get(currentIndex));
         }
@@ -198,16 +194,16 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
 
     @Override
     public void shopAdd2Cart(String num) {
-       // if (BaseData.IdentityType == BaseData.ENTERPRISE) {
-            //本地购物车
-           // addToLocalCart(num, false);
-       // } else {
-            //线上购物车
-            L.d("购物车","id:"+productDetails.getSubProductMap().getId() + "_" + num);
-            AddToCartParams params = new AddToCartParams();
-            params.setProductIds(productDetails.getSubProductMap().getId() + "_" + num);
-            ShopDataManager.addToCart(this, params);
-      //  }
+        // if (BaseData.IdentityType == BaseData.ENTERPRISE) {
+        //本地购物车
+        // addToLocalCart(num, false);
+        // } else {
+        //线上购物车
+        L.d("购物车","id:" + productDetails.getSubProductMap().getId() + "_" + num);
+        AddToCartParams params = new AddToCartParams();
+        params.setProductIds(productDetails.getSubProductMap().getId() + "_" + num);
+        ShopDataManager.addToCart(this,params);
+        //  }
     }
 
     @Override
@@ -243,36 +239,35 @@ public class ProductDetailActivity extends CommonActivity implements RadioGroup.
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.iv_back){
+        if (v.getId() == R.id.iv_back) {
             finish();
-        }else if (v.getId() == R.id.iv_shop_cart){
+        } else if (v.getId() == R.id.iv_shop_cart) {
             //跳转到购物车页面
-            Intent intent = new Intent(ProductDetailActivity.this, ShopCartActivity.class);
+            Intent intent = new Intent(ProductDetailActivity.this,ShopCartActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra(Contract.K_FRAGMENT, "1");
+            intent.putExtra(Contract.K_FRAGMENT,"1");
             this.startActivity(intent);
-        }else if(v.getId() == R.id.tv_join_shop_cart){
+        } else if (v.getId() == R.id.tv_join_shop_cart) {
             //加入购物车
             if (selectedProductDialog == null) {
-                selectedProductDialog = new SelectedProductDialog(ProductDetailActivity.this, findViewById(Window.ID_ANDROID_CONTENT), this);
+                selectedProductDialog = new SelectedProductDialog(ProductDetailActivity.this,findViewById(Window.ID_ANDROID_CONTENT),this);
                 selectedProductDialog.onCreateData();
             } else {
                 selectedProductDialog.onCreateData();
             }
             selectedProductDialog.show();
-        }else if(v.getId() == R.id.tv_buy_now){
+        } else if (v.getId() == R.id.tv_buy_now) {
             //立即购买
-
 
         }
     }
 
     /**
      * 刷新数据
-     * @param id
      */
     @Override
     public void toProductId(String id) {
 
     }
+
 }

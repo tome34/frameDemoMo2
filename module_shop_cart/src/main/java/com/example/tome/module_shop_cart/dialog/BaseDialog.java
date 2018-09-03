@@ -19,8 +19,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.example.tome.annotation.AnimType;
-import com.example.tome.annotation.ClickPosition;
+import com.example.tome.module_shop_cart.annotation.AnimType;
+import com.example.tome.module_shop_cart.annotation.ClickPosition;
 import com.example.tome.module_shop_cart.listener.SimpleOnKeyListener;
 import com.example.tome.module_shop_cart.widget.OnClickHelper;
 

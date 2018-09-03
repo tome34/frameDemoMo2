@@ -1,4 +1,4 @@
-package com.example.tome.annotation.anim;
+package com.example.tome.module_shop_cart.annotation.anim;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

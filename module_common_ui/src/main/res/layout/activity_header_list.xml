@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.HeaderListActivity"
+    >
+  <!--  <com.example.tome.module_common.widget.PullScrollView
+        android:id="@+id/pull_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerHeight="300dp"
+        app:headerVisibleHeight="100dp"
+        android:fillViewport="true"
+        >-->
+
+    <com.example.tome.module_common.widget.HeadZoomScrollView
+        android:id="@+id/pull_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/background_img"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@mipmap/lol_2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="200dp"
+                android:text="haha"
+                />
+
+
+
+        </LinearLayout>
+    </com.example.tome.module_common.widget.HeadZoomScrollView>
+  <!--  </com.example.tome.module_common.widget.PullScrollView>-->
+
+</LinearLayout>

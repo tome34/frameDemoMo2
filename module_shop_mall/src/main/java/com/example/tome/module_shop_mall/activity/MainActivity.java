@@ -58,8 +58,10 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
      */
     @Override
     protected void initTitle() {
-        mLayoutMain.setBackgroundColor(getResources().getColor(R.color.windowBg));
-        vTitleContainer.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mImmersionBar.titleBar(R.id.rl_title_bar_content).init();
+      //  mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
+      //  mLayoutMain.setBackgroundColor(getResources().getColor(R.color.windowBg));
+       // vTitleContainer.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mBack.setVisibility(View.GONE);
         mTitle.setText("欢迎您的到来!");
     }

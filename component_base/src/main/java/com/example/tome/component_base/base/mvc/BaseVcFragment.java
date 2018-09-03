@@ -108,8 +108,11 @@ public abstract class BaseVcFragment extends Fragment implements IView{
     }
 
     private void initImmersionBar() {
-        mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.keyboardEnable(true).navigationBarWithKitkatEnable(false).init();
+        if (mImmersionBar == null){
+            mImmersionBar = ImmersionBar.with(this);
+            mImmersionBar.init();
+        }
+
     }
 
     @Override

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.view.KeyEvent;
-import com.example.tome.annotation.OnKeyType;
+import com.example.tome.module_shop_cart.annotation.OnKeyType;
 
 @SuppressWarnings("all")
 public class SimpleOnKeyListener implements OnKeyListener {

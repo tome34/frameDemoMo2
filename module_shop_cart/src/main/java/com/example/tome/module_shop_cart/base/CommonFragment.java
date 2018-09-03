@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.tome.component_base.util.L;
 import com.example.tome.module_shop_cart.R;
 import com.example.tome.module_shop_cart.net.OKHttpHelper;
 
@@ -31,6 +32,7 @@ public abstract class CommonFragment extends BaseFragment implements INetResult{
         super.onStart();
         titleGroup = contentView.findViewById(R.id.v_title_container);
         if (titleGroup != null) {
+            L.d("状态栏fragment:"+titleGroup);
             setTitleMargin(titleGroup);
         }
     }

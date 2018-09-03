@@ -2,9 +2,10 @@ if (Boolean.valueOf(rootProject.ext.moduleWelfare)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 }
 apply plugin: 'com.jakewharton.butterknife'
-//apply plugin: 'me.tatarka.retrolambda'  //lambda配置
+
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -51,7 +52,7 @@ android {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     //排除java/debug文件夹下的所有文件
-                    exclude '*debug'
+                    exclude '*module'
                 }
             }
         }

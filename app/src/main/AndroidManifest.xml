@@ -10,7 +10,7 @@
         android:label="@string/app_main_name"
         android:roundIcon="@mipmap/title_logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme1"
         tools:replace="android:icon, android:theme">
        <!-- <activity android:name=".MainActivity">
             <intent-filter>

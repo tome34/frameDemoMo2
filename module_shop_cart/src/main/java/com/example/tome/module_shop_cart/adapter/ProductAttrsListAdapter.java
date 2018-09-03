@@ -1,4 +1,4 @@
-package com.example.tome.adapter;
+package com.example.tome.module_shop_cart.adapter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

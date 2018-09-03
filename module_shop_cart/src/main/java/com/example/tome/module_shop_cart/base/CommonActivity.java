@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.module_shop_cart.R;
 
@@ -21,6 +22,7 @@ public abstract class CommonActivity extends BaseActivity implements INetResult<
 
         if (isResizeTitlebarHeight()) {
             titleGroup = (ViewGroup) findViewById(R.id.v_title_container);
+            L.d("状态栏titleGroup"+titleGroup);
             if (titleGroup != null) {
                 setTitleMargin(titleGroup);
             }

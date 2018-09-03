@@ -65,8 +65,8 @@ public abstract class BaseVcActivity extends AppCompatActivity implements IView 
 
     private void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
-        // 所有子类都将继承这些相同的属性
-        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
+        // 所有子类都将继承这些相同的属性,暂时先不加,会导入全部状态栏都一致
+       // mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.bar_grey).init();
     }
 
     /**

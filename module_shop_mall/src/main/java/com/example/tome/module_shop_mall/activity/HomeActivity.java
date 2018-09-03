@@ -66,6 +66,7 @@ public class HomeActivity extends BaseVcActivity implements NavigationView.OnNav
 
     @Override
     protected void initTitle() {
+      //  mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
        // mImmersionBar.statusBarView(R.id.view_bar).init();
         //取代原本的ActionBar
        // setSupportActionBar(mToolbar);

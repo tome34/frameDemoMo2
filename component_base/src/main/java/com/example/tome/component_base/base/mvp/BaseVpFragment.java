@@ -14,6 +14,7 @@ import com.example.tome.component_base.base.mvp.inter.IPresenter;
 import com.example.tome.component_base.base.mvp.inter.IView;
 import com.example.tome.component_base.base.mvp.inter.MvpCallback;
 import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.ToastUtils;
 import com.example.tome.component_data.constant.BaseEventbusBean;
 import com.gyf.barlibrary.ImmersionBar;
@@ -61,8 +62,10 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
         View view = inflater.inflate(getLayout(), container, false);
         unBinder = ButterKnife.bind(this , view);
         //沉浸式状态栏
+        L.d("状态栏"+"initImmersionBar1");
         initImmersionBar();
         onViewCreated();
+        L.d("状态栏"+"initTitle");
         initTitle();
 
         if (regEvent){
@@ -122,13 +125,19 @@ public abstract class BaseVpFragment<V extends IView,P extends IPresenter<V>> ex
 
 
     private void initImmersionBar() {
-        mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.keyboardEnable(true).navigationBarWithKitkatEnable(false).init();
+
+        if (mImmersionBar == null){
+            L.d("状态栏"+"initImmersionBar2");
+            mImmersionBar = ImmersionBar.with(this);
+            mImmersionBar.init();
+        }
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
         Logger.i("当前运行的fragment:" + getClass().getName());
     }
 

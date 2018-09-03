@@ -121,10 +121,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IUIBase{
             if (params instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams llytParams = (LinearLayout.LayoutParams) params;
                 llytParams.setMargins(0, titleBarHeight, 0, 0);
-
+                L.d("1状态栏titleBarHeight"+titleBarHeight);
             } else if (params instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams llytParams = (RelativeLayout.LayoutParams) params;
                 llytParams.setMargins(0, titleBarHeight, 0, 0);
+                L.d("2状态栏titleBarHeight"+titleBarHeight);
             }
             view.setLayoutParams(params);
         }
@@ -135,6 +136,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IUIBase{
      */
     protected void setTranslucentStatus() {
         // 5.0以上系统状态栏透明
+        L.d("状态栏VERSION"+Build.VERSION.SDK_INT +","+Build.VERSION_CODES.LOLLIPOP +","+Build.VERSION_CODES.KITKAT+","+Build.VERSION_CODES.M);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -143,7 +145,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IUIBase{
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //如果sdk版本大于4.4则设置状态栏透明化 会导致首页状态栏减少
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
         }
     }
 

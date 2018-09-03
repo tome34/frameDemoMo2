@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_cart.dialog;
 
 import android.app.Dialog;
-import com.example.tome.annotation.ClickPosition;
+import com.example.tome.module_shop_cart.annotation.ClickPosition;
 
 @SuppressWarnings("all")
 public interface OnDialogClickListener<D extends Dialog>

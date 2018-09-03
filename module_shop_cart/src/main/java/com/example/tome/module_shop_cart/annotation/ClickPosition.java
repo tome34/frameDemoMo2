@@ -1,4 +1,4 @@
-package com.example.tome.annotation;
+package com.example.tome.module_shop_cart.annotation;
 
 import android.support.annotation.StringDef;
 

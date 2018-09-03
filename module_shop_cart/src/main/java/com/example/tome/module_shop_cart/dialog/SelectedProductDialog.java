@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.BindView;
-import com.example.tome.adapter.ProductAttrsListAdapter;
+import com.example.tome.module_shop_cart.adapter.ProductAttrsListAdapter;
 import com.example.tome.component_base.helper.LocaleHelper;
 import com.example.tome.component_base.util.L;
 import com.example.tome.component_base.util.ToastUtils;

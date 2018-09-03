@@ -19,7 +19,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.adapter.ShopCartAdapter;
+import com.example.tome.module_shop_cart.adapter.ShopCartAdapter;
 import com.example.tome.component_base.util.Arith;
 import com.example.tome.component_base.util.SpannableStringUtils;
 import com.example.tome.component_base.util.ToastUtils;

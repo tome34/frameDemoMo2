@@ -5,17 +5,6 @@
     <application>
         <activity android:name=".activity.ShopCartActivity"/>
 
-        <!--
-       autolayout meta
-       配置设计图的宽高,配合AutoLauout控件使用,在设计图尺寸以外的其它尺寸手机上,也能达到和设计图一样的效果
-        -->
-        <meta-data
-            android:name="design_width"
-            android:value="1080"/>
-        <meta-data
-            android:name="design_height"
-            android:value="1920"/>
-
         <activity android:name=".activity.TestActivity"/>
         <activity android:name=".activity.ProductDetailActivity">
         </activity>

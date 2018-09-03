@@ -2,6 +2,7 @@ if (Boolean.valueOf(rootProject.ext.moduleShopCart)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 }
 apply plugin: 'com.jakewharton.butterknife'
 //apply plugin: 'me.tatarka.retrolambda'  //lambda配置
@@ -18,6 +19,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
 
         //Arouter路由配置
         javaCompileOptions {
@@ -51,7 +53,7 @@ android {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     //排除java/debug文件夹下的所有文件
-                    exclude '*debug'
+                    exclude '*module'
                 }
             }
         }

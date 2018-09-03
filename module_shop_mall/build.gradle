@@ -2,12 +2,14 @@ if (Boolean.valueOf(rootProject.ext.moduleShopMall)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 }
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'me.tatarka.retrolambda'  //lambda配置
+
 apply plugin: 'org.greenrobot.greendao'
 
 android {
+
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
@@ -24,6 +26,8 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        //MultiDex分包方法
+        multiDexEnabled true
 
         //强制前缀
         resourcePrefix "mall_"

@@ -7,8 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
-import com.example.tome.annotation.AnimType;
-import com.example.tome.annotation.anim.BaseAnimatorSet;
+import com.example.tome.module_shop_cart.annotation.AnimType;
+import com.example.tome.module_shop_cart.annotation.anim.BaseAnimatorSet;
 import com.example.tome.module_shop_cart.R;
 
 /**
