@@ -12,8 +12,7 @@ import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 public class MyApplication extends BaseApplication {
 
     private static MyApplication myApplication;
-
-
+//初始化
     public static MyApplication getInstance() {
         return myApplication;
     }

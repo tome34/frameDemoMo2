@@ -23,6 +23,7 @@ android {
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
+
                 arguments = [moduleName: project.getName()]
             }
         }
