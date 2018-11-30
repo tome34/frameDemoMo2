@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.fagment;
 
 import android.os.Bundle;
-import com.example.tome.component_base.base.mvc.BaseVcFragment;
+import com.example.tome.core.base.mvc.BaseVcFragment;
 import com.example.tome.module_shop_mall.R;
 
 /**

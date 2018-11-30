@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/baseLib/alertview/alertview.iml" filepath="$PROJECT_DIR$/baseLib/alertview/alertview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/alertview/alertview.iml" filepath="$PROJECT_DIR$/otherLib/alertview/alertview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/baseLib.iml" filepath="$PROJECT_DIR$/baseLib/baseLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baseLib/cockroach-x/cockroach-x.iml" filepath="$PROJECT_DIR$/baseLib/cockroach-x/cockroach-x.iml" />
-      <module fileurl="file://$PROJECT_DIR$/component_base/component_base.iml" filepath="$PROJECT_DIR$/component_base/component_base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/component_data/component_data.iml" filepath="$PROJECT_DIR$/component_data/component_data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baseLib/customview/customview.iml" filepath="$PROJECT_DIR$/baseLib/customview/customview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baseLib/flowlayout-lib/flowlayout-lib.iml" filepath="$PROJECT_DIR$/baseLib/flowlayout-lib/flowlayout-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLib/core/baseLib-core.iml" filepath="$PROJECT_DIR$/baseLib/core/baseLib-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/cockroach-x/cockroach-x.iml" filepath="$PROJECT_DIR$/otherLib/cockroach-x/cockroach-x.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/customview/customview.iml" filepath="$PROJECT_DIR$/otherLib/customview/customview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/flowlayout-lib/flowlayout-lib.iml" filepath="$PROJECT_DIR$/otherLib/flowlayout-lib/flowlayout-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/frameDemoMo2.iml" filepath="$PROJECT_DIR$/frameDemoMo2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baseLib/kprogresshud/kprogresshud.iml" filepath="$PROJECT_DIR$/baseLib/kprogresshud/kprogresshud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/kprogresshud/kprogresshud.iml" filepath="$PROJECT_DIR$/otherLib/kprogresshud/kprogresshud.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_common_ui/module_common_ui.iml" filepath="$PROJECT_DIR$/module_common_ui/module_common_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" filepath="$PROJECT_DIR$/module_shop_cart/module_shop_cart.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" filepath="$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_welfare/module_welfare.iml" filepath="$PROJECT_DIR$/module_welfare/module_welfare.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baseLib/videocompressV2/videocompressV2.iml" filepath="$PROJECT_DIR$/baseLib/videocompressV2/videocompressV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/otherLib.iml" filepath="$PROJECT_DIR$/otherLib/otherLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLib/router/router.iml" filepath="$PROJECT_DIR$/baseLib/router/router.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherLib/videocompressV2/videocompressV2.iml" filepath="$PROJECT_DIR$/otherLib/videocompressV2/videocompressV2.iml" />
     </modules>
   </component>
 </project>

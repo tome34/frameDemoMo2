@@ -1,6 +1,6 @@
 package com.example.tome.module;
 
-import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.core.constants.BaseApplication;
 
 /**
  * @author tome

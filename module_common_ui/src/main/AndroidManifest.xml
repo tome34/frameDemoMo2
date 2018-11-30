@@ -32,6 +32,8 @@
         <activity android:name=".activity.zxing.ThreeActivity"/>
         <activity android:name=".activity.HeaderListActivity">
         </activity>
+        <activity android:name=".activity.TestViewActivity">
+        </activity>
     </application>
 
 </manifest>

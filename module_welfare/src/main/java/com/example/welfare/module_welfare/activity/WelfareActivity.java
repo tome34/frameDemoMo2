@@ -1,9 +1,9 @@
 package com.example.welfare.module_welfare.activity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvc.BaseVcTabListActivity;
-import com.example.tome.component_base.bean.TabListBean;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.base.mvc.BaseVcTabListActivity;
+import com.example.tome.core.bean.TabListBean;
+import com.example.tome.core.arouter.RouterURLS;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.fragment.WelfareTabFragment;
 import com.example.welfare.module_welfare.fragment.WelfareV1Fragment;

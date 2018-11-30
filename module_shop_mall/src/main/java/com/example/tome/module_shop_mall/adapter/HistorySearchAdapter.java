@@ -3,7 +3,7 @@ package com.example.tome.module_shop_mall.adapter;
 import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.tome.component_base.util.OtherUtils;
+import com.example.tome.core.util.OtherUtils;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.bean.SearchHistoryBean;
 import java.util.List;

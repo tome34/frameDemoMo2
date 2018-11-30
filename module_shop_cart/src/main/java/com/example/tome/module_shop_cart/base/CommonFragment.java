@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 import com.example.tome.module_shop_cart.R;
 import com.example.tome.module_shop_cart.net.OKHttpHelper;
 

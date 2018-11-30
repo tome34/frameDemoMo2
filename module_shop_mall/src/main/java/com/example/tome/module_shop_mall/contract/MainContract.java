@@ -1,10 +1,10 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.mvp.inter.IModel;
-import com.example.tome.component_base.base.mvp.inter.IPresenter;
-import com.example.tome.component_base.base.mvp.inter.IView;
-import com.example.tome.component_base.net.params.RequestMapParams;
-import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.core.base.mvp.inter.IModel;
+import com.example.tome.core.base.mvp.inter.IPresenter;
+import com.example.tome.core.base.mvp.inter.IView;
+import com.example.tome.core.net.params.RequestMapParams;
+import com.example.tome.core.bean.BaseObj;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import io.reactivex.Observable;
 
@@ -26,6 +26,7 @@ public interface MainContract {
     interface Presenter extends IPresenter<View> {
 
        void initFeedArticleList();
+       void initFeedArticleList2();
     }
 
     interface Model extends IModel {

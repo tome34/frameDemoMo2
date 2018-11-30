@@ -1,14 +1,11 @@
 package com.example.welfare.module_welfare.arouter;
 
-import android.os.Parcelable;
-
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.component_data.d_arouter.IntentKV;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.arouter.IntentKV;
+import com.example.tome.core.arouter.RouterURLS;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Created by TOME .

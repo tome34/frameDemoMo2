@@ -10,9 +10,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import butterknife.BindView;
-import com.example.tome.component_base.base.mvc.BaseVcActivity;
-import com.example.tome.component_base.util.widgetUtils.WebViewInitUtils;
-import com.example.tome.component_data.d_arouter.IntentKV;
+import com.example.tome.core.base.mvc.BaseVcActivity;
+import com.example.tome.core.util.widgetUtils.WebViewInitUtils;
+import com.example.tome.core.arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 

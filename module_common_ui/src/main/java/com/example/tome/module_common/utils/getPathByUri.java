@@ -10,7 +10,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 
 /**
  * @author by TOME .

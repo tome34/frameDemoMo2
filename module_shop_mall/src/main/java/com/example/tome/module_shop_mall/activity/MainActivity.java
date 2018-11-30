@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.tome.component_base.base.mvc.BaseVcPermissionActivity;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.ToastUtils;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.base.mvc.BaseVcPermissionActivity;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.ToastUtils;
+import com.example.tome.core.arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.arouter.RouterCenter;
@@ -26,6 +26,8 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
     Button mTvTest;
     @BindView(R2.id.tv_get_data)
     Button mTvGetData;
+    @BindView(R2.id.tv_get_data2)
+    Button mTvGetData2;
     @BindView(R2.id.tv_get_data_mvc)
     Button mTvGetDataMVC;
     @BindView(R2.id.tv_goto_home)
@@ -73,6 +75,7 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
     protected void initView() {
         mTvTest.setOnClickListener(this);
         mTvGetData.setOnClickListener(this);
+        mTvGetData2.setOnClickListener(this);
         mTvGetDataMVC.setOnClickListener(this);
         mTvGotoHome.setOnClickListener(this);
         mTvList.setOnClickListener(this);
@@ -94,6 +97,10 @@ public class MainActivity extends BaseVcPermissionActivity implements  View.OnCl
         } else if (v.getId() == R.id.tv_get_data) {
             //测试网络请求mvp模式
             RouterCenter.toMVPTest();
+
+        }else if (v.getId() == R.id.tv_get_data2) {
+            //测试网络请求mvp模式(没有model层)
+            RouterCenter.toMVPTest2();
 
         } else if (v.getId() == R.id.tv_get_data_mvc){
             if (! getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISSION_STORAGE)){

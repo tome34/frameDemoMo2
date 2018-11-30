@@ -2,7 +2,7 @@ package com.example.tome.module_shop_mall.dao.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.core.constants.BaseApplication;
 import com.example.tome.module_shop_mall.bean.SearchHistoryBean;
 import com.example.tome.module_shop_mall.dao.DaoMaster;
 import com.example.tome.module_shop_mall.dao.DaoSession;

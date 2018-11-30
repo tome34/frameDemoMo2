@@ -1,3 +1,4 @@
+apply from: "${rootProject.rootDir}/config.gradle"
 if (Boolean.valueOf(rootProject.ext.moduleShopMall)) {
     apply plugin: 'com.android.application'
 } else {
@@ -9,16 +10,9 @@ apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    project.ext.setDefaultConfig project
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //Arouter路由配置
         javaCompileOptions {
@@ -27,8 +21,6 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
-        //MultiDex分包方法
-        multiDexEnabled true
 
         //强制前缀
         resourcePrefix "mall_"
@@ -76,31 +68,17 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    /*implementation fileTree(dir: 'libs', include: ['*.jar'])
-        implementation rootProject.ext.dependencies["appcompat_v7"]
-        implementation rootProject.ext.dependencies["cardview-v7"]
-        implementation rootProject.ext.dependencies["recyclerview-v7"]
-        implementation rootProject.ext.dependencies["design"]
-        implementation rootProject.ext.dependencies["constraint_layout"]
-        implementation rootProject.ext.dependencies["support_annotations"]
-        testImplementation rootProject.ext.dependencies["junit"]
-        androidTestImplementation rootProject.ext.dependencies["runner"]
-        androidTestImplementation rootProject.ext.dependencies["espresso_core"]*/
     //Arouter路由
-    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
-    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
     //黄油刀
-    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     //垂直的tabLayout
-    implementation rootProject.ext.dependencies["VerticalTabLayout"]
+    implementation "q.rorbin:VerticalTabLayout:1.2.5"
     //水平的tabLayout
-    implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+    implementation "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
 
 
     //公用依赖包
-    implementation project(':component_base')
-    implementation project(':component_data')
-    implementation project(':baseLib:flowlayout-lib')
-    //implementation project(':alertview')
+    implementation project(':baseLib:core')
 }

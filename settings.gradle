@@ -1,1 +1,2 @@
-include ':app', ':component_base', ':module_shop_mall', ':component_data', ':module_shop_cart', ':module_welfare', ':baseLib:alertview', ':baseLib:videocompressV2', ':baseLib:kprogresshud', ':baseLib:flowlayout-lib', ':module_common_ui', ':baseLib:customview', ':baseLib:cockroach-x'
+include ':app', ':baseLib:core', ':module_shop_mall', ':module_shop_cart', ':module_welfare', ':otherLib:alertview', ':otherLib:videocompressV2', ':baseLib:router',
+    ':otherLib:kprogresshud', ':otherLib:flowlayout-lib', ':module_common_ui', ':otherLib:customview', ':otherLib:cockroach-x'

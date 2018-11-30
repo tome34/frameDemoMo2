@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 import com.example.tome.module_shop_cart.R;
 
 /**

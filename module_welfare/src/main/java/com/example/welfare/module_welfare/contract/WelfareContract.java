@@ -1,7 +1,7 @@
 package com.example.welfare.module_welfare.contract;
 
-import com.example.tome.component_base.base.mvp.inter.IPresenter;
-import com.example.tome.component_base.base.mvp.inter.IView;
+import com.example.tome.core.base.mvp.inter.IPresenter;
+import com.example.tome.core.base.mvp.inter.IView;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 

@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.view;
 
 import com.example.tome.module_shop_mall.contract.ILoginsContract;
-import com.example.tome.component_base.base.mvp.BaseVpFragment;
+import com.example.tome.core.base.mvp.BaseVpFragment;
 
 /**
  * Description :

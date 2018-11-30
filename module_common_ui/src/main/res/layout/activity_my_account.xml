@@ -25,7 +25,7 @@
             android:textColor="@color/color_66"
             android:textSize="15sp" />
 
-        <com.example.tome.component_base.widget.CircularImageView
+        <com.example.tome.core.widget.CircularImageView
             android:id="@+id/civ_member_icon"
             android:layout_width="75dp"
             android:layout_height="75dp"

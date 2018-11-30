@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.model;
 
-import com.example.tome.component_base.base.mvp.DisposablePool;
-import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.core.base.mvp.DisposablePool;
+import com.example.tome.core.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
 import com.example.tome.module_shop_mall.api.ModelVpService;
 import com.example.tome.module_shop_mall.bean.BannerData;

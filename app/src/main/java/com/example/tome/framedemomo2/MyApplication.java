@@ -1,6 +1,6 @@
 package com.example.tome.framedemomo2;
 
-import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.core.constants.BaseApplication;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 /**

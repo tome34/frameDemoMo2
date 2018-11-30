@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.component_base.util.JsonUtil;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.util.JsonUtil;
+import com.example.tome.core.arouter.RouterURLS;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.adapter.CommonAdapter;
 import com.example.tome.module_common.bean.CommonBean;
@@ -35,6 +35,8 @@ public class CommonMainActivity extends AppCompatActivity implements BaseQuickAd
         initView();
 
     }
+
+
 
     private void initData() {
         //读取json文件
@@ -95,6 +97,8 @@ public class CommonMainActivity extends AppCompatActivity implements BaseQuickAd
             startActivity(new Intent(CommonMainActivity.this, ZxingActivity.class));
         }else if ("14".equals(mJsonList.get(position).getType())){
             startActivity(new Intent(CommonMainActivity.this, HeaderListActivity.class));
+        }else if ("15".equals(mJsonList.get(position).getType())){
+            startActivity(new Intent(CommonMainActivity.this, TestViewActivity.class));
         }
     }
 

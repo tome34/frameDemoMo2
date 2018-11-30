@@ -1,6 +1,6 @@
 package com.example.tome.module_shop_cart.net;
 
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 import com.example.tome.module_shop_cart.base.BaseObjs;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

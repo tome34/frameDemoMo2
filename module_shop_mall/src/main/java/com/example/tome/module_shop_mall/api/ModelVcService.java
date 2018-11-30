@@ -1,16 +1,16 @@
 package com.example.tome.module_shop_mall.api;
 
-import com.example.tome.component_base.base.BaseObserver;
-import com.example.tome.component_base.base.mvp.inter.IView;
-import com.example.tome.component_base.net.HttpHelper;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.RxUtils;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.component_data.bean.BaseResponse;
+import com.example.tome.core.base.BaseObserver;
+import com.example.tome.core.base.mvp.inter.IView;
+import com.example.tome.core.net.HttpHelper;
+import com.example.tome.core.net.common_callback.INetCallback;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.RxUtils;
+import com.example.tome.core.bean.BaseObj;
+import com.example.tome.core.bean.BaseResponse;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
 import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * @Created by TOME .
@@ -20,6 +20,7 @@ import io.reactivex.Observable;
 
 public class ModelVcService {
 
+    private static CompositeDisposable compositeDisposable;
     private ModelVcService mModelService;
     private INetCallback mCallback;
 
@@ -84,8 +85,8 @@ public class ModelVcService {
         //设置不同的BaseUrl
         return select.selectM(HttpHelper.getDefault(1)
                 .create(ApiService.class))
-                .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())
-                .subscribeWith(new BaseObserver<BaseObj<T>>(mView, isShowHUD) {
+                     .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())
+                     .subscribeWith(new BaseObserver<BaseObj<T>>(mView, isShowHUD) {
                                    @Override
                                    public void onNext(BaseObj<T> result) {
                                        L.d("获取message", ":" + result.getMessage());

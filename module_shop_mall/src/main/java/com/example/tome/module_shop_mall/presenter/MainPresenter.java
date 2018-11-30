@@ -2,16 +2,20 @@ package com.example.tome.module_shop_mall.presenter;
 
 import android.app.Activity;
 import android.content.Context;
-import com.example.tome.component_base.base.BaseObserver;
-import com.example.tome.component_base.base.mvp.BasePresenter;
-import com.example.tome.component_base.net.file_upload.FileRequestMapParams;
-import com.example.tome.component_base.net.params.RequestMapParams;
-import com.example.tome.component_base.util.ActivityUtils;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.core.base.BaseObserver;
+import com.example.tome.core.base.mvp.BasePresenter;
+import com.example.tome.core.net.common_callback.INetCallback;
+import com.example.tome.core.net.file_upload.FileRequestMapParams;
+import com.example.tome.core.net.params.RequestMapParams;
+import com.example.tome.core.util.ActivityUtils;
+import com.example.tome.core.util.L;
+import com.example.tome.core.bean.BaseObj;
+import com.example.tome.module_shop_mall.api.ApiService;
+import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.contract.MainContract;
 import com.example.tome.module_shop_mall.model.mainMvpModel;
+import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 
 /**
@@ -35,7 +39,7 @@ import okhttp3.MultipartBody;
                     }
 
                 }
-              ));*
+              ));
 
        // int a  = 10;
      /*  addDisposable(ModelVcService.getRemoteData(page, mView, service -> service.getFeedArticleList(a), result -> {
@@ -67,7 +71,7 @@ import okhttp3.MultipartBody;
 //            }
 //        }));
 //
-public class MainPresenter extends BasePresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
+public class MainPresenter extends BasePresenter<MainContract.View,MainContract.Model> implements MainContract.Presenter {
 
     private Context mContext;
     public Activity mCurrentActivity;
@@ -87,19 +91,68 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainContract
     @Override
     public void initFeedArticleList() {
         FileRequestMapParams fileParam = new FileRequestMapParams(); //文件上传
-        fileParam.put("file", "path");
+        fileParam.put("file","path");
         MultipartBody build = fileParam.build();
         RequestMapParams params = new RequestMapParams();
-        params.put("key", "");
-        addDisposable(
-                mModel.getFeedArticleList(0, params)
-                        .subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView) {
-                            @Override
-                            public void onNext(BaseObj<FeedArticleListData> feedArticleListDataBaseObj) {
-                                L.d("成功返回数据" + feedArticleListDataBaseObj.getData().getCurPage());
-                                mView.showTestData(feedArticleListDataBaseObj.getData());
-                            }
-                        }));
+        params.put("key","");
+        addDisposable(mModel.getFeedArticleList(0,params).subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView) {
+            @Override
+            public void onNext(BaseObj<FeedArticleListData> feedArticleListDataBaseObj) {
+                L.d("成功返回数据" + feedArticleListDataBaseObj.getData().getCurPage());
+                mView.showTestData(feedArticleListDataBaseObj.getData());
+            }
+        }));
+    }
 
+    @Override
+    public void initFeedArticleList2() {
+        RequestMapParams params = new RequestMapParams();
+        params.put("key","");
+        //addDisposable(
+        //    HttpHelper.getDefault(1)
+        //              .create(ApiService.class)
+        //              .getFeedArticleList(0, params.build())
+        //              .compose(RxUtils.<BaseObj<FeedArticleListData>>rxSchedulerHelper())
+        //              .subscribeWith(new BaseObserver<BaseObj<FeedArticleListData>>(mView) {
+        //              @Override
+        //              public void onNext(BaseObj<FeedArticleListData> feedArticleListDataBaseObj) {
+        //                  L.d("成功返回数据" + feedArticleListDataBaseObj.getData().getCurPage());
+        //                  mView.showTestData(feedArticleListDataBaseObj.getData());
+        //              }
+        //          }));
+
+        //addDisposable(ModelVcService.getRemoteData(true,mView,new ModelVcService.MethodSelect<FeedArticleListData>() {
+        //    @Override
+        //    public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+        //        return service.getFeedArticleList(0,params.build());
+        //    }
+        //},new INetCallback<FeedArticleListData>() {
+        //    @Override
+        //    public void onSuccess(FeedArticleListData result) {
+        //        L.d("成功返回数据" + result.getCurPage());
+        //        mView.showTestData(result);
+        //        //mTvData.setText("成功获取"+result.getDatas().size()+"条数据");
+        //    }
+        //}));
+
+        BaseObserver<BaseObj<FeedArticleListData>> remoteData = ModelVcService.getRemoteData(true,mView,new ModelVcService.MethodSelect<FeedArticleListData>() {
+            @Override
+            public Observable<BaseObj<FeedArticleListData>> selectM(ApiService service) {
+                return service.getFeedArticleList(0,params.build())
+                              .doOnSubscribe(disposable ->
+                                  addDisposable(disposable)
+
+                                 );
+            }
+        },new INetCallback<FeedArticleListData>() {
+            @Override
+            public void onSuccess(FeedArticleListData result) {
+                L.d("成功返回数据" + result.getCurPage());
+                mView.showTestData(result);
+                //mTvData.setText("成功获取"+result.getDatas().size()+"条数据");
+            }
+        });
+
+         // addDisposable(remoteData);
     }
 }

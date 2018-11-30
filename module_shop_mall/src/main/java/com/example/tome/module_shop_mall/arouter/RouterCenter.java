@@ -1,9 +1,7 @@
 package com.example.tome.module_shop_mall.arouter;
 
-import android.app.Activity;
-
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.arouter.RouterURLS;
 
 /**
  * @Created by TOME .
@@ -45,6 +43,13 @@ public class RouterCenter {
      */
     public static void toMVPTest() {
         ARouter.getInstance().build(RouterURLS.MVP_TEST).navigation();
+    }
+
+    /**
+     * mvp 测试页面 省略model层
+     */
+    public static void toMVPTest2() {
+        ARouter.getInstance().build(RouterURLS.MVP_TEST2).navigation();
     }
 
     /**

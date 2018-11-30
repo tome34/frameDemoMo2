@@ -1,8 +1,8 @@
 package com.example.tome.module_shop_mall.contract;
 
-import com.example.tome.component_base.base.mvp.inter.IModel;
-import com.example.tome.component_base.base.mvp.inter.IPresenter;
-import com.example.tome.component_base.base.mvp.inter.IView;
+import com.example.tome.core.base.mvp.inter.IModel;
+import com.example.tome.core.base.mvp.inter.IPresenter;
+import com.example.tome.core.base.mvp.inter.IView;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 

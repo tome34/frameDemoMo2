@@ -1,3 +1,4 @@
+apply from: "${rootProject.rootDir}/config.gradle"
 if (Boolean.valueOf(rootProject.ext.moduleCommonUi)) {
     apply plugin: 'com.android.application'
 } else {
@@ -6,29 +7,17 @@ if (Boolean.valueOf(rootProject.ext.moduleCommonUi)) {
 }
 apply plugin: 'com.jakewharton.butterknife'
 
-
-
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    project.ext.setDefaultConfig project
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
             }
-
         }
-
-        //MultiDex分包方法
-        multiDexEnabled true
     }
 
 
@@ -63,24 +52,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     //Arouter路由
-    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
-    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
     //黄油刀
-    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
-
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     //6.0权限
     implementation 'pub.devrel:easypermissions:1.2.0'
 
     //公用依赖包
-    implementation project(':component_base')
-    implementation project(':component_data')
+    implementation project(':baseLib:core')
 
-    //控件依赖包
-    implementation project(':baseLib:alertview')
-    implementation project(path: ':baseLib:videocompressV2')
-    implementation project(':baseLib:flowlayout-lib')
-    implementation project(':baseLib:kprogresshud')
-    implementation project(':baseLib:customview')
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 import com.example.tome.module_common.R;
 import com.example.customview.widget.RatingBar;
 import com.example.customview.widget.RatingBarV2;

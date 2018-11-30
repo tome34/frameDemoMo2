@@ -12,4 +12,5 @@
   {"title":"dialog提示框","type":"11"},
   {"title":"EmptyView空页面状态","type":"12"},
   {"title":"二维码demo","type":"13"},
-  {"title":"头部拉伸","type":"14"}]
+  {"title":"头部拉伸","type":"14"},
+  {"title":"自定义View","type":"15"}]

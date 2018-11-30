@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
-import com.example.tome.component_base.util.JsonUtil;
+import com.example.tome.core.util.JsonUtil;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.bean.JsonBean;
 import com.google.gson.Gson;

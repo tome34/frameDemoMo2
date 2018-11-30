@@ -1,11 +1,8 @@
 package com.example.tome.module_shop_mall.model;
 
-import com.example.tome.component_base.base.mvp.DisposablePool;
-import com.example.tome.module_shop_mall.contract.HomeContract;
+import com.example.tome.core.base.mvp.DisposablePool;
 import com.example.tome.module_shop_mall.contract.NavigationContract;
-import com.example.tome.module_shop_mall.presenter.HomePresenter;
 import com.example.tome.module_shop_mall.presenter.NavigationPresenter;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 /**
  * @author by TOME .

@@ -14,7 +14,7 @@ import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnDismissListener;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.example.customview.widget.dialog.AlertDialog;
-import com.example.tome.component_base.util.ToastUtils;
+import com.example.tome.core.util.ToastUtils;
 import com.example.tome.module_common.R;
 
 /**

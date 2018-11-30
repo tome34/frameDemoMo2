@@ -1,6 +1,5 @@
 package com.example.tome.module_common.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
@@ -19,11 +18,11 @@ import android.widget.Toast;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.bumptech.glide.Glide;
-import com.example.tome.component_base.base.mvc.BaseVcActivity;
-import com.example.tome.component_base.util.FileUtils;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.ToastUtils;
-import com.example.tome.component_data.d_arouter.IntentKV;
+import com.example.tome.core.base.mvc.BaseVcActivity;
+import com.example.tome.core.util.FileUtils;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.ToastUtils;
+import com.example.tome.core.arouter.IntentKV;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.R2;
 import com.example.tome.module_common.utils.getPathByUri;

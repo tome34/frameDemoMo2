@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.example.tome.component_base.helper.ImageLoaderHelper;
+import com.example.tome.core.helper.ImageLoaderHelper;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.activity.ImagePreviewActivity;
 import com.example.welfare.module_welfare.bean.PreviewBean;

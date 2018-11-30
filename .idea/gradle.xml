@@ -3,26 +3,26 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:/android-studio3.0/gradle/gradle-4.5" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseLib" />
-            <option value="$PROJECT_DIR$/baseLib/alertview" />
-            <option value="$PROJECT_DIR$/baseLib/cockroach-x" />
-            <option value="$PROJECT_DIR$/baseLib/customview" />
-            <option value="$PROJECT_DIR$/baseLib/flowlayout-lib" />
-            <option value="$PROJECT_DIR$/baseLib/kprogresshud" />
-            <option value="$PROJECT_DIR$/baseLib/videocompressV2" />
-            <option value="$PROJECT_DIR$/component_base" />
-            <option value="$PROJECT_DIR$/component_data" />
+            <option value="$PROJECT_DIR$/baseLib/core" />
+            <option value="$PROJECT_DIR$/baseLib/router" />
             <option value="$PROJECT_DIR$/module_common_ui" />
             <option value="$PROJECT_DIR$/module_shop_cart" />
             <option value="$PROJECT_DIR$/module_shop_mall" />
             <option value="$PROJECT_DIR$/module_welfare" />
+            <option value="$PROJECT_DIR$/otherLib" />
+            <option value="$PROJECT_DIR$/otherLib/alertview" />
+            <option value="$PROJECT_DIR$/otherLib/cockroach-x" />
+            <option value="$PROJECT_DIR$/otherLib/customview" />
+            <option value="$PROJECT_DIR$/otherLib/flowlayout-lib" />
+            <option value="$PROJECT_DIR$/otherLib/kprogresshud" />
+            <option value="$PROJECT_DIR$/otherLib/videocompressV2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

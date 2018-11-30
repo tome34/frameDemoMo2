@@ -56,7 +56,7 @@
 
 
                 <!-- 圆形图-->
-                <com.example.tome.component_base.widget.CircularImageView
+                <com.example.tome.core.widget.CircularImageView
                     android:id="@+id/civ_welfare_one"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -65,7 +65,7 @@
                     />
 
                 <!--  圆形图-->
-                <com.example.tome.component_base.widget.CircularImageView
+                <com.example.tome.core.widget.CircularImageView
                     android:id="@+id/civ_welfare_two"
                     android:layout_width="0dp"
                     android:layout_weight="1"

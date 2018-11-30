@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.model;
 
 import com.example.tome.module_shop_mall.contract.ILoginsContract;
-import com.example.tome.component_base.base.mvp.DisposablePool;
+import com.example.tome.core.base.mvp.DisposablePool;
 
 /**
  * Description :

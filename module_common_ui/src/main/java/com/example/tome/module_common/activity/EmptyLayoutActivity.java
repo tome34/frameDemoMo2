@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.widget.emptyViews.EmptyView;
-import com.example.tome.component_base.widget.roundWidget.RoundButton;
+import android.widget.Button;
+import com.example.tome.core.util.L;
+import com.example.tome.core.widget.emptyViews.EmptyView;
 import com.example.tome.module_common.R;
 
 public class EmptyLayoutActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private RoundButton mButton;
+    private Button mButton;
     private EmptyView mEmptyView;
 
     @Override
@@ -20,9 +20,7 @@ public class EmptyLayoutActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_empty_layout);
         mEmptyView = (EmptyView)findViewById(R.id.empty_view);
         //自定义圆角button
-        mButton = (RoundButton)findViewById(R.id.bn_button);
-        mButton.setChangeAlphaWhenDisable(true);
-        mButton.setChangeAlphaWhenPress(true);
+        mButton = (Button)findViewById(R.id.bn_button);
         mButton.setOnClickListener(this);
     }
 

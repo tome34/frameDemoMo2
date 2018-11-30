@@ -13,15 +13,15 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
-import com.example.tome.component_base.base.mvc.BaseEmptyVcFragment;
-import com.example.tome.component_base.helper.ImageLoaderHelper;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_base.util.ConvertUtils;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.ObjectUtils;
-import com.example.tome.component_base.widget.CircularImageView;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.component_data.d_arouter.IntentKV;
+import com.example.tome.core.base.mvc.BaseEmptyVcFragment;
+import com.example.tome.core.helper.ImageLoaderHelper;
+import com.example.tome.core.net.common_callback.INetCallback;
+import com.example.tome.core.util.ConvertUtils;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.ObjectUtils;
+import com.example.tome.core.widget.CircularImageView;
+import com.example.tome.core.bean.BaseObj;
+import com.example.tome.core.arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.activity.KnowledgeDetailActivity;
@@ -117,7 +117,7 @@ public class KnowledgeSystemFragment extends BaseEmptyVcFragment implements Know
 
     @Override
     public ViewGroup getViewGroup(View view) {
-        return (ViewGroup) view.findViewById(com.example.tome.component_base.R.id.scrollView);
+        return (ViewGroup) view.findViewById(com.example.tome.core.R.id.scrollView);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.example.tome.module_common.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.widget.HeadZoomScrollView;
 

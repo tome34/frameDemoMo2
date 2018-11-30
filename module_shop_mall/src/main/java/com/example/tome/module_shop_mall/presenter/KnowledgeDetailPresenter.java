@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.mvp.BasePresenter;
-import com.example.tome.component_base.base.mvp.inter.IModel;
+import com.example.tome.core.base.mvp.BasePresenter;
+import com.example.tome.core.base.mvp.inter.IModel;
 
 /**
  * @Created by TOME .

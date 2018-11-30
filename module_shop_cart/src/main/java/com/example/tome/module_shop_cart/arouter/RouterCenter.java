@@ -3,7 +3,7 @@ package com.example.tome.module_shop_cart.arouter;
 import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.component_data.d_arouter.RouterURLS;
+import com.example.tome.core.arouter.RouterURLS;
 
 /**
  * @Created by TOME .

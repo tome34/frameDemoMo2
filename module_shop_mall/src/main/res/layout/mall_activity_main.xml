@@ -22,6 +22,11 @@
         android:layout_height="wrap_content"
         android:text="测试获取数据MVP模式"/>
     <Button
+        android:id="@+id/tv_get_data2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试获取数据MVP模式(没有model)"/>
+    <Button
         android:id="@+id/tv_get_data_mvc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-import com.example.tome.component_base.util.L;
+import com.example.tome.core.util.L;
 
 /**
  * 头部拉伸效果

@@ -1,3 +1,4 @@
+apply from: "${rootProject.rootDir}/config.gradle"
 if (Boolean.valueOf(rootProject.ext.moduleShopCart)) {
     apply plugin: 'com.android.application'
 } else {
@@ -8,17 +9,8 @@ apply plugin: 'com.jakewharton.butterknife'
 //apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
-
+    project.ext.setDefaultConfig project
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        multiDexEnabled true
 
 
         //Arouter路由配置
@@ -68,10 +60,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //Arouter路由
-    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
-    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
     //黄油刀
-    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     //okgo
     implementation 'com.github.bumptech.glide:glide:3.7.0'
@@ -81,8 +72,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     //公用依赖包
-    implementation project(':component_base')
-    implementation project(':component_data')
-    implementation project(':baseLib:kprogresshud')
-    implementation project(':baseLib:alertview')
+    implementation project(':baseLib:core')
 }

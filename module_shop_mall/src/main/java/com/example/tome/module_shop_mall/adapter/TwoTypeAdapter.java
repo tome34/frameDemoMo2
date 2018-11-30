@@ -1,18 +1,13 @@
 package com.example.tome.module_shop_mall.adapter;
 
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.tome.component_base.widget.FlowLayout;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.bean.NavigationBean;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * @Created by TOME .

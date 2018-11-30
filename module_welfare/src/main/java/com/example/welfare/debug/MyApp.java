@@ -1,8 +1,7 @@
 package com.example.welfare.debug;
 
 
-import com.example.tome.component_base.arouter.RouterConfig;
-import com.example.tome.component_base.constants.BaseApplication;
+import com.example.tome.core.constants.BaseApplication;
 
 /**
  * @Created by TOME .

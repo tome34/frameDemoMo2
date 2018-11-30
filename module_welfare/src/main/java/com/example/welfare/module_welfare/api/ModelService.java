@@ -1,11 +1,11 @@
 package com.example.welfare.module_welfare.api;
 
-import com.example.tome.component_base.base.BaseObserver;
-import com.example.tome.component_base.base.mvp.inter.IView;
-import com.example.tome.component_base.net.HttpHelper;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.RxUtils;
+import com.example.tome.core.base.BaseObserver;
+import com.example.tome.core.base.mvp.inter.IView;
+import com.example.tome.core.net.HttpHelper;
+import com.example.tome.core.net.common_callback.INetCallback;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.RxUtils;
 import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import io.reactivex.Observable;

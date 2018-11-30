@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.tome.component_base.helper.ImageLoaderHelper;
+import com.example.tome.core.helper.ImageLoaderHelper;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.bean.ProjectListBean;
 import java.util.List;

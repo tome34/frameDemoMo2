@@ -1,8 +1,8 @@
 package com.example.tome.module_shop_mall.api;
 
-import com.example.tome.component_base.net.HttpHelper;
-import com.example.tome.component_base.util.RxUtils;
-import com.example.tome.component_data.bean.BaseObj;
+import com.example.tome.core.net.HttpHelper;
+import com.example.tome.core.util.RxUtils;
+import com.example.tome.core.bean.BaseObj;
 import io.reactivex.Observable;
 
 /**
@@ -67,6 +67,8 @@ public class ModelVpService {
 
     public static <T> Observable<BaseObj<T>> getRemoteDataVp(MethodSelect<T> select) {
         //设置不同的BaseUrl
+        ApiService apiService = HttpHelper.getDefault(1).create(ApiService.class);
+        Observable<BaseObj<T>> baseObjObservable = select.selectM(HttpHelper.getDefault(1).create(ApiService.class));
         return select.selectM(HttpHelper.getDefault(1)
                 .create(ApiService.class))
                 .compose(RxUtils.<BaseObj<T>>rxSchedulerHelper())

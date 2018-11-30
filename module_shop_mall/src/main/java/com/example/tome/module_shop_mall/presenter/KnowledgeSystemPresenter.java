@@ -1,17 +1,7 @@
 package com.example.tome.module_shop_mall.presenter;
 
-import com.example.tome.component_base.base.mvp.BasePresenter;
-import com.example.tome.component_base.base.mvp.inter.IModel;
-import com.example.tome.component_base.net.common_callback.INetCallback;
-import com.example.tome.component_data.bean.BaseObj;
-import com.example.tome.module_shop_mall.api.ApiService;
-import com.example.tome.module_shop_mall.api.ModelVcService;
-import com.example.tome.module_shop_mall.bean.KnowledgeSystemBean;
+import com.example.tome.core.base.mvp.BasePresenter;
 import com.example.tome.module_shop_mall.contract.KnowledgeSystemContract;
-
-import java.util.List;
-
-import io.reactivex.Observable;
 
 /**
  * @Created by TOME .

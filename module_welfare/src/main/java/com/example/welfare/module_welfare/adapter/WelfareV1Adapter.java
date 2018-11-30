@@ -1,12 +1,11 @@
 package com.example.welfare.module_welfare.adapter;
 
 import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.tome.component_base.helper.ImageLoaderHelper;
+import com.example.tome.core.helper.ImageLoaderHelper;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 

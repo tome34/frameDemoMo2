@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.tome.component_base.util.L;
-import com.example.tome.component_base.util.ToastUtils;
+import com.example.tome.core.util.L;
+import com.example.tome.core.util.ToastUtils;
 import com.example.tome.module_shop_cart.R;
 
 /**
