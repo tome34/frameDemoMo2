@@ -1,7 +1,7 @@
 package com.example.welfare.module_welfare.fragment;
 
-import com.example.tome.core.base.mvc.BaseVcTabListFragment;
-import com.example.tome.core.bean.TabListBean;
+import com.example.tome.projectCore.base.mvc.BaseVcTabListFragment;
+import com.example.tome.projectCore.bean.TabListBean;
 
 import java.util.ArrayList;
 import java.util.List;

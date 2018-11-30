@@ -1,7 +1,7 @@
 package com.example.tome.module_shop_mall.arouter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.core.arouter.RouterURLS;
+import com.fec.core.router.arouter.RouterURLS;
 
 /**
  * @Created by TOME .

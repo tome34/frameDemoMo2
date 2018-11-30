@@ -1,6 +1,6 @@
 package com.example.tome.module_shop_mall.bean;
 
-import com.example.tome.core.bean.BaseResponse;
+import com.example.tome.projectCore.bean.BaseResponse;
 
 /**
  * @author quchao

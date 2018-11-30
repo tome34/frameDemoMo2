@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import butterknife.BindView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.tome.core.base.mvc.BaseVcListFragment;
+import com.example.tome.projectCore.base.mvc.BaseVcListFragment;
 import com.example.tome.core.net.common_callback.INetCallback;
 import com.example.tome.core.util.L;
 import com.example.welfare.module_welfare.R;

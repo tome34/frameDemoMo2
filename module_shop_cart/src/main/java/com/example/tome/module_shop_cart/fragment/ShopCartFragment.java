@@ -23,7 +23,7 @@ import com.example.tome.module_shop_cart.adapter.ShopCartAdapter;
 import com.example.tome.core.util.Arith;
 import com.example.tome.core.util.SpannableStringUtils;
 import com.example.tome.core.util.ToastUtils;
-import com.example.tome.core.arouter.RouterURLS;
+import com.fec.core.router.arouter.RouterURLS;
 import com.example.tome.module_shop_cart.R;
 import com.example.tome.module_shop_cart.R2;
 import com.example.tome.module_shop_cart.base.BaseData;

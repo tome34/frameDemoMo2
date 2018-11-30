@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.tome.core.base.mvp.BaseVpActivity;
 import com.example.tome.core.net.params.RequestMapParams;
 import com.example.tome.core.util.L;
-import com.example.tome.core.arouter.RouterURLS;
+import com.fec.core.router.arouter.RouterURLS;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;

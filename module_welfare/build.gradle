@@ -60,6 +60,6 @@ dependencies {
     //黄油刀
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     //公用依赖包
-    implementation project(':baseLib:core')
+    implementation project(':projectCore')
 
 }

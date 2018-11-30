@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.tome.core.util.JsonUtil;
-import com.example.tome.core.arouter.RouterURLS;
+import com.fec.core.router.arouter.RouterURLS;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.adapter.CommonAdapter;
 import com.example.tome.module_common.bean.CommonBean;

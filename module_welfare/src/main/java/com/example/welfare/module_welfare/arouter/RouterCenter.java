@@ -1,8 +1,8 @@
 package com.example.welfare.module_welfare.arouter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.tome.core.arouter.IntentKV;
-import com.example.tome.core.arouter.RouterURLS;
+import com.fec.core.router.arouter.IntentKV;
+import com.fec.core.router.arouter.RouterURLS;
 import com.example.welfare.module_welfare.bean.PreviewBean;
 
 import java.util.ArrayList;

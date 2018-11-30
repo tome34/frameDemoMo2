@@ -2,7 +2,7 @@ package com.example.tome.module_shop_mall.presenter;
 
 import com.example.tome.core.base.BaseObserver;
 import com.example.tome.core.base.mvp.BasePresenter;
-import com.example.tome.core.bean.BaseObj;
+import com.example.tome.projectCore.bean.BaseObj;
 import com.example.tome.module_shop_mall.bean.ProjectClassifyBean;
 import com.example.tome.module_shop_mall.contract.IProjectContract;
 import com.example.tome.module_shop_mall.model.ProjectModel;

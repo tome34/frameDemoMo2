@@ -1,6 +1,6 @@
 package com.example.tome.module_shop_mall.api;
 
-import com.example.tome.core.bean.BaseObj;
+import com.example.tome.projectCore.bean.BaseObj;
 import com.example.tome.module_shop_mall.bean.BannerData;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;
 import com.example.tome.module_shop_mall.bean.KnowledgeChildBean;

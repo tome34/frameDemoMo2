@@ -62,6 +62,7 @@ dependencies {
     implementation 'pub.devrel:easypermissions:1.2.0'
 
     //公用依赖包
-    implementation project(':baseLib:core')
+    api project(':projectCore')
+
 
 }

@@ -1,8 +1,8 @@
 package com.example.tome.module_shop_cart.net;
 
-import com.example.tome.core.constants.CurrentLanguage;
+import com.example.tome.projectCore.constant.CurrentLanguage;
 import com.example.tome.core.util.L;
-import com.example.tome.core.bean.ObjectBean;
+import com.example.tome.projectCore.bean.ObjectBean;
 import com.example.tome.module_shop_cart.base.BaseObjs;
 import com.example.tome.module_shop_cart.base.INetResult;
 import com.example.tome.module_shop_cart.bean.ObjectBeans;

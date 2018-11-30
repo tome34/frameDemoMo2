@@ -1,16 +1,11 @@
+apply from: "${rootProject.rootDir}/config.gradle"
 apply plugin: 'com.android.library'
 //apply plugin: 'me.tatarka.retrolambda'  //lambda配置
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    project.ext.setDefaultConfig project
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -34,7 +29,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat_v7"]
-    implementation rootProject.ext.dependencies["constraint_layout"]
+
+    //公用依赖包
+    api project(':baseLib:core')
+    api project(':baseLib:router')
 
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.tome.core.util.OtherUtils;
-import com.example.tome.core.arouter.IntentKV;
+import com.fec.core.router.arouter.IntentKV;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.activity.ArticleDetailActivity;
 import com.example.tome.module_shop_mall.bean.NavigationBean;

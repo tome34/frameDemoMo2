@@ -9,7 +9,7 @@ import com.example.tome.core.net.file_upload.FileRequestMapParams;
 import com.example.tome.core.net.params.RequestMapParams;
 import com.example.tome.core.util.ActivityUtils;
 import com.example.tome.core.util.L;
-import com.example.tome.core.bean.BaseObj;
+import com.example.tome.projectCore.bean.BaseObj;
 import com.example.tome.module_shop_mall.api.ApiService;
 import com.example.tome.module_shop_mall.api.ModelVcService;
 import com.example.tome.module_shop_mall.bean.FeedArticleListData;

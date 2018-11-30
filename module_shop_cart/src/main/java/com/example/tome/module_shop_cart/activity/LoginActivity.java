@@ -10,7 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import com.example.tome.core.util.SPUtil;
 import com.example.tome.core.util.ToastUtils;
-import com.example.tome.core.arouter.IntentKV;
+import com.fec.core.router.arouter.IntentKV;
 import com.example.tome.module_shop_cart.BuildConfig;
 import com.example.tome.module_shop_cart.R;
 import com.example.tome.module_shop_cart.R2;

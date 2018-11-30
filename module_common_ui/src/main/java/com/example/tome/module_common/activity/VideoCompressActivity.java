@@ -22,7 +22,7 @@ import com.example.tome.core.base.mvc.BaseVcActivity;
 import com.example.tome.core.util.FileUtils;
 import com.example.tome.core.util.L;
 import com.example.tome.core.util.ToastUtils;
-import com.example.tome.core.arouter.IntentKV;
+import com.fec.core.router.arouter.IntentKV;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.R2;
 import com.example.tome.module_common.utils.getPathByUri;

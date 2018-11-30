@@ -17,7 +17,6 @@ android {
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
-
                 arguments = [moduleName: project.getName()]
             }
         }
@@ -78,7 +77,6 @@ dependencies {
     //水平的tabLayout
     implementation "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
 
-
     //公用依赖包
-    implementation project(':baseLib:core')
+    implementation project(':projectCore')
 }

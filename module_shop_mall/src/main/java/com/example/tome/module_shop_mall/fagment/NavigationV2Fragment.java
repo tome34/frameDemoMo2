@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.BindView;
-import com.example.tome.core.base.mvp.BaseEmptyVpFragment;
+import com.example.tome.projectCore.base.mvp.BaseEmptyVpFragment;
 import com.example.tome.module_shop_mall.R;
 import com.example.tome.module_shop_mall.R2;
 import com.example.tome.module_shop_mall.adapter.NavigationAdapter;

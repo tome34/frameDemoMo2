@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import butterknife.BindView;
 import com.example.tome.core.base.mvc.BaseVcActivity;
-import com.example.tome.core.helper.ImageLoaderHelper;
+import com.example.tome.projectCore.helper.ImageLoaderHelper;
 import com.example.tome.core.util.L;
 import com.example.tome.core.widget.CircularImageView;
 import com.example.tome.module_common.R;

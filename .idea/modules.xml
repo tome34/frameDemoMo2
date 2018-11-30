@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" filepath="$PROJECT_DIR$/module_shop_mall/module_shop_mall.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_welfare/module_welfare.iml" filepath="$PROJECT_DIR$/module_welfare/module_welfare.iml" />
       <module fileurl="file://$PROJECT_DIR$/otherLib/otherLib.iml" filepath="$PROJECT_DIR$/otherLib/otherLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectCore/projectCore.iml" filepath="$PROJECT_DIR$/projectCore/projectCore.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseLib/router/router.iml" filepath="$PROJECT_DIR$/baseLib/router/router.iml" />
       <module fileurl="file://$PROJECT_DIR$/otherLib/videocompressV2/videocompressV2.iml" filepath="$PROJECT_DIR$/otherLib/videocompressV2/videocompressV2.iml" />
     </modules>

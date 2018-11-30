@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import com.example.tome.core.util.L;
-import com.example.tome.core.widget.emptyViews.EmptyView;
+import com.example.tome.projectCore.widget.emptyViews.EmptyView;
 import com.example.tome.module_common.R;
 
 public class EmptyLayoutActivity extends AppCompatActivity implements View.OnClickListener {

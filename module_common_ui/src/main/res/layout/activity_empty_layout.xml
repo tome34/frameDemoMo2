@@ -16,14 +16,14 @@
         android:text="模拟请求网络"
         />
 
-    <com.example.tome.core.widget.emptyViews.EmptyView
+    <com.example.tome.projectCore.widget.emptyViews.EmptyView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:qmui_title_text=""
         app:qmui_detail_text=""
         >
-    </com.example.tome.core.widget.emptyViews.EmptyView>
+    </com.example.tome.projectCore.widget.emptyViews.EmptyView>
 
 
 

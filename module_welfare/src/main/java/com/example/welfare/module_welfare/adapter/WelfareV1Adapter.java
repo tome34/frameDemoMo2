@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.tome.core.helper.ImageLoaderHelper;
+import com.example.tome.projectCore.helper.ImageLoaderHelper;
 import com.example.welfare.module_welfare.R;
 import com.example.welfare.module_welfare.bean.PhotoGirlBean;
 

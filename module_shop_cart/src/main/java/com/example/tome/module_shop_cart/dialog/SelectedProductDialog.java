@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.example.tome.module_shop_cart.adapter.ProductAttrsListAdapter;
-import com.example.tome.core.helper.LocaleHelper;
+import com.example.tome.projectCore.helper.LocaleHelper;
 import com.example.tome.core.util.L;
 import com.example.tome.core.util.ToastUtils;
 import com.example.tome.core.widget.MyRecyclerView;

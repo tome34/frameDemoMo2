@@ -2,7 +2,7 @@ package com.example.tome.module_shop_mall.api;
 
 import com.example.tome.core.net.HttpHelper;
 import com.example.tome.core.util.RxUtils;
-import com.example.tome.core.bean.BaseObj;
+import com.example.tome.projectCore.bean.BaseObj;
 import io.reactivex.Observable;
 
 /**

@@ -72,5 +72,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     //公用依赖包
-    implementation project(':baseLib:core')
+    implementation project(':projectCore')
 }
