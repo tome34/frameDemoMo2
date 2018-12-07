@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="otherui_color_white">#FFFFFF</color>
+    <!--点击颜色-->
+    <color name="otherui_bgColor_alert_button_press">#EAEAEA</color>
+    <color name="otherui_color_cc000">#cc000000</color>
+    <!--覆盖颜色-->
+    <color name="otherui_bgColor_overlay">#60000000</color>
+    <!--alertdialog颜色-->
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="color_4a">#4a90e2</color>
+    <!--buttondialog颜色-->
+    <color name="otherui_color_orange_f59">#F59523</color>
+    <color name="otherui_color_red_f59_f05">#F0561A</color>
+
+    <color name="mainColor">#F49423</color>
+    <color name="orange_fba">#FBA135</color>
+    <color name="windowBg">#F8F8F8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color66">#666666</color>
+    <color name="color33">#333333</color>
+    <color name="colorDD">#DDDDDD</color>
+    <color name="color88">#888888</color>
+    <color name="color99">#999999</color>
+    <color name="colorCC">#CCCCCC</color>
+    <color name="colorFA">#FAFAFA</color>
+    <color name="translucent">#26000000</color>
+    <color name="account_color_orange_f59">#F59523</color>
+    <color name="colorFEFF">#FEFEFF</color>
+    <color name="colorE75">#E75353</color>
+
+    <color name="qmui_config_color_transparent">#00000000</color>
+
+    <color name="not_network_bac">#33ffffff</color>
+    <color name="grey">#cccccc</color>
+    <color name="blue_dark_btn">#009eff</color>
+    <color name="blue_btn">#35B0FF</color>
+    <color name="card_bac">#f7f3f3</color>
+    <color name="colorBackground">#ece5e5</color>
+    <color name="grey_search">#FF999999</color>
+    <color name="light_light_yellow">#dcd3ba</color>
+    <color name="light_yellow">#e7c054</color>
+    <color name="light_red">#e26d2e</color>
+    <color name="light_deep_red">#f9382a</color>
+    <color name="deep_red">#dc3b1f</color>
+    <color name="while_most_color">#e4e4e4</color>
+    <color name="blackish_green">#6D8FB0</color>
+
+    <color name="light_transparent">#00ffffff</color>
+    <color name="title_black">#222222</color>
+    <color name="common_black_bac">#2b2929</color>
+    <color name="grey_divider">#E5E5E5</color>
+    <color name="blue">#35B0FF</color>
+    <color name="deep_blue">#0539be</color>
+    <color name="yellow">#f39c12</color>
+    <color name="grey_bar">#ECECEC</color>
+    <color name="light_green">#3fc75f</color>
+    <color name="light_blue">#bf33efcd</color>
+    <color name="grey_bac_refresh">#555</color>
+    <color name="grey_text_refresh">#aaa</color>
+    <color name="message_stroke_line">#DDDDDD</color>
+    <color name="tab_bac">#049486</color>
+    <color name="light_tab_bac">#45c1b5</color>
+    <color name="indicator_color">#115E56</color>
+    <color name="transparent">#50000000</color>
+    <color name="app_color_blue">#00A8E1</color>
+    <color name="app_color_blue_disabled">#8000A8E1</color>
+    <color name="app_color_blue_pressed">#c000A8E1</color>
+
+    <color name="btn_ghost_blue_border_disabled">#801B88EE</color>
+    <color name="btn_ghost_blue_border_pressed">#801B88EE</color>
+    <color name="btn_ghost_blue_border_normal">#1B88EE</color>
+
+    <color name="btn_ghost_blue_text_normal">#1B88EE</color>
+    <color name="btn_ghost_blue_text_pressed">#801B88EE</color>
+    <color name="btn_ghost_blue_text_disabled">#801B88EE</color>
+    <color name="qmui_config_color_gray_5">#858C96</color>
+
+    <color name="comment_text">#5b5d5c</color>
+    <color name="card_color">#202124</color>
+</resources>

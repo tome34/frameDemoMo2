@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">component_base</string>
+    <!--权限管理-->
+    <string name="home_permission_camera">拍照权限已关闭，请在设置中开启</string>
+    <string name="home_permission_phone">手机权限已关闭，请在设置中开启</string>
+    <string name="home_permission_storage">文件读取权限已关闭，请在设置中开启</string>
+    <string name="home_permission_default">权限已关闭，请在设置中开启</string>
+
+    <string name="loading">正在加载中...</string>
+
+    <string name="data_error">数据错误</string>
+
+    <!--通用提示语-->
+
+    <string name="common_hint_successful_trade">交易成功</string>
+    <string name="common_hint_failure_trade">交易失败</string>
+    <string name="common_hint_cancelled_trade">交易取消</string>
+
+    <string name="common_hint_comment_success">评论成功</string>
+    <string name="common_hint_comment_fail">评论失败</string>
+    <string name="common_hint_praise_success">点赞成功</string>
+    <string name="common_hint_praise_cancel">取消点赞</string>
+    <string name="common_hint_please_enter_comments">请输入评论</string>
+
+    <string name="common_hint_please_enter_verfication_code">请输入验证码</string>
+    <string name="common_hint_verfication_error">验证码输入错误，请重新输入</string>
+
+    <string name="common_hint_save_failure">保存失败</string>
+    <string name="common_hint_save_successful">保存成功</string>
+
+    <string name="common_hint_sharing_success">分享成功</string>
+    <string name="common_hint_sharing_cancel">用户取消分享</string>
+    <string name="common_hint_sharing_fail">分享失败</string>
+
+    <string name="common_hint_delete_receiving_address">确定要删除这条收货地址吗？</string>
+    <string name="common_hint_name_of_consignee">请输入收货人姓名</string>
+    <string name="common_hint_phone_of_consignee">请输入收货人手机号码</string>
+    <string name="common_hint_correct_phone_number">请输入正确的手机号码</string>
+    <string name="common_hint_choose_area">请选择所在地区</string>
+
+    <string name="common_hint_payment_password">请输入支付密码</string>
+
+    <string name="common_hint_to_use_coupons">去使用优惠券</string>
+    <string name="common_hint_unavailable_coupons">无可用优惠券</string>
+    <string name="common_hint_not_have_coupon">很抱歉，你没有可用优惠券</string>
+
+    <string name="common_hint_add_collection_success">添加收藏成功</string>
+    <string name="common_hint_add_collection_fail">添加收藏失败</string>
+
+    <string name="common_hint_user_name">请输入用户名/手机号</string>
+    <string name="common_hint_input_password">请输入密码</string>
+    <string name="common_hint_forget_password">忘记密码</string>
+    <string name="common_hint_retrieve_password">找回密码</string>
+    <string name="common_hint_free_registration">免费注册</string>
+    <string name="common_hint_graphic_verification_code">请输入图形验证码</string>
+    <string name="common_hint_graphic_verification_code_error">图形验证码错误</string>
+    <string name="common_hint_get_verifying_code">获取验证码</string>
+    <string name="common_hint_recapture">重新获取</string>
+    <string name="common_hint_password_length">密码长度8-16位，以字母开头可带数字和下划线’_‘</string>
+    <string name="common_hint_inputted_password_differ">两次输入的密码不一致</string>
+    <string name="common_hint_sms_verification_code_error">短信验证码错误</string>
+    <string name="common_hint_binding_cell_phone_number">绑定手机号码</string>
+    <string name="common_hint_sent_validation_phone">已发送一条验证码至%@手机号</string>
+
+    <string name="common_hint_confirm_order_received">您确认该订单已收货</string>
+    <string name="common_hint_maximum_number">已达到最大退货数量</string>
+    <string name="common_hint_cannot_exceed_maximum">不能超过最大可退回金额</string>
+    <string name="common_hint_maximum_amount_reached">已达到最大换货数量</string>
+    <string name="common_hint_input_problem_description">请输入问题描述</string>
+    <string name="common_hint_refund_describe_reason">请描述您退款原因</string>
+    <string name="common_hint_select_least_one">最少选择一个</string>
+
+    <string name="common_hint_invalid_goods_cannot_add_cart">已失效商品不能加入购物车</string>
+    <string name="common_hint_add_shopping_cart_success">加入购物车成功</string>
+    <string name="common_hint_add_shopping_cart_fail">加入购物车失败</string>
+    <string name="common_hint_input_choose_goods">请选择商品</string>
+    <string name="common_hint_choose_delete_goods">请选择删除商品</string>
+
+    <string name="common_hint_modify_mobile_phone">修改手机</string>
+    <string name="common_hint_enter_new_phone_number">请输入新手机号</string>
+    <string name="common_hint_enter_original_payment_password">请输入原支付密码</string>
+    <string name="common_hint_cannot_same_replacement_phone">更换的手机不能和旧手机号码相同</string>
+    <string name="common_hint_registered_phone_number">手机号已被注册</string>
+    <string name="common_hint_fill_verifying_code">填写验证码</string>
+
+    <string name="open_project">开源项目</string>
+    <string name="minute">分钟</string>
+    <string name="hour">小时</string>
+    <string name="one_day">1天</string>
+    <string name="text_new">新</string>
+    <string name="failed_to_cast_mode">\"切换模式失败ヽ(≧Д≦)ノ\"</string>
+    <string name="share_view">shareView</string>
+
+    <string name="project">项目</string>
+    <string name="navigation">导航</string>
+</resources>

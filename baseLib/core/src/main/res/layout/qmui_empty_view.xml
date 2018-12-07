@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <com.example.tome.projectCore.widget.emptyViews.LoadingView
+            android:id="@+id/empty_view_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:qmui_loading_view_color="@color/color33"
+            android:visibility="gone" />
+
+      <ImageView
+            android:id="@+id/empty_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/empty_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/account_color_orange_f59"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/empty_view_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/account_color_orange_f59"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/empty_view_button"
+
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="51dp"
+            android:layout_marginRight="51dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/empty_button_selector"
+            android:visibility="gone" />
+    </LinearLayout>
+<!-- style="@style/QMUI.RoundButton"-->
+</merge>

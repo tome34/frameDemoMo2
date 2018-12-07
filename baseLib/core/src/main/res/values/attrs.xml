@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="button_style">
+    <attr name="QMUIButtonStyle" format="reference"/>
+    <attr name="qmui_alpha_pressed" format="float"/>
+    <attr name="qmui_alpha_disabled" format="float"/>
+    </declare-styleable>
+
+    <!-- EmptyView start -->
+    <declare-styleable name="QMUIEmptyView">
+        <attr name="qmui_show_loading" format="boolean"/>
+        <attr name="qmui_image_view" format="integer"/>
+        <attr name="qmui_title_text" format="string"/>
+        <attr name="qmui_detail_text" format="string"/>
+        <attr name="qmui_btn_text" format="string"/>
+    </declare-styleable>
+    <!-- EmptyView end -->
+
+    <!--Loading-->
+    <declare-styleable name="QMUILoadingStyle">
+        <attr name="LoadingStyle" format="reference"/>
+
+    </declare-styleable>
+
+    <!--************ QMUILoading ***********-->
+    <declare-styleable name="LoadingView">
+        <attr name="qmui_loading_view_size" format="dimension"/>
+        <attr name="qmui_loading_view_color"  format="color"/>
+    </declare-styleable>
+
+    <!--圆角按钮-->
+    <!--<declare-styleable name="QMUIRoundButton">-->
+        <!--<attr name="button_backgroundColor"/>-->
+        <!--<attr name="button_borderColor"/>-->
+        <!--<attr name="button_borderWidth"/>-->
+        <!--<attr name="button_isRadiusAdjustBounds"/>-->
+        <!--<attr name="qmui_radius"/>-->
+        <!--<attr name="qmui_radiusTopLeft"/>-->
+        <!--<attr name="qmui_radiusTopRight"/>-->
+        <!--<attr name="qmui_radiusBottomLeft"/>-->
+        <!--<attr name="qmui_radiusBottomRight"/>-->
+    <!--</declare-styleable>-->
+</resources>
