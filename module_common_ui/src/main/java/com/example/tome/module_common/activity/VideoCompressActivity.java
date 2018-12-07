@@ -26,7 +26,7 @@ import com.fec.core.router.arouter.IntentKV;
 import com.example.tome.module_common.R;
 import com.example.tome.module_common.R2;
 import com.example.tome.module_common.utils.getPathByUri;
-import com.yovenny.videocompress.MediaController;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -320,13 +320,13 @@ public class VideoCompressActivity extends BaseVcActivity implements View.OnClic
                 disposable1 = Observable.create(new ObservableOnSubscribe<Boolean>() {
                     @Override
                     public void subscribe(ObservableEmitter<Boolean> e) throws Exception {
-                        boolean success = MediaController
-                                .getInstance()
-                                .convertVideo(mMediasUrl,
-                                        mOutPath);
+                        //boolean success = MediaController
+                        //        .getInstance()
+                        //        .convertVideo(mMediasUrl,
+                        //                mOutPath);
 
-                        L.d("压缩状态:"+success +"");
-                        e.onNext(success);
+                       // L.d("压缩状态:"+success +"");
+                       // e.onNext(success);
 
                     }
                 })

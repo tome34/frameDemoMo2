@@ -13,8 +13,7 @@ project.ext {
                 versionName rootProject.versionName
 
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-                //MultiDex分包方法
-                multiDexEnabled true
+
             }
         }
 
