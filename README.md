@@ -1,6 +1,9 @@
 # frameDemoMo2
 Android组件化项目框架
 
+简洁组件化框架(重新抽取最新的组件化框架),请点击查看:
+https://github.com/tome34/frameMo
+
 ![项目效果图.gif](https://upload-images.jianshu.io/upload_images/4167938-b38eb1c086e79923.gif?imageMogr2/auto-orient/strip)
 
 ![系统架构设计.png](https://upload-images.jianshu.io/upload_images/4167938-97aaff025ce55320.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
